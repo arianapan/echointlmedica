@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo International Medica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f6f7f9; color: #1a1a1a; line-height: 1.3; }
+    .container { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 10px; }
+
+    /* Header */
+    header { background-color: #ffffff; padding: 1rem 0; }
+    .header-wrapper { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; }
+    nav ul { display: flex; gap: 1.5rem; list-style: none; }
+    nav a { color: #1a1a1a; text-decoration: none; font-weight: 500; }
+    .header-divider { border: none; border-bottom: 1px solid #ddd; margin: 0; }
+
+    /* Section: Intro */
+    #intro { background-color: #ffffff; padding: 4rem 0; }
+    .intro-container { display: flex; gap: 2rem; align-items: flex-start; }
+    .intro-left { flex: 1; }
+    .intro-left h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      color: #0d2b45;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .intro-divider { width: 1px; background-color: #ccc; }
+    .intro-right { flex: 1; }
+    .intro-right h3 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #0d2b45;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .intro-right p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Section: Network */
+    #network { position: relative; background: url('photo1.jpg') center/cover no-repeat; padding: 8rem 0; }
+    #network::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+    #network .container { position: relative; z-index: 1; text-align: left; color: #ffffff; }
+    #network h3 { font-size: 2rem; margin-bottom: 1rem; }
+    #network ul { list-style: disc inside; max-width: 600px; }
+    #network li { margin: 0.5rem 0; }
+
+    /* Section: Products */
+    #products { background-color: #ffffff; padding: 6rem 0; }
+    #products .container { display: flex; gap: 2rem; text-align: left; }
+    #products .left { flex: 2; }
+    #products .left h3 {
+      font-size: 1.8rem;
+      color: #0d2b45;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    #products .left h4 { font-size: 1.2rem; color: #1d2c3a; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    #products .left ul { list-style: circle inside; color: #555; margin-left: 1rem; }
+    /* New What We Offer */
+    #products .left .offer-list { margin-top: 1.5rem; }
+    #products .left .offer-list h4 { font-size: 1.2rem; color: #0d2b45; margin-bottom: 0.5rem; }
+    #products .left .offer-list ul { list-style: disc inside; color: #555; margin-left: 1rem; }
+    #products .right { flex: 1; display: flex; align-items: center; justify-content: center; }
+    #products .right h2 { font-size: 2rem; color: #1a1a1a; line-height: 1.2; letter-spacing: 0.05em; }
+
+    /* Section: Mission */
+    #mission { position: relative; background: url('photo2.jpg') center/cover no-repeat; padding: 8rem 0; }
+    #mission::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.6); }
+    #mission .container { position: relative; z-index: 1; text-align: left; }
+    #mission h3 {
+      font-size: 2rem;
+      color: #0d2b45;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    #mission p { font-size: 1.1rem; color: #444; max-width: 700px; }
+
+    /* Section: Inquiries */
+    #inquiries { background-color: #ffffff; padding: 6rem 0; }
+    .inquiries-container { display: flex; gap: 2rem; align-items: flex-start; }
+    .inquiries-left { flex: 1; }
+    .inquiries-left h3 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #0d2b45;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .inquiries-divider { width: 1px; background-color: #ccc; }
+    .inquiries-right { flex: 2; }
+    .inquiries-right p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .inquiries-right .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #000;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .inquiries-right .contact-button svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* Footer */
+    footer { background-color: #ffffff; text-align: center; padding: 2rem 0; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-wrapper">
+      <h1 class="logo">Echo International Medica</h1>
+      <nav>
+        <ul>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#inquiries">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <hr class="header-divider" />
+  </header>
+
+  <section id="intro">
+    <div class="container intro-container">
+      <div class="intro-left">
+        <h1>BRIDGING GLOBAL MEDTECH WITH GREATER CHINA</h1>
+      </div>
+      <div class="intro-divider"></div>
+      <div class="intro-right">
+        <h3>WHO WE ARE</h3>
+        <p>Echo International Medica is a cross-border distributor of high-quality surgical and aesthetic medical devices, connecting U.S. innovations with hospitals and clinics in Hong Kong, Macau, and China mainland.<br><br>Our mission is to enhance healthcare outcomes in Greater China through global innovation, reliable distribution, and strong local partnerships.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="network">
+    <div class="container">
+      <h3>Your Local Partner for Global Medical Innovation</h3>
+      <ul>
+        <li>500+ Hospitals and Clinics in Mainland China</li>
+        <li>100+ Medical Groups in Hong Kong and Macau</li>
+        <li>Regulatory Expertise in Class II/III/IV Devices</li>
+        <li>Based in Hong Kong, Serving Greater China Region</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+      <div class="left">
+        <h3>Featured Products</h3>
+        <h4>Surgiform (U.S.) – EPTFE Implants</h4>
+        <ul>
+          <li>Biocompatible facial and body implants</li>
+          <li>Trusted by surgeons in the U.S.</li>
+          <li>Launching in Hong Kong and Macau</li>
+        </ul>
+        <h4>ScarX – Advanced Scar Gel</h4>
+        <ul>
+          <li>Exclusive distributor in Asia</li>
+          <li>Clinically backed scar care</li>
+          <li>Targeting plastic surgery and postpartum segments</li>
+        </ul>
+        <div class="offer-list">
+          <h4>What We Offer</h4>
+          <ul>
+            <li>Regulatory compliance & LRP services</li>
+            <li>Direct engagement with hospitals/clinics</li>
+            <li>Distribution & supply chain management</li>
+            <li>Multilingual customer training & support</li>
+            <li>Sponsored workshops & conference showcases</li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <h2>WORLD-CLASS PRODUCTS.<br>REGIONAL EXPERTISE.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="container">
+      <h3>OUR MISSION</h3>
+      <p>To bridge the gap between global medical innovation and clinical excellence in Greater China by providing reliable distribution, regulatory expertise, and strategic partnerships that enhance patient outcomes and healthcare quality.</p>
+    </div>
+  </section>
+
+  <section id="inquiries">
+    <div class="container inquiries-container">
+      <div class="inquiries-left">
+        <h3>GENERAL INQUIRIES</h3>
+      </div>
+      <div class="inquiries-divider"></div>
+      <div class="inquiries-right">
+        <p>Whether you're a medical brand looking to enter Asia or a local clinic exploring new solutions — we're here to help.</p>
+        <a href="mailto:ariana@echointlmedica.com" class="contact-button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2 0v.511l8 5.333 8-5.333V4H4zm16 2.689l-7.42 4.947a1 1 0 0 1-1.16 0L4 6.689V20h16V6.689z"></path></svg>
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Echo International Medica | All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
