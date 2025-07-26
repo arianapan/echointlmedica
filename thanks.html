@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Echo International Medica</title>
+  <link rel="icon" type="image/jpeg" href="companylogo.jpg">
+  <!-- 引入Inter字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- 引入Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* 基础样式重置 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: #ffffff; 
+      color: #1a1a1a; 
+      line-height: 1.5; 
+      padding-top: 64px;
+    }
+    .container { 
+      max-width: 1200px; 
+      width: 90%; 
+      margin: 0 auto; 
+      padding: 0;
+    }
+    
+    /* 动画类 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* 导航栏样式 */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0;
+    }
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 16px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #0d2b45 60%, #2e8bc0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .logo-img {
+      height: 2rem;
+      width: auto;
+      margin-right: 0.8em;
+      display: block;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      align-items: center;
+    }
+    nav a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5em 0;
+      position: relative;
+      transition: color 0.2s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #2e8bc0 60%, #0d2b45 100%);
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    nav a:hover, nav a:focus {
+      color: #2e8bc0;
+    }
+    nav a:hover::after, nav a:focus::after {
+      width: 100%;
+    }
+    nav a.active {
+      color: #0d2b45;
+      font-weight: 600;
+    }
+    nav a.active::after {
+      width: 100%;
+      background: #0d2b45;
+    }
+    
+    /* 汉堡菜单按钮 */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #0d2b45;
+      z-index: 1001;
+      margin-left: auto;
+      padding: 8px;
+    }
+    
+    /* 感谢页面内容 */
+    #thank-you {
+      padding: 120px 0;
+      min-height: calc(100vh - 64px - 220px);
+      text-align: center;
+    }
+    .thank-you-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #f9fafb;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .thank-you-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #e8f0ff;
+      color: #2e8bc0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      font-size: 3rem;
+    }
+    .thank-you-content h2 {
+      font-size: 2.2rem;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .thank-you-content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: #2e8bc0;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn-primary:hover {
+      background-color: #0d2b45;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* 页脚 */
+    footer {
+      background-color: #f9fafb;
+      color: #555;
+      padding: 60px 0 30px;
+      border-top: 1px solid #eaeaea;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+      margin-right: 20px;
+    }
+    .footer-logo .logo {
+      margin-bottom: 1.5rem;
+    }
+    .footer-logo p {
+      margin-bottom: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #eaeaea;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background-color: #2e8bc0;
+      color: white;
+      transform: translateY(-3px);
+    }
+    .footer-links {
+      flex: 0 0 auto;
+      min-width: 200px;
+    }
+    .footer-links h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+      color: #1a1a1a;
+    }
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #2e8bc0;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #2e8bc0;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #eaeaea;
+      font-size: 0.9rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .header-wrapper {
+        padding: 0 12px;
+      }
+      
+      .logo {
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+      }
+      
+      .logo-img {
+        height: 1.6rem;
+        margin-right: 0.5em;
+      }
+      
+      .nav-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 16px 0;
+        gap: 0.5rem;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav li {
+        width: 100%;
+        text-align: center;
+      }
+      
+      nav a {
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+      }
+      
+      #thank-you {
+        padding: 80px 0;
+      }
+      
+      .thank-you-content {
+        padding: 30px 20px;
+      }
+      
+      .thank-you-content h2 {
+        font-size: 1.8rem;
+      }
+      
+      .footer-content {
+        gap: 30px;
+      }
+      
+      .footer-links {
+        min-width: 100%;
+      }
+    }
+    
+    /* iPhone 12 及类似尺寸设备优化 */
+    @media (max-width: 428px) {
+      .logo {
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+      }
+      
+      .logo-img {
+        height: 1.5rem;
+        margin-right: 0.4em;
+      }
+      
+      .thank-you-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+      
+      .thank-you-content h2 {
+        font-size: 1.5rem;
+      }
+      
+      .thank-you-content p {
+        font-size: 1rem;
+      }
+      
+      .btn-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-wrapper">
+      <h1 class="logo"><img src="assets/companylogo.jpg" alt="Echo International Medica Logo" class="logo-img">Echo International Medica</h1>
+      <button id="nav-toggle" class="nav-toggle">&#9776;</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#mission">Mission</a></li>
+          <li><a href="index.html#contact" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="thank-you">
+    <div class="container">
+      <div class="thank-you-content fade-in">
+        <div class="thank-you-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h2>Thank You!</h2>
+        <p>Your message has been successfully received. We appreciate you taking the time to contact Echo International Medica.</p>
+        <p>Our team will review your inquiry and get back to you within 24-48 business hours. For urgent matters, please feel free to call us directly.</p>
+        <a href="index.html" class="btn-primary">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="#" class="logo">
+            <img src="assets/companylogo.jpg" alt="Echo International Medica Logo" class="logo-img">
+            Echo International Medica
+          </a>
+          <p>Bridging global medtech with Greater China through expert distribution and regulatory guidance.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Regions</h4>
+          <ul>
+            <li><a href="#">Hong Kong</a></li>
+            <li><a href="#">Macau</a></li>
+            <li><a href="#">Taiwan</a></li>
+            <li><a href="#">Mainland China</a></li>
+            <li><a href="#">United States</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Echo International Medica | All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+      // 显示动画元素
+      setTimeout(() => {
+        document.querySelector('.fade-in').classList.add('visible');
+      }, 100);
+      
+      // 汉堡菜单切换
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+      
+      // 点击导航链接关闭菜单
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('active');
+          }
+        });
+      });
+      
+      // 窗口大小变化时重置菜单状态
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          navMenu.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
