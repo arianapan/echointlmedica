@@ -76,7 +76,7 @@
       align-items: center;
       justify-content: space-between;
       height: 64px;
-      padding: 0 24px;
+      padding: 0 16px;
       max-width: 1440px;
       margin: 0 auto;
     }
@@ -151,15 +151,17 @@
       cursor: pointer;
       color: #0d2b45;
       z-index: 1001;
+      margin-left: auto;
+      padding: 8px;
     }
     
-    /* 英雄区域与轮播 - 图片作为背景占满全屏 */
+    /* 英雄区域与轮播 */
     #hero {
       padding: 0;
+      margin: 0;
       position: relative;
       overflow: hidden;
       min-height: calc(100vh - 64px);
-      margin: 0;
     }
     .hero-carousel {
       position: relative;
@@ -170,7 +172,8 @@
     .carousel-item {
       position: relative;
       width: 100%;
-      height: calc(100vh - 64px);
+      height: 100%;
+      min-height: calc(100vh - 64px);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -185,7 +188,7 @@
     .carousel-item:nth-child(3) {
       background-image: url('assets/background3.jpg');
     }
-    /* 背景遮罩，增强文字可读性 */
+    /* 背景遮罩 */
     .carousel-item::before {
       content: '';
       position: absolute;
@@ -292,7 +295,7 @@
     
     /* 公司简介部分 */
     #about {
-      padding: 120px 0;
+      padding: 120px 0 120px;
       background-color: #f9fafb;
       margin-top: 0;
       position: relative;
@@ -404,14 +407,14 @@
       color: #1a1a1a;
     }
     .product-info ul {
-    list-style-position: outside; /* 将列表标记放在列表项内容之外 */
+    list-style-position: outside;
     color: #555;
     margin-bottom: 1.5rem;
-    padding-left: 1.5rem; /* 调整左侧内边距，确保内容对齐 */
+    padding-left: 1.5rem;
     }
     .product-info li {
     margin-bottom: 0.5rem;
-    padding-left: 0.5rem; /* 调整列表项内容的左侧内边距 */
+    padding-left: 0.5rem;
     }
     
     /* 服务部分带slick轮播 */
@@ -479,7 +482,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     white-space: nowrap;
-    text-align: center; /* 确保文本居中 */
+    text-align: center;
     }
     .mission-content p {
       font-size: 1.1rem;
@@ -657,7 +660,7 @@
       font-size: 0.9rem;
     }
     
-    /* 响应式设计 */
+    /* 响应式设计 - 优化iPhone 12等移动设备显示 */
     @media (max-width: 1024px) {
       .carousel-content h1 {
         font-size: 2.5rem;
@@ -666,15 +669,17 @@
     
     @media (max-width: 768px) {
       .header-wrapper {
-        padding: 0 16px;
+        padding: 0 12px;
       }
       
       .logo {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
       }
       
       .logo-img {
-        height: 1.7rem;
+        height: 1.6rem;
+        margin-right: 0.5em;
       }
       
       .nav-toggle {
@@ -713,7 +718,9 @@
         min-height: calc(100vh - 64px);
       }
       .carousel-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        letter-spacing: 0.08em;
+        line-height: 1.3;
       }
       .carousel-content p {
         font-size: 1rem;
@@ -726,10 +733,10 @@
       }
       
       .section-title h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
       #about, #products, #services, #mission, #contact {
-        padding: 80px 0;
+        padding: 70px 0 70px;
       }
       
       .products-grid {
@@ -739,26 +746,98 @@
         padding: 0 15px;
       }
       .service-card {
-        min-height: auto;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 20px;
+      }
+      .service-card h3 {
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mission-content h3 {
+        font-size: 1.4rem;
+        white-space: normal;
+        line-height: 1.4;
       }
     }
     
-    @media (max-width: 480px) {
-      .carousel-content h1 {
-        font-size: 1.6rem;
+    /* iPhone 12 及类似尺寸设备优化 */
+    @media (max-width: 428px) {
+      .logo {
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+        transform-origin: left center;
       }
+      
+      .logo-img {
+        height: 1.5rem;
+        margin-right: 0.4em;
+      }
+      
+      .carousel-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .carousel-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      
       .btn-primary {
         padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
+        margin-top: 0.5rem;
       }
+      
+      .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      
       .about-stats {
         grid-template-columns: 1fr;
       }
-      .footer-content {
-        flex-direction: column;
+      
+      .stat-box {
+        padding: 25px 20px;
       }
+      
+      .contact-details p {
+        font-size: 0.95rem;
+      }
+      
+      .footer-content {
+        gap: 30px;
+      }
+      
+      .footer-links {
+        min-width: 100%;
+      }
+      
       .slick-dots {
         bottom: 20px;
+      }
+    }
+    
+    /* 极小屏幕优化 */
+    @media (max-width: 375px) {
+      .logo {
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+      }
+      
+      .carousel-content h1 {
+        font-size: 1.3rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -995,7 +1074,7 @@
             </div>
             <div class="contact-details">
               <h4>Phone</h4>
-              <p>+852 1234 5678</p>
+              <p>+1 (628) 225-8386</p>
             </div>
           </div>
           <div class="contact-item">
