@@ -48,9 +48,9 @@ const ProductSection = () => {
       title: 'MediScan – Diagnostic Tools',
       image: assets.Product3,
       features: [
-        'State-of-the-art imaging equipment',
-        'FDA-approved technology',
-        'Complete training and support package'
+        'High-throughput automated screening',
+        'Precision assay reproducibility',
+        'Integrated data analysis software'
       ],
       alt: 'MediScan Diagnostic Tools'
     }

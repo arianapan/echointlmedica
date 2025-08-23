@@ -56,4 +56,33 @@
   .font-inter {
     font-family: 'Inter', sans-serif;
   }
+  
+  /* 移动端服务轮播样式优化 */
+  .mobile-service-carousel .slick-slide {
+    width: 100% !important;
+  }
+  
+  .mobile-service-carousel .slick-slide > div {
+    margin: 0 !important;
+    padding: 0 16px !important;
+  }
+  
+  /* 确保移动端轮播正常显示 */
+  @media (max-width: 768px) {
+    .mobile-service-carousel .slick-list {
+      overflow: hidden !important;
+    }
+    
+    .mobile-service-carousel .slick-track {
+      display: flex !important;
+    }
+  }
+  
+  /* 平板设备优化 */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .services-carousel-mobile .slick-slide {
+      width: 50% !important;
+      flex: 0 0 50% !important;
+    }
+  }
 }
