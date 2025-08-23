@@ -25,7 +25,7 @@ const AboutSection = () => {
     { number: '500+', label: 'Partner Hospitals' },
     { number: '100+', label: 'Medical Groups' },
     { number: '15+', label: 'U.S. Partners' },
-    { number: '3', label: 'Regions Served' }
+    { number: '5', label: 'Regions Served' }
   ];
   
   return (
