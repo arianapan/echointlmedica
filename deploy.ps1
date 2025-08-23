@@ -11,9 +11,23 @@ npm run build
 if ($LASTEXITCODE -eq 0) {
     Write-Host "构建成功!" -ForegroundColor Green
     
+    # 复制 404.html 作为 SPA 路由回退（确保直接访问 /thanks 等子路径时可用）
+    try {
+        $source = Join-Path $PSScriptRoot "dist/index.html"
+        $target = Join-Path $PSScriptRoot "dist/404.html"
+        if (Test-Path $source) {
+            Copy-Item -Path $source -Destination $target -Force
+            Write-Host "已生成 dist/404.html 作为 SPA 回退" -ForegroundColor Yellow
+        } else {
+            Write-Host "未找到 dist/index.html，无法生成 404.html" -ForegroundColor Red
+        }
+    } catch {
+        Write-Host "复制 404.html 失败: $_" -ForegroundColor Red
+    }
+    
     # 部署到 GitHub Pages
     Write-Host "部署到 GitHub Pages..." -ForegroundColor Yellow
-    npm run deploy
+    npx gh-pages -d dist
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "部署成功! 您的网站将在几分钟内可用: https://echointlmedica.com" -ForegroundColor Green
