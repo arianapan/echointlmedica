@@ -5,7 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import AppContextProvider from './context/AppContext';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter
+    future={{
+      v7_startTransition: true,
+      v7_relativeSplatPath: true
+    }}
+  >
     <AppContextProvider>
       <App />
     </AppContextProvider>

@@ -2,6 +2,48 @@ import { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import assets from '../assets';
 
+// 自定义箭头组件
+const CustomPrevArrow = ({ onClick }) => (
+  <button 
+    className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10"
+    onClick={onClick}
+    aria-label="Previous slide"
+  >
+    <i className="fas fa-chevron-left"></i>
+  </button>
+);
+
+const CustomNextArrow = ({ onClick }) => (
+  <button 
+    className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10"
+    onClick={onClick}
+    aria-label="Next slide"
+  >
+    <i className="fas fa-chevron-right"></i>
+  </button>
+);
+
+// 移动端自定义箭头组件
+const MobilePrevArrow = ({ onClick }) => (
+  <button 
+    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10"
+    onClick={onClick}
+    aria-label="Previous slide"
+  >
+    <i className="fas fa-chevron-left"></i>
+  </button>
+);
+
+const MobileNextArrow = ({ onClick }) => (
+  <button 
+    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10"
+    onClick={onClick}
+    aria-label="Next slide"
+  >
+    <i className="fas fa-chevron-right"></i>
+  </button>
+);
+
 const HeroCarousel = () => {
   const sliderRef = useRef(null);
   const carouselItems = [
@@ -34,30 +76,14 @@ const HeroCarousel = () => {
     fade: true,
     cssEase: 'linear',
     dotsClass: 'slick-dots absolute bottom-8 z-10',
-    prevArrow: (
-      <button className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10">
-        <i className="fas fa-chevron-left"></i>
-      </button>
-    ),
-    nextArrow: (
-      <button className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10">
-        <i className="fas fa-chevron-right"></i>
-      </button>
-    ),
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          prevArrow: (
-            <button className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10">
-              <i className="fas fa-chevron-left"></i>
-            </button>
-          ),
-          nextArrow: (
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all z-10">
-              <i className="fas fa-chevron-right"></i>
-            </button>
-          ),
+          prevArrow: <MobilePrevArrow />,
+          nextArrow: <MobileNextArrow />,
           dotsClass: 'slick-dots absolute bottom-5 z-10'
         }
       }
