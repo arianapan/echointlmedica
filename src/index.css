@@ -1,0 +1,88 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply text-textDark bg-white overflow-x-hidden;
+  }
+  
+  /* 全局动画类 */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer components {
+  /* 自定义按钮样式 */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-md font-semibold 
+           shadow-md hover:bg-secondary hover:-translate-y-1 
+           hover:shadow-lg transition-all duration-300;
+  }
+  
+  /* 标题下划线 */
+  .section-divider {
+    @apply w-15 h-1 bg-primary mx-auto;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* 移动端服务轮播样式优化 */
+  .mobile-service-carousel .slick-slide {
+    width: 100% !important;
+  }
+  
+  .mobile-service-carousel .slick-slide > div {
+    margin: 0 !important;
+    padding: 0 16px !important;
+  }
+  
+  /* 确保移动端轮播正常显示 */
+  @media (max-width: 768px) {
+    .mobile-service-carousel .slick-list {
+      overflow: hidden !important;
+    }
+    
+    .mobile-service-carousel .slick-track {
+      display: flex !important;
+    }
+  }
+  
+  /* 平板设备优化 */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .services-carousel-mobile .slick-slide {
+      width: 50% !important;
+      flex: 0 0 50% !important;
+    }
+  }
+}
