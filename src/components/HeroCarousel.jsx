@@ -50,17 +50,17 @@ const HeroCarousel = () => {
     {
       title: 'BRIDGING GLOBAL <span>MEDTECH</span> WITH GREATER CHINA',
       description: 'Connecting U.S. medical innovations with healthcare providers across Hong Kong, Macau, Taiwan, and Mainland China through expert distribution and regulatory guidance.',
-      backgroundImage: `url(https://picsum.photos/id/287/1920/1080)` // 第一张用在线图片
+      backgroundImage: `url(${assets.background1})` 
     },
     {
       title: 'GLOBAL <span>EXPERTISE</span>, LOCAL KNOWLEDGE',
       description: 'Our team combines international medical device experience with deep understanding of Asian healthcare markets to deliver seamless distribution solutions.',
-      backgroundImage: `url(${assets.background2})` // 第二张用本地图片
+      backgroundImage: `url(${assets.background2})` 
     },
     {
       title: 'ENHANCING <span>HEALTHCARE</span> OUTCOMES',
       description: 'Bringing cutting-edge medical technologies to patients across Asia through strategic partnerships with leading U.S. manufacturers.',
-      backgroundImage: `url(${assets.background3})` // 第三张用本地图片
+      backgroundImage: `url(${assets.background3})` 
     }
   ];
   
