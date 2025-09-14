@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import assets from '../assets';
 
 // 自定义箭头组件
@@ -114,6 +116,8 @@ const HeroCarousel = () => {
       id="hero" 
       className="fade-in min-h-screen relative overflow-hidden"
     >
+      {/* Preload first background image to improve LCP */}
+      <img src={assets.background1} alt="" aria-hidden="true" loading="eager" fetchpriority="high" style={{display:'none'}} />
       <Slider ref={sliderRef} {...settings}>
         {carouselItems.map((item, index) => (
           <div key={index} className="relative h-screen">

@@ -63,6 +63,9 @@ const Footer = () => {
                 src={assets.companylogo} 
                 alt="Echo International Medica Logo" 
                 className="h-8 w-auto mr-2"
+                width="128"
+                height="128"
+                decoding="async"
               />
               <span className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
                 Echo International Medica
@@ -78,8 +81,10 @@ const Footer = () => {
                 <a 
                   key={index}
                   href={social.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-borderLight text-textLight flex items-center justify-center hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300"
-                  aria-label={`Follow us on ${social.label}`}
+                  aria-label={social.icon.includes('linkedin') ? 'LinkedIn' : social.icon.includes('twitter') ? 'Twitter' : social.icon.includes('facebook') ? 'Facebook' : social.icon.includes('instagram') ? 'Instagram' : 'Social link'}
                 >
                   <i className={social.icon}></i>
                 </a>

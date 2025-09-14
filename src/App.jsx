@@ -3,10 +3,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Thanks from './pages/Thanks';
+import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  // Defer toast CSS to reduce render-blocking
+  useEffect(() => {
+    import('react-toastify/dist/ReactToastify.css');
+  }, []);
   return (
     <div className="min-h-screen">
       <ToastContainer />

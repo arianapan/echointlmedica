@@ -115,6 +115,9 @@ const Navbar = () => {
               src={assets.companylogo} 
               alt="Echo International Medica Logo" 
               className="h-8 w-auto mr-2"
+              width="128"
+              height="128"
+              decoding="async"
             />
             <span className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
               Echo International Medica
