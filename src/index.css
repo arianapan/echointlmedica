@@ -1,8 +1,7 @@
 /* index.css */
 /* External fonts moved to index.html <link> to avoid render-blocking */
 /* slick-carousel CSS is now imported within components to enable on-demand loading */
-/* Use local Font Awesome package instead of CDN */
-@import "@fortawesome/fontawesome-free/css/all.min.css";
+/* Font Awesome removed; icons now use inline SVG to avoid font-induced CLS */
 
 @tailwind base;
 @tailwind components;
@@ -13,6 +12,8 @@
     font-family: 'Inter', sans-serif;
     @apply text-textDark bg-white overflow-x-hidden;
   }
+  /* Inter font rendering stabilization */
+  html { text-rendering: optimizeLegibility; }
   
   /* 全局动画类 */
   .fade-in {

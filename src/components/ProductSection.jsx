@@ -27,6 +27,7 @@ const ProductSection = () => {
     {
       title: 'Surgiform (U.S.) – EPTFE Implants',
       image: assets.Product1,
+      srcSet: assets.Product1SrcSet,
       features: [
         'Biocompatible facial and body implants',
         'Trusted by surgeons in the U.S.',
@@ -37,6 +38,7 @@ const ProductSection = () => {
     {
       title: 'ScarX – Advanced Scar Gel',
       image: assets.Product2,
+      srcSet: assets.Product2SrcSet,
       features: [
         'Exclusive distributor in Asia',
         'Clinically backed scar care',
@@ -47,6 +49,7 @@ const ProductSection = () => {
     {
       title: 'MediScan – Diagnostic Tools',
       image: assets.Product3,
+      srcSet: assets.Product3SrcSet,
       features: [
         'High-throughput automated screening',
         'Precision assay reproducibility',
@@ -75,16 +78,20 @@ const ProductSection = () => {
             >
               {/* 产品图片 */}
               <div className="h-72 sm:h-80 overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={product.alt} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width="432"
-                  height="288"
-                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                />
+                <picture>
+                  <source type="image/avif" srcSet={product.srcSet.avif} sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" />
+                  <source type="image/webp" srcSet={product.srcSet.webp} sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" />
+                  <source type="image/jpeg" srcSet={product.srcSet.jpg} sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" />
+                  <img 
+                    src={product.image} 
+                    alt={product.alt} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    width="432"
+                    height="288"
+                  />
+                </picture>
               </div>
               
               {/* 产品信息 */}

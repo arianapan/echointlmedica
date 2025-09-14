@@ -111,15 +111,18 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img 
-              src={assets.companylogo} 
-              alt="Echo International Medica Logo" 
-              className="h-8 w-auto mr-2"
-              width="128"
-              height="128"
-              decoding="async"
-            />
-            <span className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+              <picture>
+              <source type="image/webp" srcSet={assets.companylogoWebp128} />
+              <img 
+                src={assets.companylogo} 
+                alt="Echo International Medica Logo" 
+                className="h-8 w-auto mr-2"
+                width="128"
+                height="128"
+                decoding="async"
+              />
+            </picture>
+            <span className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent whitespace-nowrap leading-none">
               Echo International Medica
             </span>
           </Link>
@@ -150,7 +153,9 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            <i className="fas fa-bars text-xl"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+            </svg>
           </button>
         </div>
       </div>

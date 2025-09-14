@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Optional: add sitemap when available
+# Sitemap: https://echointlmedica.com/sitemap.xml

@@ -10,10 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload font stylesheet then swap to reduce render-blocking -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional" rel="stylesheet">
     </noscript>
+
+    <script>
+      // Reduce CLS from icon-font swaps: reveal icons only after fonts are ready
+      if ('fonts' in document) {
+        document.fonts.ready.then(function(){
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        document.documentElement.classList.add('fonts-loaded');
+      }
+    </script>
 
     <title>Echo International Medica</title>
   </head>

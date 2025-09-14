@@ -28,7 +28,9 @@ const Thanks = () => {
         <div className="max-w-xl mx-auto bg-lightBg p-8 rounded-lg shadow-sm text-center fade-in">
           {/* 感谢图标 */}
           <div className="w-20 h-20 bg-lightBlue text-primary rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-check text-3xl"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+              <path d="M9 16.17l-3.88-3.88L4 13.41 9 18.41l11-11-1.41-1.41z" />
+            </svg>
           </div>
           
           {/* 感谢内容 */}
