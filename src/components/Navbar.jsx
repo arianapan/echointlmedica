@@ -111,7 +111,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-              <picture>
+              <picture className="hidden sm:block">
               <source type="image/webp" srcSet={assets.companylogoWebp128} />
               <img 
                 src={assets.companylogo} 
@@ -128,7 +128,7 @@ const Navbar = () => {
           </Link>
           
           {/* 桌面端导航 */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.path}
@@ -149,7 +149,7 @@ const Navbar = () => {
           
           {/* 移动端菜单按钮 */}
           <button
-            className="md:hidden text-secondary p-2"
+            className="lg:hidden text-secondary p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -162,7 +162,7 @@ const Navbar = () => {
       
       {/* 移动端导航菜单 */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
+        <div className="lg:hidden bg-white shadow-md">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <button

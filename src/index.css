@@ -13,7 +13,26 @@
     @apply text-textDark bg-white overflow-x-hidden;
   }
   /* Inter font rendering stabilization */
-  html { text-rendering: optimizeLegibility; }
+  html { 
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Prevent layout shifts from font loading */
+  .fonts-loaded * {
+    font-display: swap;
+  }
+  
+  /* Footer layout stability */
+  footer {
+    contain: layout;
+  }
+  
+  /* Prevent social icon layout shifts */
+  footer svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0;
+  }
   
   /* 全局动画类 */
   .fade-in {

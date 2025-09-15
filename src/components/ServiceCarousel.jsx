@@ -70,35 +70,51 @@ const ServiceCarousel = () => {
     }
   ];
 
-  const IconSvg = ({ name, size = 28 }) => {
+  const IconSvg = ({ name, size = 34 }) => {
     const common = {
       xmlns: 'http://www.w3.org/2000/svg',
       viewBox: '0 0 24 24',
       width: size,
       height: size,
       fill: 'currentColor',
-      'aria-hidden': true
+      'aria-hidden': true,
+      style: { 
+        flexShrink: 0,
+        shapeRendering: 'geometricPrecision'
+      }
     };
+    
     switch (name) {
       case 'doc':
         return (
-          <svg {...common}><path d="M14 2H6c-1.1 0-2 .9-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm0 7V3.5L18.5 9H15a1 1 0 01-1-1z"/></svg>
+          <svg {...common}>
+            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+            <path d="M8,12V14H16V12H8M8,16V18H13V16H8Z" />
+          </svg>
         );
       case 'truck':
         return (
-          <svg {...common}><path d="M20 8h-3V4H3v10h2a3 3 0 006 0h2a3 3 0 006 0h1v-4l-2-2zm-9 6a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <svg {...common}>
+            <path d="M18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5M19.5,9.5L21.46,12H17V9.5M6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5M20,8H17V4H3C1.89,4 1,4.89 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8Z" />
+          </svg>
         );
       case 'hospital':
         return (
-          <svg {...common}><path d="M3 21V3h10l6 6v12H3zm9-11V7H9v3H6v3h3v3h3v-3h3v-3h-3z"/></svg>
+          <svg {...common}>
+            <path d="M18,14H14V18H10V14H6V10H10V6H14V10H18M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+          </svg>
         );
       case 'training':
         return (
-          <svg {...common}><path d="M4 6h16v2H4V6zm0 4h10v2H4v-2zm0 4h16v2H4v-2zm12-7h4v4h-4V7z"/></svg>
+          <svg {...common}>
+            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+          </svg>
         );
       case 'bell':
         return (
-          <svg {...common}><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v2h16v-2l-2-2z"/></svg>
+          <svg {...common}>
+            <path d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.19 14,4.1 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21" />
+          </svg>
         );
       default:
         return null;
@@ -173,8 +189,11 @@ const ServiceCarousel = () => {
                   <div key={index} className="px-4">
                     <div className="scale-in bg-white rounded-lg shadow-sm p-6 text-center min-h-[350px] flex flex-col justify-between hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       {/* 服务图标 */}
-                      <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300">
-                        <IconSvg name={service.icon} size={28} />
+                      <div 
+                        className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300"
+                        style={{ minWidth: '5rem', minHeight: '5rem' }}
+                      >
+                        <IconSvg name={service.icon} size={34} />
                       </div>
                       
                       {/* 服务内容 */}
@@ -197,8 +216,11 @@ const ServiceCarousel = () => {
                   <div key={index} className="px-4">
                     <div className="scale-in bg-white rounded-lg shadow-sm p-6 text-center min-h-[350px] flex flex-col justify-between hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       {/* 服务图标 */}
-                      <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300">
-                        <IconSvg name={service.icon} size={28} />
+                      <div 
+                        className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300"
+                        style={{ minWidth: '5rem', minHeight: '5rem' }}
+                      >
+                        <IconSvg name={service.icon} size={34} />
                       </div>
                       
                       {/* 服务内容 */}
