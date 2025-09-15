@@ -108,21 +108,21 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="flex justify-between items-center h-16">
+  <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-              <picture className="hidden sm:block">
+          <Link to="/" className="flex items-center min-w-0">
+              <picture className="block">
               <source type="image/webp" srcSet={assets.companylogoWebp128} />
               <img 
                 src={assets.companylogo} 
                 alt="Echo International Medica Logo" 
-                className="h-8 w-auto mr-2"
+                className="h-8 max-[360px]:h-6 w-auto mr-2 shrink-0"
                 width="128"
                 height="128"
                 decoding="async"
               />
             </picture>
-            <span className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent whitespace-nowrap leading-none">
+            <span className="flex-1 font-bold uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent whitespace-nowrap tracking-tight sm:tracking-wider leading-none text-[clamp(11px,3.8vw,18px)]">
               Echo International Medica
             </span>
           </Link>
@@ -149,7 +149,7 @@ const Navbar = () => {
           
           {/* 移动端菜单按钮 */}
           <button
-            className="lg:hidden text-secondary p-2"
+            className="lg:hidden text-secondary p-2 max-[360px]:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >

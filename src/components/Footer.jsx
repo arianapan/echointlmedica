@@ -113,7 +113,7 @@ const Footer = () => {
           {/* 左侧Logo和描述 */}
           <div className="md:w-1/3">
             <Link to="/" className="flex items-center mb-6">
-              <div className="w-8 h-8 flex-shrink-0 mr-2 invisible sm:visible">
+              <div className="w-8 h-8 flex-shrink-0 mr-2">
                 <picture>
                   <source type="image/webp" srcSet={assets.companylogoWebp128} />
                   <img 
@@ -128,13 +128,11 @@ const Footer = () => {
                 </picture>
               </div>
               <span 
-                className="text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent whitespace-nowrap leading-none"
+                className="text-sm sm:text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent leading-tight break-words"
                 style={{ 
                   minHeight: '1.5rem',
                   display: 'inline-block',
-                  fontDisplay: 'swap',
-                  // 通过固定宽度（使用 ch 单位）避免字体切换导致的文字宽度变化引发布局位移
-                  width: 'min(32ch, 100%)'
+                  fontDisplay: 'swap'
                 }}
               >
                 Echo International Medica
