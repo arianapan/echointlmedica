@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-const HeroCarousel = lazy(() => import('../components/HeroCarousel'));
+import HeroCarousel from '../components/HeroCarousel';
 const AboutSection = lazy(() => import('../components/AboutSection'));
 const ProductSection = lazy(() => import('../components/ProductSection'));
 const ServiceCarousel = lazy(() => import('../components/ServiceCarousel'));
@@ -9,22 +9,21 @@ const ContactSection = lazy(() => import('../components/ContactSection'));
 const Home = () => {
   return (
     <div className="pt-16"> {/* 为固定导航栏留出空间 */}
-      <Suspense fallback={null}>
-        <HeroCarousel />
-      </Suspense>
-      <Suspense fallback={null}>
+      {/* Hero 为首屏，使用同步加载，避免首屏空白导致 CLS */}
+      <HeroCarousel />
+      <Suspense fallback={<section style={{minHeight:'400px'}} aria-hidden="true"/>}>
         <AboutSection />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<section style={{minHeight:'500px'}} aria-hidden="true"/>}>
         <ProductSection />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<section style={{minHeight:'420px'}} aria-hidden="true"/>}>
         <ServiceCarousel />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<section style={{minHeight:'360px'}} aria-hidden="true"/>}>
         <MissionSection />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<section style={{minHeight:'420px'}} aria-hidden="true"/>}>
         <ContactSection />
       </Suspense>
     </div>

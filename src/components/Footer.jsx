@@ -1,24 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import assets from '../assets';
-import FooterSkeleton from './FooterSkeleton';
 
 const Footer = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    // 延迟加载 Footer 内容，确保关键渲染路径完成
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  // 如果还未加载，显示骨架屏
-  if (!isLoaded) {
-    return <FooterSkeleton />;
-  }
   
   // 快速链接数据
   const quickLinks = [
@@ -118,7 +101,11 @@ const Footer = () => {
   return (
     <footer 
       className="bg-lightBg text-textLight pt-15 pb-6 border-t border-borderLight"
-      style={{ minHeight: '400px' }}
+      style={{ 
+        minHeight: '400px',
+        // 在 Footer 范围内使用系统字体，避免 Google Font swap 引起的字宽变化导致 CLS
+        fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif'
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         {/* 页脚内容区 */}
@@ -126,7 +113,7 @@ const Footer = () => {
           {/* 左侧Logo和描述 */}
           <div className="md:w-1/3">
             <Link to="/" className="flex items-center mb-6">
-              <div className="w-8 h-8 flex-shrink-0 mr-2 hidden sm:block">
+              <div className="w-8 h-8 flex-shrink-0 mr-2 invisible sm:visible">
                 <picture>
                   <source type="image/webp" srcSet={assets.companylogoWebp128} />
                   <img 
@@ -145,7 +132,9 @@ const Footer = () => {
                 style={{ 
                   minHeight: '1.5rem',
                   display: 'inline-block',
-                  fontDisplay: 'swap'
+                  fontDisplay: 'swap',
+                  // 通过固定宽度（使用 ch 单位）避免字体切换导致的文字宽度变化引发布局位移
+                  width: 'min(32ch, 100%)'
                 }}
               >
                 Echo International Medica
@@ -194,7 +183,7 @@ const Footer = () => {
                     className={`${baseClass} ${hoverClass}`}
                     style={commonStyle}
                     aria-disabled="true"
-                    onClick={(e) => { /* 无链接：点击无动作 */ }}
+                    onClick={() => { /* 无链接：点击无动作 */ }}
                   >
                     <SocialIcon label={social.label} />
                   </button>
