@@ -156,7 +156,7 @@ const Footer = () => {
                 fontDisplay: 'swap'
               }}
             >
-              Bridging global medtech with Greater China through expert distribution and regulatory guidance.
+              Bridging Innovation in Medical Devices and Medicines Across Borders.
             </p>
             
             {/* 社交媒体链接 */}
