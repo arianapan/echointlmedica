@@ -47,6 +47,8 @@ const Footer = () => {
     { label: 'Instagram', path: '#' }
   ];
 
+  const isUsableLink = (path) => path && path !== '#';
+
   const SocialIcon = ({ label }) => {
     const common = { 
       xmlns: 'http://www.w3.org/2000/svg', 
@@ -164,19 +166,40 @@ const Footer = () => {
               className="flex space-x-4"
               style={{ minHeight: '2.5rem' }}
             >
-              {socialLinks.map((social, index) => (
-                <a 
-                  key={index}
-                  href={social.path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-borderLight text-textLight flex items-center justify-center hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex-shrink-0"
-                  aria-label={social.label}
-                  style={{ minWidth: '3rem', minHeight: '3rem' }}
-                >
-                  <SocialIcon label={social.label} />
-                </a>
-              ))}
+              {socialLinks.map((social, index) => {
+                const baseClass = "w-12 h-12 rounded-full bg-borderLight text-textLight flex items-center justify-center transition-all duration-300 flex-shrink-0";
+                const hoverClass = "hover:bg-primary hover:text-white hover:-translate-y-1";
+                const commonStyle = { minWidth: '3rem', minHeight: '3rem' };
+                const usable = isUsableLink(social.path);
+                if (usable) {
+                  return (
+                    <a
+                      key={index}
+                      href={social.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${baseClass} ${hoverClass}`}
+                      aria-label={social.label}
+                      style={commonStyle}
+                    >
+                      <SocialIcon label={social.label} />
+                    </a>
+                  );
+                }
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    aria-label={`${social.label} (unavailable)`}
+                    className={`${baseClass} ${hoverClass}`}
+                    style={commonStyle}
+                    aria-disabled="true"
+                    onClick={(e) => { /* 无链接：点击无动作 */ }}
+                  >
+                    <SocialIcon label={social.label} />
+                  </button>
+                );
+              })}
             </div>
           </div>
           
@@ -214,17 +237,30 @@ const Footer = () => {
               <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-primary"></span>
             </h4>
             <ul className="space-y-3" style={{ minHeight: '150px' }}>
-              {regions.map((region, index) => (
-                <li key={index} style={{ minHeight: '1.5rem' }}>
-                  <Link 
-                    to={region.path} 
-                    className="text-textLight hover:text-primary transition-colors"
-                    style={{ fontDisplay: 'swap' }}
-                  >
-                    {region.label}
-                  </Link>
-                </li>
-              ))}
+              {regions.map((region, index) => {
+                const usable = isUsableLink(region.path);
+                return (
+                  <li key={index} style={{ minHeight: '1.5rem' }}>
+                    {usable ? (
+                      <Link
+                        to={region.path}
+                        className="text-textLight hover:text-primary transition-colors"
+                        style={{ fontDisplay: 'swap' }}
+                      >
+                        {region.label}
+                      </Link>
+                    ) : (
+                      <span
+                        className="text-textLight cursor-default opacity-80"
+                        style={{ fontDisplay: 'swap' }}
+                        aria-disabled="true"
+                      >
+                        {region.label}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
