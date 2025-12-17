@@ -29,7 +29,7 @@ const Navbar = () => {
       }
 
       // 检查当前激活的区域
-      const sections = ['hero', 'about', 'products', 'services', 'mission', 'contact'];
+      const sections = ['hero', 'about', /* 'products', */ 'services', 'mission', 'contact'];
       const currentSection = sections.find(sectionId => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -58,7 +58,7 @@ const Navbar = () => {
   const navLinks = [
     { path: '/#hero', label: 'Home' },
     { path: '/#about', label: 'About' },
-    { path: '/#products', label: 'Products' },
+    // { path: '/#products', label: 'Products' },
     { path: '/#services', label: 'Services' },
     { path: '/#mission', label: 'Mission' },
     { path: '/#contact', label: 'Contact' }

@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 import HeroCarousel from '../components/HeroCarousel';
 const AboutSection = lazy(() => import('../components/AboutSection'));
-const ProductSection = lazy(() => import('../components/ProductSection'));
+// const ProductSection = lazy(() => import('../components/ProductSection'));
 const ServiceCarousel = lazy(() => import('../components/ServiceCarousel'));
 const MissionSection = lazy(() => import('../components/MissionSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
@@ -14,9 +14,9 @@ const Home = () => {
       <Suspense fallback={<section style={{minHeight:'400px'}} aria-hidden="true"/>}>
         <AboutSection />
       </Suspense>
-      <Suspense fallback={<section style={{minHeight:'500px'}} aria-hidden="true"/>}>
+      {/* <Suspense fallback={<section style={{minHeight:'500px'}} aria-hidden="true"/>}>
         <ProductSection />
-      </Suspense>
+      </Suspense> */}
       <Suspense fallback={<section style={{minHeight:'420px'}} aria-hidden="true"/>}>
         <ServiceCarousel />
       </Suspense>
