@@ -1,29 +1,52 @@
 import { Suspense, lazy } from 'react';
 import HeroCarousel from '../components/HeroCarousel';
+
 const AboutSection = lazy(() => import('../components/AboutSection'));
-// const ProductSection = lazy(() => import('../components/ProductSection'));
-const ServiceCarousel = lazy(() => import('../components/ServiceCarousel'));
-const MissionSection = lazy(() => import('../components/MissionSection'));
+const ServiceSection = lazy(() => import('../components/ServiceCarousel'));
+const AIAdvantageSection = lazy(() => import('../components/MissionSection'));
+const ResultsSection = lazy(() => import('../components/ResultsSection'));
+const QuoteSection = lazy(() => import('../components/QuoteSection'));
+const InsightsSection = lazy(() => import('../components/InsightsSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 
 const Home = () => {
   return (
-    <div className="pt-16"> {/* 为固定导航栏留出空间 */}
-      {/* Hero 为首屏，使用同步加载，避免首屏空白导致 CLS */}
+    <div>
+      {/* 1. Hero — dark, full-screen carousel with background images */}
       <HeroCarousel />
-      <Suspense fallback={<section style={{minHeight:'400px'}} aria-hidden="true"/>}>
+
+      {/* 2. About — establish credibility right after hero */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <AboutSection />
       </Suspense>
-      {/* <Suspense fallback={<section style={{minHeight:'500px'}} aria-hidden="true"/>}>
-        <ProductSection />
-      </Suspense> */}
-      <Suspense fallback={<section style={{minHeight:'420px'}} aria-hidden="true"/>}>
-        <ServiceCarousel />
+
+      {/* 3. Services — dark marquee + white cards with slide-in detail */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <ServiceSection />
       </Suspense>
-      <Suspense fallback={<section style={{minHeight:'360px'}} aria-hidden="true"/>}>
-        <MissionSection />
+
+      {/* 4. AI Advantage — dark section, numbered steps + metrics */}
+      <Suspense fallback={<section style={{ minHeight: '500px' }} aria-hidden="true" />}>
+        <AIAdvantageSection />
       </Suspense>
-      <Suspense fallback={<section style={{minHeight:'420px'}} aria-hidden="true"/>}>
+
+      {/* 5. Results — white, case study cards */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <ResultsSection />
+      </Suspense>
+
+      {/* 6. Quote — dark statement break */}
+      <Suspense fallback={<section style={{ minHeight: '200px' }} aria-hidden="true" />}>
+        <QuoteSection />
+      </Suspense>
+
+      {/* 7. Insights — light gray, article cards */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <InsightsSection />
+      </Suspense>
+
+      {/* 8. Contact CTA — dark */}
+      <Suspense fallback={<section style={{ minHeight: '300px' }} aria-hidden="true" />}>
         <ContactSection />
       </Suspense>
     </div>

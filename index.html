@@ -4,23 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/companylogo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Echo International Medica bridges U.S. medical innovations with hospitals and clinics across Hong Kong, Macau, Taiwan, and Mainland China through expert distribution and regulatory guidance." />
+    <meta name="description" content="Echo International Medica — AI-powered cross-border biotech advisory. Strategy, partnerships, and capital solutions for life sciences companies entering Greater China." />
 
     <!-- Performance: Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload font stylesheet then swap to reduce render-blocking -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Lexend (headings) + Source Sans 3 (body) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </noscript>
-    
-    <!-- Preload critical font files to reduce FOIT -->
-    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" crossorigin="anonymous">
-    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7W0Q5.woff2" crossorigin="anonymous">
 
     <script>
-      // Reduce CLS from icon-font swaps: reveal icons only after fonts are ready
+      // Reduce CLS from font swaps: reveal after fonts are ready
       if ('fonts' in document) {
         document.fonts.ready.then(function(){
           document.documentElement.classList.add('fonts-loaded');

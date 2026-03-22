@@ -1,266 +1,213 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import assets from '../assets';
 
+const footerLinks = [
+  { label: 'About', path: '/#about' },
+  { label: 'Services', path: '/#services' },
+  { label: 'AI Approach', path: '/#ai-advantage' },
+  { label: 'Results', path: '/#results' },
+  { label: 'Insights', path: '/#insights' },
+  { label: 'Contact', path: '/#contact' },
+];
+
+const legalLinks = ['Terms of Use', 'Privacy', 'Cookie Policy', 'Sitemap'];
+
+const socialLinks = [
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/echo-international-medica/',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+  },
+  {
+    label: 'X',
+    href: '#',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Facebook',
+    href: '#',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'YouTube',
+    href: '#',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" />
+        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    ),
+  },
+];
+
 const Footer = () => {
-  
-  // 快速链接数据
-  const quickLinks = [
-    { path: '/#hero', label: 'Home' },
-    { path: '/#about', label: 'About Us' },
-    // { path: '/#products', label: 'Products' },
-    { path: '/#services', label: 'Services' },
-    { path: '/#mission', label: 'Mission' },
-    { path: '/#contact', label: 'Contact' }
-  ];
-  
-  // 区域链接数据
-  const regions = [
-    { path: '#', label: 'Hong Kong' },
-    { path: '#', label: 'Macau' },
-    { path: '#', label: 'Taiwan' },
-    { path: '#', label: 'Mainland China' },
-    { path: '#', label: 'United States' }
-  ];
-  
-  // 社交媒体数据
-  const socialLinks = [
-    { label: 'LinkedIn', path: 'https://www.linkedin.com/company/echo-international-medica/' },
-    { label: 'Twitter', path: '#' },
-    { label: 'Facebook', path: '#' },
-    { label: 'Instagram', path: '#' }
-  ];
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
-  const isUsableLink = (path) => path && path !== '#';
-
-  const SocialIcon = ({ label }) => {
-    const common = { 
-      xmlns: 'http://www.w3.org/2000/svg', 
-      viewBox: '0 0 24 24', 
-      width: 22, 
-      height: 22, 
-      fill: 'currentColor', 
-      'aria-hidden': true,
-      style: { 
-        flexShrink: 0,
-        shapeRendering: 'geometricPrecision'
-      }
-    };
-    
-    switch (label) {
-      case 'LinkedIn':
-        return (
-          <svg {...common}>
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        );
-      case 'Twitter':
-        return (
-          <svg {...common}>
-            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-          </svg>
-        );
-      case 'Facebook':
-        return (
-          <svg {...common}>
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        );
-      case 'Instagram':
-        return (
-          <svg {...common}>
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        );
-      default:
-        return null;
-    }
-  };
-
-  // 处理链接点击滚动
   const handleLinkClick = (path) => {
+    if (path === '#') return;
     const targetId = path.replace('/#', '');
-    const targetElement = document.getElementById(targetId);
-    
-    if (targetElement) {
-      // 更新URL hash，这样可以让导航栏的滚动监听检测到变化
+    const el = document.getElementById(targetId);
+    if (el) {
       window.history.replaceState(null, null, `#${targetId}`);
-      
-      // 平滑滚动到目标元素
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-      
-      // 手动触发一个滚动事件，让导航栏能检测到变化
-      setTimeout(() => {
-        window.dispatchEvent(new Event('scroll'));
-      }, 100);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-  
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail('');
+    }
+  };
+
   return (
-    <footer 
-      className="bg-lightBg text-textLight pt-15 pb-6 border-t border-borderLight"
-      style={{ 
-        minHeight: '400px',
-        // 在 Footer 范围内使用系统字体，避免 Google Font swap 引起的字宽变化导致 CLS
-        fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif'
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        {/* 页脚内容区 */}
-        <div className="flex flex-col md:flex-row justify-between gap-10 mb-10">
-          {/* 左侧Logo和描述 */}
-          <div className="md:w-1/3">
-            <Link to="/" className="flex items-center mb-6">
-              <div className="w-8 h-8 flex-shrink-0 mr-2">
-                <picture>
-                  <source type="image/webp" srcSet={assets.companylogoWebp128} />
-                  <img 
-                    src={assets.companylogo} 
-                    alt="Echo International Medica Logo" 
-                    className="w-full h-full object-contain"
-                    width="32"
-                    height="32"
-                    decoding="async"
-                    loading="eager"
+    <footer className="bg-[#091e33] text-white">
+
+      {/* ── Tier 0 · Newsletter ── */}
+      <div className="border-b border-white/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+            <div className="lg:max-w-xl">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-4" style={{ letterSpacing: '-0.01em' }}>
+                Stay ahead in a rapidly evolving market.
+              </h3>
+              <p className="text-white/50 text-[15px] leading-relaxed">
+                Subscribe to Echo Insights — our periodic look at the forces shaping cross-border biotech, AI-augmented advisory, and US–China life sciences partnerships.
+              </p>
+            </div>
+
+            <div className="lg:w-[420px] shrink-0">
+              {subscribed ? (
+                <div className="flex items-center gap-3 text-primary font-heading font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Thank you for subscribing.
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email address"
+                    required
+                    className="flex-1 bg-white/[0.07] border border-white/[0.12] rounded px-4 py-3.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                   />
-                </picture>
-              </div>
-              <span 
-                className="text-sm sm:text-lg font-bold tracking-wider uppercase bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent leading-tight break-words"
-                style={{ 
-                  minHeight: '1.5rem',
-                  display: 'inline-block',
-                  fontDisplay: 'swap'
-                }}
-              >
-                Echo International Medica
-              </span>
-            </Link>
-            <p 
-              className="mb-6"
-              style={{ 
-                minHeight: '3rem',
-                fontDisplay: 'swap'
-              }}
-            >
-              Bridging Innovation in Medical Devices and Medicines Across Borders.
-            </p>
-            
-            {/* 社交媒体链接 */}
-            <div 
-              className="flex space-x-4"
-              style={{ minHeight: '2.5rem' }}
-            >
-              {socialLinks.map((social, index) => {
-                const baseClass = "w-12 h-12 rounded-full bg-borderLight text-textLight flex items-center justify-center transition-all duration-300 flex-shrink-0";
-                const hoverClass = "hover:bg-primary hover:text-white hover:-translate-y-1";
-                const commonStyle = { minWidth: '3rem', minHeight: '3rem' };
-                const usable = isUsableLink(social.path);
-                if (usable) {
-                  return (
-                    <a
-                      key={index}
-                      href={social.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${baseClass} ${hoverClass}`}
-                      aria-label={social.label}
-                      style={commonStyle}
-                    >
-                      <SocialIcon label={social.label} />
-                    </a>
-                  );
-                }
-                return (
                   <button
-                    key={index}
-                    type="button"
-                    aria-label={`${social.label} (unavailable)`}
-                    className={`${baseClass} ${hoverClass}`}
-                    style={commonStyle}
-                    aria-disabled="true"
-                    onClick={() => { /* 无链接：点击无动作 */ }}
+                    type="submit"
+                    className="bg-primary hover:bg-primary/90 text-white font-heading font-semibold text-sm tracking-[0.1em] uppercase px-7 py-3.5 rounded transition-colors duration-200 cursor-pointer whitespace-nowrap"
                   >
-                    <SocialIcon label={social.label} />
+                    Subscribe
                   </button>
-                );
-              })}
+                </form>
+              )}
             </div>
           </div>
-          
-          {/* 中间快速链接 */}
-          <div style={{ minHeight: '200px' }}>
-            <h4 
-              className="text-textDark font-semibold mb-6 pb-2 relative"
-              style={{ minHeight: '2rem', fontDisplay: 'swap' }}
-            >
-              Quick Links
-              <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-primary"></span>
-            </h4>
-            <ul className="space-y-3" style={{ minHeight: '150px' }}>
-              {quickLinks.map((link, index) => (
-                <li key={index} style={{ minHeight: '1.5rem' }}>
-                  <button 
-                    className="text-textLight hover:text-primary transition-colors text-left"
-                    onClick={() => handleLinkClick(link.path)}
-                    style={{ fontDisplay: 'swap' }}
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
+        </div>
+      </div>
+
+      {/* ── Tier 1 · Logo + Social ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-12 pb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          {/* Logo */}
+          <div className="flex items-center">
+            <picture className="block">
+              <source type="image/webp" srcSet={assets.companylogoWebp128} />
+              <img
+                src={assets.companylogo}
+                alt="Echo International Medica Logo"
+                className="h-8 w-auto mr-2.5 shrink-0 brightness-0 invert"
+                width="128"
+                height="128"
+                decoding="async"
+              />
+            </picture>
+            <span className="font-heading font-bold uppercase text-[13px] tracking-tight leading-tight bg-gradient-to-r from-white/80 to-primary bg-clip-text text-transparent">
+              Echo International Medica
+            </span>
           </div>
-          
-          {/* 右侧区域链接 */}
-          <div style={{ minHeight: '200px' }}>
-            <h4 
-              className="text-textDark font-semibold mb-6 pb-2 relative"
-              style={{ minHeight: '2rem', fontDisplay: 'swap' }}
-            >
-              Regions
-              <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-primary"></span>
-            </h4>
-            <ul className="space-y-3" style={{ minHeight: '150px' }}>
-              {regions.map((region, index) => {
-                const usable = isUsableLink(region.path);
-                return (
-                  <li key={index} style={{ minHeight: '1.5rem' }}>
-                    {usable ? (
-                      <Link
-                        to={region.path}
-                        className="text-textLight hover:text-primary transition-colors"
-                        style={{ fontDisplay: 'swap' }}
-                      >
-                        {region.label}
-                      </Link>
-                    ) : (
-                      <span
-                        className="text-textLight cursor-default opacity-80"
-                        style={{ fontDisplay: 'swap' }}
-                        aria-disabled="true"
-                      >
-                        {region.label}
-                      </span>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+
+          {/* Social icons */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.href !== '#' ? '_blank' : undefined}
+                rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
+                onClick={social.href === '#' ? (e) => e.preventDefault() : undefined}
+                className="w-9 h-9 rounded-full border border-white/[0.12] text-white/40 hover:border-primary hover:text-primary flex items-center justify-center transition-all duration-300"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
-        
-        {/* 版权信息 */}
-        <div 
-          className="text-center pt-6 border-t border-borderLight text-sm"
-          style={{ minHeight: '3rem' }}
-        >
-          <p style={{ fontDisplay: 'swap' }}>
-            &copy; 2025 Echo International Medica | All rights reserved.
-          </p>
+      </div>
+
+      {/* ── Tier 2 · Nav links (inline) ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pb-6">
+        <nav className="flex flex-wrap items-center gap-x-7 gap-y-2">
+          {footerLinks.map((link) => (
+            <button
+              key={link.label}
+              className="text-white/50 text-[14px] hover:text-white transition-colors duration-200 cursor-pointer"
+              onClick={() => handleLinkClick(link.path)}
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* ── Tier 3 · Legal links (inline) ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pb-6">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          {legalLinks.map((label) => (
+            <button
+              key={label}
+              className="text-white/30 text-[13px] hover:text-white/50 transition-colors cursor-pointer"
+            >
+              {label}
+            </button>
+          ))}
         </div>
+      </div>
+
+      {/* ── Tier 4 · Copyright ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pb-10">
+        <p className="text-white/20 text-xs">
+          &copy; {new Date().getFullYear()} Echo International Medica, Inc. All rights reserved.
+        </p>
       </div>
     </footer>
   );

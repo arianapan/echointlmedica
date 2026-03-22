@@ -1,245 +1,232 @@
 import { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
-const ServiceCarousel = () => {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768;
-    }
-    return false;
-  });
+const marqueeItems = [
+  'CAPITAL ADVISORY', 'CHINA MARKET ENTRY', 'CRO SELECTION',
+  'INSTITUTIONAL PARTNERSHIPS', 'AI-AUGMENTED RESEARCH', 'INVESTOR READINESS',
+  'CROSS-BORDER EXECUTION', 'CLINICAL TRIAL STRATEGY',
+];
 
-  // 检查是否为移动设备
+const services = [
+  {
+    title: 'Cross-Border China Strategy & Execution',
+    tagline: 'Market entry, CRO selection, and execution management for US biotech entering Greater China.',
+    // Detail page content
+    heroLine: 'We design your market entry so you don\'t navigate it alone.',
+    paragraphs: [
+      'End-to-end advisory for US biotech companies entering Greater China. We design your market entry, select CRO and hospital partners, build execution budgets, and manage the cross-border relationship.',
+      'Our team has direct access to China-side institutional relationships — CROs, hospitals, investors, and regulatory networks — enabling us to move faster and with more precision than traditional advisory firms.',
+    ],
+    capabilities: ['CRO Matching', 'Clinical Cost Analysis', 'Regulatory Landscape', 'Partner Selection', 'AI-Powered Research'],
+  },
+  {
+    title: 'Institutional Partnership Facilitation',
+    tagline: 'Structured matchmaking between US academic medical centers and Chinese hospitals.',
+    heroLine: 'Building collaborations that last across the Pacific.',
+    paragraphs: [
+      'We design the collaboration framework between US academic medical centers and leading Chinese hospitals — identifying counterparties, packaging the value proposition, and managing the ongoing partnership.',
+      'Our partnerships cover education programs, remote tumor board services, strategic research collaboration, and clinical exchange programs.',
+    ],
+    capabilities: ['AMC Partnerships', 'Hospital Matching', 'Program Design', 'Relationship Management', 'AI-Curated Intelligence'],
+  },
+  {
+    title: 'Investor Readiness Sprints',
+    tagline: 'AI-accelerated 2–4 week intensives to prepare for your next raise.',
+    heroLine: 'From pitch to pipeline in days, not months.',
+    paragraphs: [
+      'A 2–4 week intensive that prepares biotech companies for their next raise. AI-accelerated financial modeling, investor targeting with thesis-fit analysis, pitch deck strategy, and meeting preparation.',
+      'Delivered as a complete fundraising support package — not piecemeal advice.',
+    ],
+    capabilities: ['Financial Modeling', 'Investor Targeting', 'Pitch Strategy', 'AI-Built Models', 'AI Investor Matching'],
+  },
+  {
+    title: 'Capital & Transaction Advisory',
+    tagline: 'Fractional CFO-level support on retainer — fundraising, pipeline, and deal execution.',
+    heroLine: 'Ongoing strategic advisory, not hourly billing.',
+    paragraphs: [
+      'Continuous fundraising management, investor pipeline tracking, term sheet negotiation guidance, and deal execution — on retainer, not by the hour.',
+      'We serve as an extension of your team, providing fractional CFO-level support that scales with your needs from seed through Series B and beyond.',
+    ],
+    capabilities: ['Fundraising Management', 'Pipeline Tracking', 'Deal Structuring', 'Term Sheet Review', 'AI Pipeline Analytics'],
+  },
+];
+
+const ServicesSection = () => {
+  const [activeService, setActiveService] = useState(null);
+
+  // Lock body scroll when detail panel is open
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    document.body.style.overflow = activeService !== null ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [activeService]);
+
+  // Close on Escape
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setActiveService(null);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
-  // 处理滚动动画
+  // Scroll animation
   useEffect(() => {
     const checkVisibility = () => {
-      const elements = document.querySelectorAll('#services .fade-in, #services .scale-in');
-      elements.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        
-        if (rect.top <= windowHeight * 0.85) {
-          element.classList.add('visible');
+      const elements = document.querySelectorAll('#services .fade-in');
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.85) {
+          el.classList.add('visible');
         }
       });
     };
-    
     checkVisibility();
-    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('scroll', checkVisibility, { passive: true });
     return () => window.removeEventListener('scroll', checkVisibility);
   }, []);
-  
-  // 服务数据
-  const services = [
-    {
-      icon: 'doc',
-      title: 'Regulatory Compliance',
-      description: 'Expert guidance through complex approval processes for medical devices in Greater China, including LRP services and documentation.'
-    },
-    {
-      icon: 'truck',
-      title: 'Distribution Network',
-      description: 'Extensive logistics network ensuring timely delivery and efficient supply chain management across all regions.'
-    },
-    {
-      icon: 'hospital',
-      title: 'Hospital Engagement',
-      description: 'Direct relationships with key decision-makers in hospitals and clinics throughout Mainland China, Hong Kong, Taiwan and Macau.'
-    },
-    {
-      icon: 'training',
-      title: 'Training & Support',
-      description: 'Multilingual customer training and ongoing technical support for all distributed products.'
-    },
-    {
-      icon: 'bell',
-      title: 'Market Expansion',
-      description: 'Strategic guidance for U.S. manufacturers looking to enter and expand in Asian healthcare markets.'
-    }
-  ];
 
-  const IconSvg = ({ name, size = 34 }) => {
-    const common = {
-      xmlns: 'http://www.w3.org/2000/svg',
-      viewBox: '0 0 24 24',
-      width: size,
-      height: size,
-      fill: 'currentColor',
-      'aria-hidden': true,
-      style: { 
-        flexShrink: 0,
-        shapeRendering: 'geometricPrecision'
-      }
-    };
-    
-    switch (name) {
-      case 'doc':
-        return (
-          <svg {...common}>
-            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-            <path d="M8,12V14H16V12H8M8,16V18H13V16H8Z" />
-          </svg>
-        );
-      case 'truck':
-        return (
-          <svg {...common}>
-            <path d="M18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5M19.5,9.5L21.46,12H17V9.5M6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5M20,8H17V4H3C1.89,4 1,4.89 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8Z" />
-          </svg>
-        );
-      case 'hospital':
-        return (
-          <svg {...common}>
-            <path d="M18,14H14V18H10V14H6V10H10V6H14V10H18M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
-          </svg>
-        );
-      case 'training':
-        return (
-          <svg {...common}>
-            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
-          </svg>
-        );
-      case 'bell':
-        return (
-          <svg {...common}>
-            <path d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.19 14,4.1 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21" />
-          </svg>
-        );
-      default:
-        return null;
-    }
-  };
-  
-  // 桌面端轮播配置 - 简化版本
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    prevArrow: (
-      <button aria-label="Previous slide" className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 text-primary flex items-center justify-center hover:bg-white shadow-md transition-all z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-    ),
-    nextArrow: (
-      <button aria-label="Next slide" className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 text-primary flex items-center justify-center hover:bg-white shadow-md transition-all z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-      </button>
-    ),
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      }
-    ]
-  };
-  
+  const detail = activeService !== null ? services[activeService] : null;
+
   return (
-    <section id="services" className="py-20 bg-lightBg">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        {/* 标题区 */}
-        <div className="text-center mb-15 fade-in">
-          <h2 className="text-3xl font-bold uppercase tracking-wide mb-4">OUR SERVICES</h2>
-          <div className="section-divider"></div>
-        </div>
-        
-  {/* 服务轮播 */}
-  <div className="relative pt-10" style={{ minHeight: '380px', paddingBottom: '24px' }}>
-          {/* 移动端：简化的轮播显示 */}
-          {isMobile ? (
-            <div className="mobile-service-carousel">
-              <Slider 
-                dots={true}
-                infinite={true}
-                speed={600}
-                slidesToShow={1}
-                slidesToScroll={1}
-                autoplay={true}
-                autoplaySpeed={4000}
-                arrows={true}
-                prevArrow={
-                  <button className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 text-primary flex items-center justify-center hover:bg-white shadow-md transition-all z-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                  </button>
-                }
-                nextArrow={
-                  <button className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 text-primary flex items-center justify-center hover:bg-white shadow-md transition-all z-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-                  </button>
-                }
-              >
-                {services.map((service, index) => (
-                  <div key={index} className="px-4">
-                    <div className="scale-in bg-white rounded-lg shadow-sm p-6 text-center min-h-[350px] flex flex-col justify-between hover:-translate-y-2 hover:shadow-md transition-all duration-300">
-                      {/* 服务图标 */}
-                      <div 
-                        className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300"
-                        style={{ minWidth: '5rem', minHeight: '5rem' }}
-                      >
-                        <IconSvg name={service.icon} size={34} />
-                      </div>
-                      
-                      {/* 服务内容 */}
-                      <h3 className="text-xl font-semibold mb-4 text-textDark min-h-[60px] flex items-center justify-center">
-                        {service.title}
-                      </h3>
-                      <p className="text-textLight flex-grow">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          ) : (
-            /* 桌面端：正常的轮播显示 */
-            <div className="desktop-service-carousel">
-              <Slider {...settings}>
-                {services.map((service, index) => (
-                  <div key={index} className="px-4">
-                    <div className="scale-in bg-white rounded-lg shadow-sm p-6 text-center min-h-[350px] flex flex-col justify-between hover:-translate-y-2 hover:shadow-md transition-all duration-300">
-                      {/* 服务图标 */}
-                      <div 
-                        className="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-all duration-300"
-                        style={{ minWidth: '5rem', minHeight: '5rem' }}
-                      >
-                        <IconSvg name={service.icon} size={34} />
-                      </div>
-                      
-                      {/* 服务内容 */}
-                      <h3 className="text-xl font-semibold mb-4 text-textDark min-h-[60px] flex items-center justify-center">
-                        {service.title}
-                      </h3>
-                      <p className="text-textLight flex-grow">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          )}
+    <section id="services">
+      {/* Marquee ticker */}
+      <div className="bg-secondary py-4 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="mx-6 text-white/60 text-sm font-heading font-medium tracking-[0.15em] uppercase">
+              {item}
+              <span className="ml-12 text-white/20">{'///'}</span>
+            </span>
+          ))}
         </div>
       </div>
+
+      {/* Services content */}
+      <div className="py-24 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          {/* Header */}
+          <div className="mb-16 md:mb-20 fade-in">
+            <span className="section-label">CONSULTING SERVICES</span>
+            <h2 className="section-heading">What we do</h2>
+          </div>
+
+          {/* Service cards — 2×2 grid with numbers */}
+          <div className="grid md:grid-cols-2 gap-5 fade-in">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white border border-borderLight rounded-lg p-8 md:p-10 group cursor-pointer card-lift shadow-card relative overflow-hidden"
+                onClick={() => setActiveService(index)}
+              >
+                {/* Number watermark */}
+                <span className="absolute top-5 right-6 font-heading text-[4.5rem] font-bold text-primary/[0.06] leading-none select-none" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                {/* Top accent line */}
+                <div className="w-8 h-0.5 bg-primary mb-6 group-hover:w-12 transition-all duration-300" />
+
+                <h3 className="font-heading text-lg md:text-xl font-semibold text-textDark leading-snug mb-3 group-hover:text-primary transition-colors duration-200 relative">
+                  {service.title}
+                </h3>
+                <p className="text-textMedium text-sm md:text-[15px] leading-relaxed relative">
+                  {service.tagline}
+                </p>
+                <div className="mt-6 flex items-center text-primary text-sm font-heading font-medium opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all duration-300">
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" className="ml-2 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Detail overlay — slides in from right */}
+      {detail && (
+        <div className="fixed inset-0 z-[200] flex">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setActiveService(null)}
+          />
+
+          {/* Panel */}
+          <div className="relative ml-auto w-full max-w-2xl bg-white h-full overflow-y-auto shadow-2xl animate-slide-in-right">
+            {/* Close button */}
+            <button
+              className="sticky top-0 right-0 float-right m-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-lightBg transition-colors cursor-pointer z-10"
+              onClick={() => setActiveService(null)}
+              aria-label="Close"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="p-10 md:p-14 pt-6">
+              {/* Category label */}
+              <span className="section-label">CONSULTING SERVICES</span>
+
+              {/* Title */}
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-textDark leading-snug mt-3 mb-4">
+                {detail.title}
+              </h2>
+
+              {/* Hero line */}
+              <p className="text-primary font-heading font-medium text-lg mb-8">
+                {detail.heroLine}
+              </p>
+
+              {/* Divider */}
+              <div className="w-12 h-0.5 bg-primary mb-8" />
+
+              {/* Content paragraphs */}
+              {detail.paragraphs.map((p, i) => (
+                <p key={i} className="text-textMedium text-base leading-relaxed mb-5">
+                  {p}
+                </p>
+              ))}
+
+              {/* Capabilities */}
+              <div className="mt-10">
+                <h4 className="font-heading text-sm font-semibold text-textDark tracking-[0.1em] uppercase mb-4">
+                  Capabilities
+                </h4>
+                <div className="flex flex-wrap gap-2.5">
+                  {detail.capabilities.map((cap, i) => (
+                    <span
+                      key={i}
+                      className="text-sm font-medium text-primary bg-primary/10 px-4 py-2 rounded-full"
+                    >
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12 pt-8 border-t border-borderLight">
+                <button
+                  className="btn-primary cursor-pointer"
+                  onClick={() => {
+                    setActiveService(null);
+                    setTimeout(() => {
+                      const el = document.getElementById('contact');
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                  }}
+                >
+                  Discuss This Service
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
-export default ServiceCarousel;
+export default ServicesSection;

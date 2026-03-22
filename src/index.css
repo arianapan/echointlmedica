@@ -1,57 +1,54 @@
-/* index.css */
-/* External fonts moved to index.html <link> to avoid render-blocking */
-/* slick-carousel CSS is now imported within components to enable on-demand loading */
-/* Font Awesome removed; icons now use inline SVG to avoid font-induced CLS */
+/* index.css — Bain-inspired redesign */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     @apply text-textDark bg-white overflow-x-hidden;
   }
-  /* Inter font rendering stabilization */
-  html { 
-    text-rendering: optimizeLegibility;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lexend', sans-serif;
   }
-  
+
   /* Prevent layout shifts from font loading */
   .fonts-loaded * {
     font-display: swap;
   }
-  
+
   /* Footer layout stability */
   footer {
     contain: layout;
   }
-  
-  /* Prevent social icon layout shifts */
-  footer svg {
-    width: 18px !important;
-    height: 18px !important;
-    flex-shrink: 0;
-  }
-  
-  /* 全局动画类 */
+
+  /* Scroll-triggered animations */
   .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
-  
+
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .scale-in {
     opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: scale(0.96);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
-  
+
   .scale-in.visible {
     opacity: 1;
     transform: scale(1);
@@ -59,50 +56,69 @@
 }
 
 @layer components {
-  /* 自定义按钮样式 */
+  /* Primary CTA button */
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-md font-semibold 
-           shadow-md hover:bg-secondary hover:-translate-y-1 
-           hover:shadow-lg transition-all duration-300;
+    @apply bg-primary text-white px-8 py-3.5 rounded font-semibold text-base
+           hover:bg-secondary transition-all duration-200;
+    font-family: 'Lexend', sans-serif;
   }
-  
-  /* 标题下划线 */
-  .section-divider {
-    @apply w-15 h-1 bg-primary mx-auto;
+
+  /* Section label — small caps above headings */
+  .section-label {
+    @apply text-primary font-semibold text-xs tracking-[0.25em] uppercase mb-4 block;
+    font-family: 'Lexend', sans-serif;
+    letter-spacing: 0.25em;
+  }
+
+  /* Section heading — premium scale */
+  .section-heading {
+    @apply text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-bold text-textDark;
+    font-family: 'Lexend', sans-serif;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  /* Card lift on hover */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    @apply shadow-card-hover;
+  }
+
+  /* Subtle dot pattern for texture */
+  .bg-dots {
+    background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
 
 @layer utilities {
-  .font-inter {
-    font-family: 'Inter', sans-serif;
+  /* Marquee scrolling animation */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  
-  /* 移动端服务轮播样式优化 */
-  .mobile-service-carousel .slick-slide {
-    width: 100% !important;
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
-  
-  .mobile-service-carousel .slick-slide > div {
-    margin: 0 !important;
-    padding: 0 16px !important;
+
+  /* Stagger children animation delays */
+  .stagger-1 { transition-delay: 100ms; }
+  .stagger-2 { transition-delay: 200ms; }
+  .stagger-3 { transition-delay: 300ms; }
+  .stagger-4 { transition-delay: 400ms; }
+  .stagger-5 { transition-delay: 500ms; }
+
+  /* Slide-in from right for detail panels */
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
   }
-  
-  /* 确保移动端轮播正常显示 */
-  @media (max-width: 768px) {
-    .mobile-service-carousel .slick-list {
-      overflow: hidden !important;
-    }
-    
-    .mobile-service-carousel .slick-track {
-      display: flex !important;
-    }
-  }
-  
-  /* 平板设备优化 */
-  @media (min-width: 769px) and (max-width: 992px) {
-    .services-carousel-mobile .slick-slide {
-      width: 50% !important;
-      flex: 0 0 50% !important;
-    }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.35s ease-out;
   }
 }

@@ -1,10 +1,15 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-// 创建空上下文
 const AppContext = createContext();
 
 export function AppContextProvider({ children }) {
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
+  const [heroColor, setHeroColor] = useState('#0d2b45');
+
+  return (
+    <AppContext.Provider value={{ heroColor, setHeroColor }}>
+      {children}
+    </AppContext.Provider>
+  );
 }
 
 export function useAppContext() {
