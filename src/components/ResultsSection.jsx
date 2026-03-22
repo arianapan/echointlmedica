@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import assets from '../assets';
 
 const cases = [
   {
@@ -9,13 +10,9 @@ const cases = [
       { value: '65%', label: 'Cost reduction vs. US clinical trials' },
       { value: '$5M+', label: 'Capital raise supported' },
     ],
-    gradient: 'from-secondary via-[#1a4a6e] to-primary/80',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
-      </svg>
-    ),
+    image: assets.Story1,
+    srcSet: assets.Story1SrcSet,
+    alt: 'Business professionals discussing cross-border biotech strategy',
   },
   {
     category: 'Featured client success story',
@@ -25,14 +22,9 @@ const cases = [
       { value: '2', label: 'Institutions connected across the Pacific' },
       { value: 'Multi-year', label: 'Partnership structure delivered' },
     ],
-    gradient: 'from-primary via-primary/80 to-secondary',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
+    image: assets.Story2,
+    srcSet: assets.Story2SrcSet,
+    alt: 'Medical professionals in a cross-border tumor board collaboration',
   },
   {
     category: 'Featured client success story',
@@ -42,14 +34,9 @@ const cases = [
       { value: '5 days', label: 'Full package delivered end-to-end' },
       { value: '80+', label: 'Investors mapped and scored' },
     ],
-    gradient: 'from-[#1a4a6e] via-secondary to-primary/60',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <path d="M9 9h6v6H9z" />
-        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
-      </svg>
-    ),
+    image: assets.Story3,
+    srcSet: assets.Story3SrcSet,
+    alt: 'AI-accelerated investor readiness and fundraising workflow',
   },
 ];
 
@@ -156,27 +143,20 @@ const ResultsSection = () => {
 
           {/* Right — image area */}
           <div className={`lg:w-1/2 transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-            <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${c.gradient}`}>
-              {/* Decorative grid pattern */}
-              <div className="absolute inset-0 opacity-[0.05]" style={{
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-              }} />
-              {/* Decorative diagonal lines */}
-              <div className="absolute inset-0 opacity-[0.06]" style={{
-                backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.6) 45.5%, rgba(255,255,255,0.6) 46%, transparent 46.5%)',
-                backgroundSize: '30px 30px',
-              }} />
-              {/* Icon */}
-              <div className="absolute bottom-6 right-6">
-                {c.icon}
-              </div>
-              {/* Category label on image */}
-              <div className="absolute top-6 left-6">
-                <span className="text-[11px] font-heading font-semibold text-white/50 tracking-[0.2em] uppercase">
-                  Client Results
-                </span>
-              </div>
+            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-secondary">
+              <picture>
+                {c.srcSet.avif && <source srcSet={c.srcSet.avif} type="image/avif" />}
+                {c.srcSet.webp && <source srcSet={c.srcSet.webp} type="image/webp" />}
+                <source srcSet={c.srcSet.jpg || c.srcSet.png} type={c.srcSet.jpg ? 'image/jpeg' : 'image/png'} />
+                <img
+                  src={c.image}
+                  alt={c.alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  width="600"
+                  height="450"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </div>
         </div>
