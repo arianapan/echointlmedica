@@ -1,40 +1,81 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const cases = [
   {
-    category: 'CAPITAL ADVISORY & CHINA EXPANSION',
+    category: 'Featured client success story',
     title: 'US Oncology Biotech Enters Greater China Clinical Pathway',
-    brief: 'Complete China clinical and commercialization strategy for a first-in-class therapeutic.',
     detail: 'Designed a complete China clinical and commercialization strategy for a first-in-class therapeutic, including CRO selection, cost modeling, regulatory timeline, and investor narrative for a $5M+ capital raise.',
     metrics: [
-      { value: '65%', label: 'Cost reduction vs. US trials' },
-      { value: '$5M+', label: 'Raise supported' },
+      { value: '65%', label: 'Cost reduction vs. US clinical trials' },
+      { value: '$5M+', label: 'Capital raise supported' },
     ],
+    gradient: 'from-secondary via-[#1a4a6e] to-primary/80',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
+      </svg>
+    ),
   },
   {
-    category: 'INSTITUTIONAL PARTNERSHIPS',
+    category: 'Featured client success story',
     title: 'Top-Tier US Cancer Center × Chinese Hospital Collaboration',
-    brief: 'Cross-border partnership between leading institutions across the Pacific.',
     detail: 'Structured a cross-border partnership between a leading US academic medical center and Chinese hospital network — covering education programs, remote tumor board services, and strategic research collaboration.',
     metrics: [
-      { value: '2', label: 'Institutions connected' },
-      { value: 'Multi-year', label: 'Partnership structure' },
+      { value: '2', label: 'Institutions connected across the Pacific' },
+      { value: 'Multi-year', label: 'Partnership structure delivered' },
     ],
+    gradient: 'from-primary via-primary/80 to-secondary',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
   },
   {
-    category: 'AI-AUGMENTED DELIVERY',
+    category: 'Featured client success story',
     title: 'Fundraising Support Package Delivered in Days, Not Weeks',
-    brief: 'AI-accelerated workflows delivering complete investor readiness in under one week.',
     detail: 'Deployed AI-accelerated workflows to deliver a complete investor readiness package — financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard — in under one week.',
     metrics: [
-      { value: '5 days', label: 'Full package delivered' },
-      { value: '80+', label: 'Investors mapped' },
+      { value: '5 days', label: 'Full package delivered end-to-end' },
+      { value: '80+', label: 'Investors mapped and scored' },
     ],
+    gradient: 'from-[#1a4a6e] via-secondary to-primary/60',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <path d="M9 9h6v6H9z" />
+        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
+      </svg>
+    ),
   },
 ];
 
 const ResultsSection = () => {
-  const [expanded, setExpanded] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goTo = useCallback((index) => {
+    if (index === current) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrent(index);
+      setIsTransitioning(false);
+    }, 300);
+  }, [current]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % cases.length);
+        setIsTransitioning(false);
+      }, 300);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const checkVisibility = () => {
@@ -51,66 +92,119 @@ const ResultsSection = () => {
     return () => window.removeEventListener('scroll', checkVisibility);
   }, []);
 
+  const c = cases[current];
+
   return (
     <section id="results" className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        {/* Header */}
-        <div className="mb-16 md:mb-20 fade-in">
-          <span className="section-label">CLIENT RESULTS</span>
-          <h2 className="section-heading">Bold steps forward.</h2>
+
+        {/* Big heading — light weight, elegant */}
+        <div className="mb-8 md:mb-10 fade-in">
+          <h2 className="font-heading text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-light text-textDark" style={{ lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            Bold steps forward.
+          </h2>
         </div>
 
-        {/* Case cards */}
-        <div className="grid lg:grid-cols-3 gap-6 items-start">
-          {cases.map((c, index) => {
-            const isOpen = expanded === index;
-            return (
-              <div
-                key={index}
-                className={`fade-in stagger-${index + 1} bg-white rounded-lg border border-borderLight overflow-hidden cursor-pointer card-lift shadow-card flex flex-col`}
-                onClick={() => setExpanded(isOpen ? null : index)}
-              >
-                {/* Top gradient bar */}
-                <div className="h-1.5 bg-gradient-to-r from-primary to-primary/60" />
+        {/* Two-column: text left, image right */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
 
-                <div className="p-7 md:p-8 flex-1 flex flex-col">
-                  {/* Category */}
-                  <span className="text-[11px] font-heading font-medium text-primary tracking-[0.15em] uppercase mb-4">
-                    {c.category}
-                  </span>
+          {/* Left — case content */}
+          <div className={`lg:w-1/2 transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            {/* Category */}
+            <span className="text-textMedium text-base md:text-lg font-heading mb-5 block">
+              {c.category}
+            </span>
 
-                  {/* Title */}
-                  <h3 className="font-heading text-lg font-semibold text-textDark leading-snug mb-3">
-                    {c.title}
-                  </h3>
+            {/* Divider */}
+            <hr className="border-borderLight mb-6" />
 
-                  {/* Brief (surface) or Detail (expanded) */}
-                  <p className="text-textMedium text-sm leading-relaxed mb-6 flex-1">
-                    {isOpen ? c.detail : c.brief}
-                  </p>
+            {/* Title */}
+            <h3 className="font-heading text-xl md:text-2xl lg:text-[1.75rem] font-bold text-textDark leading-snug mb-5" style={{ letterSpacing: '-0.01em' }}>
+              {c.title}
+            </h3>
 
-                  {/* Toggle indicator */}
-                  <div className="flex items-center text-primary text-xs font-heading font-medium mb-5">
-                    {isOpen ? 'Show less' : 'Read the full story'}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" className={`ml-1.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
+            {/* Detail */}
+            <p className="text-textMedium text-[15px] leading-relaxed mb-8">
+              {c.detail}
+            </p>
+
+            {/* The impact */}
+            <span className="text-textLight text-xs font-heading font-semibold tracking-[0.15em] uppercase mb-4 block">
+              The impact
+            </span>
+
+            {/* Metrics in bordered boxes */}
+            <div className="flex gap-0 mb-8">
+              {c.metrics.map((m, i) => (
+                <div key={i} className="border border-borderLight px-5 py-4 first:rounded-l-lg last:rounded-r-lg flex-1">
+                  <div className="font-heading text-2xl md:text-3xl font-bold text-textDark leading-none tracking-tight whitespace-nowrap mb-1.5" style={{ letterSpacing: '-0.02em' }}>
+                    {m.value}
                   </div>
-
-                  {/* Metrics — bold display */}
-                  <div className="flex gap-8 pt-6 border-t border-borderLight">
-                    {c.metrics.map((m, i) => (
-                      <div key={i}>
-                        <div className="font-heading text-2xl md:text-3xl font-bold text-primary leading-none tracking-tight whitespace-nowrap">{m.value}</div>
-                        <div className="text-textLight text-xs mt-1.5 leading-snug">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="text-textLight text-xs leading-snug">{m.label}</div>
                 </div>
+              ))}
+            </div>
+
+            {/* Read story link */}
+            <button className="flex items-center text-primary text-sm font-heading font-semibold group cursor-pointer">
+              Read story
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1.5 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Right — image area */}
+          <div className={`lg:w-1/2 transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br ${c.gradient}`}>
+              {/* Decorative grid pattern */}
+              <div className="absolute inset-0 opacity-[0.05]" style={{
+                backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+                backgroundSize: '24px 24px',
+              }} />
+              {/* Decorative diagonal lines */}
+              <div className="absolute inset-0 opacity-[0.06]" style={{
+                backgroundImage: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.6) 45.5%, rgba(255,255,255,0.6) 46%, transparent 46.5%)',
+                backgroundSize: '30px 30px',
+              }} />
+              {/* Icon */}
+              <div className="absolute bottom-6 right-6">
+                {c.icon}
               </div>
-            );
-          })}
+              {/* Category label on image */}
+              <div className="absolute top-6 left-6">
+                <span className="text-[11px] font-heading font-semibold text-white/50 tracking-[0.2em] uppercase">
+                  Client Results
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Carousel indicators + CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-between mt-12 md:mt-16 pt-8 border-t border-borderLight">
+          {/* Dots */}
+          <div className="flex gap-2.5 mb-6 sm:mb-0">
+            {cases.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goTo(index)}
+                aria-label={`Go to case study ${index + 1}`}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === current
+                    ? 'bg-primary scale-110'
+                    : 'bg-borderMedium hover:bg-textLight'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* See all button */}
+          <button className="font-heading text-xs font-semibold tracking-[0.15em] uppercase text-textDark border-b-2 border-textDark pb-1 hover:text-primary hover:border-primary transition-colors cursor-pointer">
+            See All Client Results
+          </button>
+        </div>
+
       </div>
     </section>
   );

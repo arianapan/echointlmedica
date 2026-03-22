@@ -76,13 +76,13 @@ const AIAdvantageSection = () => {
               <p className="text-white/80 text-base leading-relaxed mb-10">
                 We deliver <span className="text-white font-semibold">3× the output</span> at a fraction of the traditional cost.
               </p>
-              <div className="space-y-8">
+              <div className="space-y-7">
                 {metrics.map((m, i) => (
-                  <div key={i} className="flex items-baseline gap-4">
-                    <div className="font-heading text-4xl md:text-5xl font-bold text-primary leading-none tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+                  <div key={i}>
+                    <div className="font-heading text-4xl md:text-5xl font-bold text-primary leading-none tracking-tight mb-1.5" style={{ letterSpacing: '-0.03em' }}>
                       {m.value}
                     </div>
-                    <div className="text-white/50 text-sm leading-snug">{m.label}</div>
+                    <div className="text-white/50 text-sm">{m.label}</div>
                   </div>
                 ))}
               </div>

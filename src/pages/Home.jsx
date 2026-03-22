@@ -9,6 +9,13 @@ const QuoteSection = lazy(() => import('../components/QuoteSection'));
 const InsightsSection = lazy(() => import('../components/InsightsSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 
+/* Thin gray divider between light-background sections */
+const Divider = () => (
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+    <hr className="border-borderLight" />
+  </div>
+);
+
 const Home = () => {
   return (
     <div>
@@ -19,6 +26,9 @@ const Home = () => {
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <AboutSection />
       </Suspense>
+
+      {/* ─ divider ─ */}
+      <Divider />
 
       {/* 3. Services — dark marquee + white cards with slide-in detail */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
@@ -45,7 +55,7 @@ const Home = () => {
         <InsightsSection />
       </Suspense>
 
-      {/* 8. Contact CTA — dark */}
+      {/* 8. Contact — dark, full form + info */}
       <Suspense fallback={<section style={{ minHeight: '300px' }} aria-hidden="true" />}>
         <ContactSection />
       </Suspense>
