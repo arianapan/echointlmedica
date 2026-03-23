@@ -44,6 +44,14 @@ const ResultsSection = () => {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  // Preload all carousel images so transitions are instant
+  useEffect(() => {
+    cases.forEach(c => {
+      const img = new Image();
+      img.src = c.image;
+    });
+  }, []);
+
   const goTo = useCallback((index) => {
     if (index === current) return;
     setIsTransitioning(true);
@@ -154,7 +162,7 @@ const ResultsSection = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   width="600"
                   height="450"
-                  loading="lazy"
+                  loading={current === 0 ? 'eager' : 'lazy'}
                 />
               </picture>
             </div>
