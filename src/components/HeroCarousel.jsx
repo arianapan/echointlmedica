@@ -38,15 +38,38 @@ const slides = [
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false);
   const { setHeroColor } = useAppContext();
+
+  // Preload all hero background images; reveal carousel once the first one is ready
+  useEffect(() => {
+    let cancelled = false;
+    // Load first image with priority, then remaining in parallel
+    const firstImg = new Image();
+    firstImg.src = slides[0].image;
+    firstImg.onload = () => {
+      if (!cancelled) setImagesReady(true);
+    };
+    // Also preload the rest so slide transitions are smooth
+    slides.slice(1).forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+    // Fallback: reveal after 2s even if image hasn't loaded (slow network)
+    const fallback = setTimeout(() => {
+      if (!cancelled) setImagesReady(true);
+    }, 2000);
+    return () => { cancelled = true; clearTimeout(fallback); };
+  }, []);
 
   // Sync navbar color with current slide
   useEffect(() => {
     setHeroColor(slides[current].color);
   }, [current, setHeroColor]);
 
-  // Auto-advance slides
+  // Auto-advance slides (only start after images are ready)
   useEffect(() => {
+    if (!imagesReady) return;
     const timer = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -55,7 +78,7 @@ const HeroCarousel = () => {
       }, 400);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [imagesReady]);
 
   const goToSlide = useCallback((index) => {
     if (index === current) return;
@@ -80,7 +103,9 @@ const HeroCarousel = () => {
     <section id="hero">
       {/* Main hero area */}
       <div
-        className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden"
+        className={`min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden transition-opacity duration-700 ${
+          imagesReady ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{ backgroundColor: slide.color }}
       >
         {/* Background images — all preloaded, fade in/out */}
