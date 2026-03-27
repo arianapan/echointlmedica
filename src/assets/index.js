@@ -58,7 +58,7 @@ const assets = {
   Story2: Story2_600,
   Story2SrcSet: { avif: Story2Avif, webp: Story2Webp, jpg: Story2JpgSet },
   Story3: Story3_600,
-  Story3SrcSet: { avif: Story3Avif, webp: Story3Webp, png: Story3PngSet },
+  Story3SrcSet: { avif: Story3Avif, webp: Story3Webp, jpg: Story3JpgSet },
   // 背景图（webp）
   background1: background1_1920,
   background2: background2_1920,
