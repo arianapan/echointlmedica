@@ -67,7 +67,7 @@ const AboutSection = () => {
         {/* Header */}
         <div className="mb-16 md:mb-20 fade-in">
           <span className="section-label">ABOUT ECHO</span>
-          <h2 className="section-heading mb-6">The firm behind the platform</h2>
+          <h2 className="section-heading mb-6">The Firm Behind the Platform</h2>
           <p className="text-textMedium text-lg md:text-xl max-w-3xl leading-relaxed">
             Echo International Medica is a specialized cross-border biotech advisory firm headquartered in Hong Kong, connecting US life sciences companies with high-value opportunities across Greater China.
           </p>
