@@ -57,7 +57,7 @@ const InsightsSection = () => {
         {/* Header */}
         <div className="mb-16 md:mb-20 fade-in">
           <span className="section-label">LATEST INSIGHTS</span>
-          <h2 className="section-heading">Our thinking</h2>
+          <h2 className="section-heading">Our Thinking</h2>
         </div>
 
         {/* Article cards */}
