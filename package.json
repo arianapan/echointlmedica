@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build-css": "tailwindcss -i ./src/index.css -o ./src/output.css --watch",
-    "deploy": "npm run build && gh-pages -d dist"
+    "build-css": "tailwindcss -i ./src/index.css -o ./src/output.css --watch"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -28,7 +27,6 @@
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",

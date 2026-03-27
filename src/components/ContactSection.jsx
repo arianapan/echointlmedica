@@ -1,6 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ContactSection = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '', _honey: '' });
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
+      navigate('/thanks');
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setSending(false);
+    }
+  };
+
   useEffect(() => {
     const checkVisibility = () => {
       const elements = document.querySelectorAll('#contact .fade-in');
@@ -105,15 +140,9 @@ const ContactSection = () => {
               <h3 className="font-heading text-lg font-semibold text-white mb-6">
                 Send us a message
               </h3>
-              <form
-                action="https://formsubmit.co/ariana@echointlmedica.com"
-                method="POST"
-              >
-                {/* FormSubmit config */}
-                <input type="hidden" name="_subject" value="New inquiry from website" />
-                <input type="hidden" name="_next" value={`${window.location.origin}/thanks`} />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" />
+              <form onSubmit={handleSubmit}>
+                {/* Honeypot */}
+                <input type="text" name="_honey" value={form._honey} onChange={handleChange} style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
@@ -125,6 +154,8 @@ const ContactSection = () => {
                       type="text"
                       name="name"
                       required
+                      value={form.name}
+                      onChange={handleChange}
                       className="w-full bg-white/[0.06] border border-white/10 rounded px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                       placeholder="Your name"
                     />
@@ -138,6 +169,8 @@ const ContactSection = () => {
                       type="email"
                       name="email"
                       required
+                      value={form.email}
+                      onChange={handleChange}
                       className="w-full bg-white/[0.06] border border-white/10 rounded px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                       placeholder="you@company.com"
                     />
@@ -152,6 +185,8 @@ const ContactSection = () => {
                     id="contact-company"
                     type="text"
                     name="company"
+                    value={form.company}
+                    onChange={handleChange}
                     className="w-full bg-white/[0.06] border border-white/10 rounded px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                     placeholder="Your company"
                   />
@@ -166,6 +201,8 @@ const ContactSection = () => {
                     name="message"
                     required
                     rows="4"
+                    value={form.message}
+                    onChange={handleChange}
                     className="w-full bg-white/[0.06] border border-white/10 rounded px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
                     placeholder="Tell us about your challenge..."
                   />
@@ -173,9 +210,10 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-heading font-semibold px-10 py-3.5 rounded text-sm tracking-wide transition-colors duration-200 cursor-pointer"
+                  disabled={sending}
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-heading font-semibold px-10 py-3.5 rounded text-sm tracking-wide transition-colors duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {sending ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
