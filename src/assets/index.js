@@ -30,10 +30,10 @@ import Story2Webp from './Story2.JPG?imagetools&format=webp&width=400;600;900&as
 import Story2JpgSet from './Story2.JPG?imagetools&format=jpg&width=400;600;900&as=srcset';
 import Story2_600 from './Story2.JPG?imagetools&width=600';
 
-import Story3Avif from './Story3.PNG?imagetools&format=avif&width=400;600;900&as=srcset';
-import Story3Webp from './Story3.PNG?imagetools&format=webp&width=400;600;900&as=srcset';
-import Story3PngSet from './Story3.PNG?imagetools&format=png&width=400;600;900&as=srcset';
-import Story3_600 from './Story3.PNG?imagetools&width=600';
+import Story3Avif from './Story3.jpg?imagetools&format=avif&width=400;600;900&as=srcset';
+import Story3Webp from './Story3.jpg?imagetools&format=webp&width=400;600;900&as=srcset';
+import Story3JpgSet from './Story3.jpg?imagetools&format=jpg&width=400;600;900&as=srcset';
+import Story3_600 from './Story3.jpg?imagetools&width=600';
 
 // 背景图：使用 1920 宽 webp 作为默认（Hero 背景）
 import background1_1920 from './background1.jpg?imagetools&format=webp&width=1920';
