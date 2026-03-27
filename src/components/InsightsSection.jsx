@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import snap2Img from '../assets/Snap2.jpg';
 
 const articles = [
   {
@@ -30,14 +31,7 @@ const articles = [
     category: 'INSTITUTIONAL PARTNERSHIPS',
     title: 'Building Hospital Partnerships Across the Pacific: A Practitioner\'s Guide',
     brief: 'Lessons from structuring US–China academic medical center collaborations, from framework design to ongoing management.',
-    gradient: 'from-[#1a4a6e] via-secondary to-primary/60',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-white/30" aria-hidden="true">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
+    image: snap2Img,
   },
 ];
 
@@ -75,16 +69,27 @@ const InsightsSection = () => {
               className={`fade-in stagger-${index + 1} bg-white rounded-lg overflow-hidden group cursor-pointer card-lift shadow-card flex flex-col`}
               onClick={(e) => e.preventDefault()}
             >
-              {/* Card image — brand gradient with icon */}
-              <div className={`relative h-44 bg-gradient-to-br ${article.gradient} overflow-hidden`}>
-                {/* Decorative geometric lines */}
-                <div className="absolute inset-0 opacity-[0.07]" style={{
-                  backgroundImage: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 30.5%, rgba(255,255,255,0.5) 31%, transparent 31.5%), linear-gradient(-45deg, transparent 70%, rgba(255,255,255,0.3) 70.5%, rgba(255,255,255,0.3) 71%, transparent 71.5%)',
-                }} />
-                {/* Icon */}
-                <div className="absolute bottom-4 right-5">
-                  {article.icon}
-                </div>
+              {/* Card image — real photo or brand gradient */}
+              <div className={`relative h-44 overflow-hidden ${article.image ? '' : `bg-gradient-to-br ${article.gradient}`}`}>
+                {article.image ? (
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                ) : (
+                  <>
+                    {/* Decorative geometric lines */}
+                    <div className="absolute inset-0 opacity-[0.07]" style={{
+                      backgroundImage: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 30.5%, rgba(255,255,255,0.5) 31%, transparent 31.5%), linear-gradient(-45deg, transparent 70%, rgba(255,255,255,0.3) 70.5%, rgba(255,255,255,0.3) 71%, transparent 71.5%)',
+                    }} />
+                    {/* Icon */}
+                    <div className="absolute bottom-4 right-5">
+                      {article.icon}
+                    </div>
+                  </>
+                )}
                 {/* Category pill on image */}
                 <div className="absolute top-5 left-5">
                   <span className="text-[10px] font-heading font-semibold text-white/80 bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full tracking-[0.12em] uppercase">
