@@ -13,7 +13,7 @@ const QuoteSection = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 text-center">
         <div className="w-10 h-0.5 bg-primary mx-auto mb-12" />
         <blockquote className="font-heading text-[1.625rem] md:text-[2.125rem] lg:text-[2.75rem] font-bold text-white leading-[1.15] mb-10" style={{ letterSpacing: '-0.02em' }}>
-          &ldquo;The result is not cheaper consulting. It&apos;s fundamentally better advisory: more comprehensive, more responsive, and more closely tied to outcomes.&rdquo;
+          &ldquo;We do not just advise. We help build what is next.&rdquo;
         </blockquote>
         <div className="w-8 h-0.5 bg-primary/40 mx-auto mb-5" />
         <div className="text-white/40 font-heading text-xs tracking-[0.2em] uppercase">

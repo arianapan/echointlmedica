@@ -5,10 +5,10 @@ const cases = [
   {
     category: 'Featured client success story',
     title: 'US Oncology Biotech Enters Greater China Clinical Pathway',
-    detail: 'Designed a complete China clinical and commercialization strategy for a first-in-class therapeutic, including CRO selection, cost modeling, regulatory timeline, and investor narrative for a $5M+ capital raise.',
+    detail: 'Designed a complete China clinical and commercialization strategy for a first-in-class therapeutic, including CRO selection, cost modeling, regulatory timeline, and investor narrative for a $10M+ capital raise.',
     metrics: [
       { value: '65%', label: 'Cost reduction vs. US clinical trials' },
-      { value: '$5M+', label: 'Capital raise supported' },
+      { value: '$10M+', label: 'Capital raise supported' },
     ],
     image: assets.Story1,
     srcSet: assets.Story1SrcSet,
@@ -17,7 +17,7 @@ const cases = [
   {
     category: 'Featured client success story',
     title: 'Top-Tier US Cancer Center × Chinese Hospital Collaboration',
-    detail: 'Structured a cross-border partnership between a leading US academic medical center and Chinese hospital network — covering education programs, remote tumor board services, and strategic research collaboration.',
+    detail: 'Structured a cross-border partnership between a leading US academic medical center and Chinese hospital network, covering education programs, remote tumor board services, and strategic research collaboration.',
     metrics: [
       { value: '2', label: 'Institutions connected across the Pacific' },
       { value: 'Multi-year', label: 'Partnership structure delivered' },
@@ -29,7 +29,7 @@ const cases = [
   {
     category: 'Featured client success story',
     title: 'Fundraising Support Package Delivered in Days, Not Weeks',
-    detail: 'Deployed AI-accelerated workflows to deliver a complete investor readiness package — financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard — in under one week.',
+    detail: 'Deployed AI-accelerated workflows to deliver a complete investor readiness package: financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard in under one week.',
     metrics: [
       { value: '5 days', label: 'Full package delivered end-to-end' },
       { value: '80+', label: 'Investors mapped and scored' },
@@ -96,7 +96,7 @@ const ResultsSection = () => {
         {/* Big heading — light weight, elegant */}
         <div className="mb-8 md:mb-10 fade-in">
           <h2 className="font-heading text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-light text-textDark" style={{ lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-            Bold steps forward.
+            Bold Steps Forward.
           </h2>
         </div>
 
@@ -142,7 +142,7 @@ const ResultsSection = () => {
 
             {/* Read story link */}
             <button className="flex items-center text-primary text-sm font-heading font-semibold group cursor-pointer">
-              Read story
+              Read Story
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1.5 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

@@ -14,7 +14,7 @@ const services = [
     heroLine: 'We design your market entry so you don\'t navigate it alone.',
     paragraphs: [
       'End-to-end advisory for US biotech companies entering Greater China. We design your market entry, select CRO and hospital partners, build execution budgets, and manage the cross-border relationship.',
-      'Our team has direct access to China-side institutional relationships — CROs, hospitals, investors, and regulatory networks — enabling us to move faster and with more precision than traditional advisory firms.',
+      'Our team has direct access to China-side institutional relationships: CROs, hospitals, investors, and regulatory networks, enabling us to move faster and with more precision than traditional advisory firms.',
     ],
     capabilities: ['CRO Matching', 'Clinical Cost Analysis', 'Regulatory Landscape', 'Partner Selection', 'AI-Powered Research'],
   },
@@ -23,7 +23,7 @@ const services = [
     tagline: 'Structured matchmaking between US academic medical centers and Chinese hospitals.',
     heroLine: 'Building collaborations that last across the Pacific.',
     paragraphs: [
-      'We design the collaboration framework between US academic medical centers and leading Chinese hospitals — identifying counterparties, packaging the value proposition, and managing the ongoing partnership.',
+      'We design the collaboration framework between US academic medical centers and leading Chinese hospitals, identifying counterparties, packaging the value proposition, and managing the ongoing partnership.',
       'Our partnerships cover education programs, remote tumor board services, strategic research collaboration, and clinical exchange programs.',
     ],
     capabilities: ['AMC Partnerships', 'Hospital Matching', 'Program Design', 'Relationship Management', 'AI-Curated Intelligence'],
@@ -34,13 +34,13 @@ const services = [
     heroLine: 'From pitch to pipeline in days, not months.',
     paragraphs: [
       'A 2–4 week intensive that prepares biotech companies for their next raise. AI-accelerated financial modeling, investor targeting with thesis-fit analysis, pitch deck strategy, and meeting preparation.',
-      'Delivered as a complete fundraising support package — not piecemeal advice.',
+      'Delivered as a complete fundraising support package, not piecemeal advice.',
     ],
     capabilities: ['Financial Modeling', 'Investor Targeting', 'Pitch Strategy', 'AI-Built Models', 'AI Investor Matching'],
   },
   {
     title: 'Capital & Transaction Advisory',
-    tagline: 'Fractional CFO-level support on retainer — fundraising, pipeline, and deal execution.',
+    tagline: 'Fractional CFO-level support on retainer: fundraising, pipeline, and deal execution.',
     heroLine: 'Ongoing strategic advisory, not hourly billing.',
     paragraphs: [
       'Continuous fundraising management, investor pipeline tracking, term sheet negotiation guidance, and deal execution — on retainer, not by the hour.',
@@ -106,7 +106,7 @@ const ServicesSection = () => {
           {/* Header */}
           <div className="mb-16 md:mb-20 fade-in">
             <span className="section-label">CONSULTING SERVICES</span>
-            <h2 className="section-heading">What we do</h2>
+            <h2 className="section-heading">What We Do</h2>
           </div>
 
           {/* Service cards — 2×2 grid with numbers */}

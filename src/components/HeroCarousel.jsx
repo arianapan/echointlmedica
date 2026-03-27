@@ -7,9 +7,9 @@ const slides = [
     color: '#0d2b45',
     image: assets.background1,
     label: 'AI-POWERED BIOTECH ADVISORY',
-    headline: 'Cross-border biotech strategy, accelerated.',
+    headline: 'Cross-Border Biotech Strategy, Accelerated.',
     description:
-      'We help US biotech companies raise capital, enter Greater China, and build institutional partnerships — powered by AI-augmented intelligence.',
+      'We help US biotech companies raise capital, enter Greater China, and build institutional partnerships, powered by AI-augmented intelligence.',
     cta: 'Start a Conversation',
     ctaTarget: '#contact',
   },
@@ -17,9 +17,9 @@ const slides = [
     color: '#2e8bc0',
     image: assets.background2,
     label: 'CROSS-BORDER EXECUTION',
-    headline: <>Navigate China<br />with confidence.</>,
+    headline: <>Navigate China<br />with Confidence.</>,
     description:
-      'End-to-end advisory for US biotech companies entering Greater China — from CRO selection and clinical cost modeling to regulatory strategy.',
+      'End-to-end advisory for US biotech companies entering Greater China, from CRO selection and clinical cost modeling to regulatory strategy.',
     cta: 'Explore Services',
     ctaTarget: '#services',
   },
@@ -27,7 +27,7 @@ const slides = [
     color: '#1a4a6e',
     image: assets.background3,
     label: 'AI-AUGMENTED INTELLIGENCE',
-    headline: <>3× the output.<br />A fraction of the cost.</>,
+    headline: <>3× the Output.<br />A Fraction of the Cost.</>,
     description:
       'Proprietary AI workflows collapse production time while maintaining premium advisory quality. More insight, faster.',
     cta: 'Our AI Approach',

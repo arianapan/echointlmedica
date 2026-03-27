@@ -20,7 +20,7 @@ const capabilities = [
       </svg>
     ),
     title: 'AI-First Operations',
-    brief: 'Proprietary AI workflows power every engagement — from research synthesis to financial modeling.',
+    brief: 'Proprietary AI workflows power every engagement, from research synthesis to financial modeling.',
   },
   {
     icon: (
@@ -41,7 +41,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Outcome-Driven Pricing',
-    brief: 'Retainer and success-fee models aligned with client outcomes — not hours billed.',
+    brief: 'Retainer and success-fee models aligned with client outcomes, not hours billed.',
   },
 ];
 
