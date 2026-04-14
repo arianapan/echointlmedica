@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import snap2Img from '../assets/Snap2.jpg';
 
 const articles = [
@@ -6,6 +7,7 @@ const articles = [
     category: 'CROSS-BORDER STRATEGY',
     title: 'Why Chinese CROs Are 65% Cheaper — and What US Biotechs Need to Know',
     brief: 'A deep look at the cost arbitrage in cross-border clinical development and the operational considerations that determine success.',
+    href: '/insights/chinese-cros-cost-arbitrage',
     gradient: 'from-secondary via-secondary/90 to-primary/70',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-white/30" aria-hidden="true">
@@ -18,6 +20,7 @@ const articles = [
     category: 'AI & ADVISORY',
     title: 'The 3× Deliverable Model: How AI Is Reshaping Biotech Consulting',
     brief: 'Why the future of advisory isn\'t cheaper consulting — it\'s fundamentally better outcomes delivered through AI-augmented intelligence.',
+    href: '/insights/ai-reshaping-biotech-consulting',
     gradient: 'from-primary via-primary/80 to-secondary/90',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-white/30" aria-hidden="true">
@@ -31,6 +34,7 @@ const articles = [
     category: 'INSTITUTIONAL PARTNERSHIPS',
     title: 'Building Hospital Partnerships Across the Pacific: A Practitioner\'s Guide',
     brief: 'Lessons from structuring US–China academic medical center collaborations, from framework design to ongoing management.',
+    href: '/insights/pacific-hospital-partnerships',
     image: snap2Img,
   },
 ];
@@ -63,11 +67,10 @@ const InsightsSection = () => {
         {/* Article cards */}
         <div className="grid lg:grid-cols-3 gap-6">
           {articles.map((article, index) => (
-            <a
+            <Link
               key={index}
-              href="#"
+              to={article.href}
               className={`fade-in stagger-${index + 1} bg-white rounded-lg overflow-hidden group cursor-pointer card-lift shadow-card flex flex-col`}
-              onClick={(e) => e.preventDefault()}
             >
               {/* Card image — real photo or brand gradient */}
               <div className={`relative h-44 overflow-hidden ${article.image ? '' : `bg-gradient-to-br ${article.gradient}`}`}>
@@ -118,7 +121,7 @@ const InsightsSection = () => {
                   </svg>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

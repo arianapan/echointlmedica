@@ -1,4 +1,5 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import HeroCarousel from '../components/HeroCarousel';
 
 const AboutSection = lazy(() => import('../components/AboutSection'));
@@ -17,6 +18,26 @@ const Divider = () => (
 );
 
 const Home = () => {
+  const { hash } = useLocation();
+
+  useLayoutEffect(() => {
+    if (!hash) return;
+    const id = hash.replace('#', '');
+    const prev = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    let attempts = 0;
+    const scrollToTarget = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        document.documentElement.style.scrollBehavior = prev;
+        return;
+      }
+      if (attempts++ < 20) setTimeout(scrollToTarget, 50);
+    };
+    scrollToTarget();
+  }, [hash]);
+
   return (
     <div>
       {/* 1. Hero — dark, full-screen carousel with background images */}

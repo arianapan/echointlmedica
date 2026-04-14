@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 const marqueeItems = [
-  'CAPITAL ADVISORY', 'CHINA MARKET ENTRY', 'CRO SELECTION',
-  'INSTITUTIONAL PARTNERSHIPS', 'AI-AUGMENTED RESEARCH', 'INVESTOR READINESS',
+  'FRACTIONAL AI CFO', 'INVESTOR PIPELINE', 'CHINA MARKET ENTRY',
+  'CRO SELECTION', 'INSTITUTIONAL PARTNERSHIPS', 'AI-AUGMENTED RESEARCH',
   'CROSS-BORDER EXECUTION', 'CLINICAL TRIAL STRATEGY',
 ];
 
@@ -29,24 +29,24 @@ const services = [
     capabilities: ['AMC Partnerships', 'Hospital Matching', 'Program Design', 'Relationship Management', 'AI-Curated Intelligence'],
   },
   {
-    title: 'Investor Readiness Sprints',
-    tagline: 'AI-accelerated 2–4 week intensives to prepare for your next raise.',
-    heroLine: 'From pitch to pipeline in days, not months.',
+    title: 'Continuous Investor Pipeline',
+    tagline: 'Always-on AI investor matching and warm-intro mapping on a monthly retainer.',
+    heroLine: 'Your investor pipeline, running every month, not just before the raise.',
     paragraphs: [
-      'A 2–4 week intensive that prepares biotech companies for their next raise. AI-accelerated financial modeling, investor targeting with thesis-fit analysis, pitch deck strategy, and meeting preparation.',
-      'Delivered as a complete fundraising support package, not piecemeal advice.',
+      'A monthly retainer that keeps your investor pipeline live at all times. AI thesis-fit scoring across hundreds of biotech investors, warm-intro mapping, sentiment tracking, and weekly briefing packages. An optional 2 to 4 week onboarding sprint brings the pipeline to full speed.',
+      'When the data reads out, the list is already prioritized. No cold-start scramble, no piecemeal outreach. Retainer pricing, not hourly billing.',
     ],
-    capabilities: ['Financial Modeling', 'Investor Targeting', 'Pitch Strategy', 'AI-Built Models', 'AI Investor Matching'],
+    capabilities: ['AI Investor Matching', 'Warm-Intro Mapping', 'Investor Sentiment Tracking', 'Weekly Briefing Packages', 'Onboarding Sprint Option'],
   },
   {
-    title: 'Capital & Transaction Advisory',
-    tagline: 'Fractional CFO-level support on retainer: fundraising, pipeline, and deal execution.',
-    heroLine: 'Ongoing strategic advisory, not hourly billing.',
+    title: 'Fractional AI CFO Retainer',
+    tagline: 'Monthly retainer: live runway, board decks, investor pipeline, and KPI dashboard, AI-augmented.',
+    heroLine: 'The finance function a biotech actually needs, on subscription.',
     paragraphs: [
-      'Continuous fundraising management, investor pipeline tracking, term sheet negotiation guidance, and deal execution — on retainer, not by the hour.',
-      'We serve as an extension of your team, providing fractional CFO-level support that scales with your needs from seed through Series B and beyond.',
+      'Our flagship product. A bundled monthly subscription built for biotech finance: a continuously updated cash runway and scenario model, a monthly board deck and investor update drafted from the live model and finalized by a senior advisor, an always-on investor pipeline with AI thesis-fit scoring, and a KPI dashboard tracking burn, milestones, and cash-to-milestone coverage.',
+      'AI does the analytical work. A senior advisor owns the judgment and the client relationship. Retainer pricing replaces hourly billing, because cash runway, investor relationships, and board reporting are continuous functions, not discrete projects.',
     ],
-    capabilities: ['Fundraising Management', 'Pipeline Tracking', 'Deal Structuring', 'Term Sheet Review', 'AI Pipeline Analytics'],
+    capabilities: ['Live Runway Model', 'Monthly Board Deck', 'AI Investor Pipeline', 'KPI Dashboard', 'Senior Advisor Judgment Layer'],
   },
 ];
 
