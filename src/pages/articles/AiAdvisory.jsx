@@ -1,7 +1,7 @@
 import ArticleLayout from './ArticleLayout';
 
 const HeroVisual = () => (
-  <svg viewBox="0 0 480 400" className="w-full max-w-[440px]" aria-hidden="true">
+  <svg viewBox="0 0 520 400" className="w-full max-w-[460px]" aria-hidden="true">
     <defs>
       <linearGradient id="aiJudg" x1="0" y1="0" x2="1" y2="0">
         <stop offset="0" stopColor="#f59e0b" stopOpacity="0.7" />
