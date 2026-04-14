@@ -2,33 +2,23 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import snap2Img from '../assets/Snap2.jpg';
 
+const croCoverImg = '/articles/cro-cost-arbitrage.jpg';
+const aiCoverImg = '/articles/ai-advisory.jpg';
+
 const articles = [
   {
     category: 'CROSS-BORDER STRATEGY',
     title: 'Why Chinese CROs Are 65% Cheaper — and What US Biotechs Need to Know',
     brief: 'A deep look at the cost arbitrage in cross-border clinical development and the operational considerations that determine success.',
     href: '/insights/chinese-cros-cost-arbitrage',
-    gradient: 'from-secondary via-secondary/90 to-primary/70',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-white/30" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
-      </svg>
-    ),
+    image: croCoverImg,
   },
   {
     category: 'AI & ADVISORY',
     title: 'The 3× Deliverable Model: How AI Is Reshaping Biotech Consulting',
     brief: 'Why the future of advisory isn\'t cheaper consulting — it\'s fundamentally better outcomes delivered through AI-augmented intelligence.',
     href: '/insights/ai-reshaping-biotech-consulting',
-    gradient: 'from-primary via-primary/80 to-secondary/90',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-white/30" aria-hidden="true">
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <path d="M9 9h6v6H9z" />
-        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
-      </svg>
-    ),
+    image: aiCoverImg,
   },
   {
     category: 'INSTITUTIONAL PARTNERSHIPS',

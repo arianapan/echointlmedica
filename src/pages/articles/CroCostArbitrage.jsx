@@ -1,5 +1,55 @@
 import ArticleLayout from './ArticleLayout';
 
+const HeroVisual = () => (
+  <svg viewBox="0 0 480 400" className="w-full max-w-[440px]" aria-hidden="true">
+    <defs>
+      <linearGradient id="croBarChina" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stopColor="#2e8bc0" stopOpacity="0.35" />
+        <stop offset="1" stopColor="#7fb7d9" stopOpacity="0.95" />
+      </linearGradient>
+      <linearGradient id="croBarUs" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stopColor="rgba(255,255,255,0.03)" />
+        <stop offset="1" stopColor="rgba(255,255,255,0.14)" />
+      </linearGradient>
+    </defs>
+
+    {/* Eyebrow */}
+    <text x="40" y="24" fill="rgba(255,255,255,0.55)" fontSize="11" fontFamily="Lexend, sans-serif" letterSpacing="2.5" fontWeight="500">
+      PHASE II ONCOLOGY · ILLUSTRATIVE
+    </text>
+    <line x1="40" y1="34" x2="80" y2="34" stroke="#2e8bc0" strokeWidth="1.5" />
+
+    {/* Grid baseline marks */}
+    <g stroke="rgba(255,255,255,0.08)" strokeDasharray="2 4">
+      <line x1="40" y1="60" x2="360" y2="60" />
+      <line x1="40" y1="150" x2="360" y2="150" />
+      <line x1="40" y1="240" x2="360" y2="240" />
+    </g>
+
+    {/* Boston bar (full height) */}
+    <rect x="70" y="60" width="110" height="280" fill="url(#croBarUs)" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+    <text x="125" y="49" fill="#fff" fontSize="22" fontWeight="600" fontFamily="Lexend, sans-serif" textAnchor="middle">$12.0M</text>
+    <text x="125" y="362" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="500" fontFamily="Lexend, sans-serif" letterSpacing="2.5" textAnchor="middle">BOSTON</text>
+
+    {/* Shanghai bar (scaled to 4.3/12 ≈ 35.8% = 100px) */}
+    <rect x="220" y="240" width="110" height="100" fill="url(#croBarChina)" stroke="#2e8bc0" strokeWidth="1" />
+    <text x="275" y="228" fill="#7fb7d9" fontSize="22" fontWeight="700" fontFamily="Lexend, sans-serif" textAnchor="middle">$4.3M</text>
+    <text x="275" y="362" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="500" fontFamily="Lexend, sans-serif" letterSpacing="2.5" textAnchor="middle">SHANGHAI</text>
+
+    {/* Baseline */}
+    <line x1="40" y1="340" x2="360" y2="340" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+
+    {/* Delta bracket */}
+    <g stroke="#f59e0b" strokeWidth="1.3" fill="none">
+      <line x1="355" y1="60" x2="370" y2="60" />
+      <line x1="370" y1="60" x2="370" y2="240" />
+      <line x1="355" y1="240" x2="370" y2="240" />
+    </g>
+    <text x="382" y="158" fill="#f59e0b" fontSize="26" fontWeight="700" fontFamily="Lexend, sans-serif">−65%</text>
+    <text x="382" y="178" fill="rgba(245,158,11,0.7)" fontSize="10" fontFamily="Lexend, sans-serif" letterSpacing="2.5">DELTA</text>
+  </svg>
+);
+
 const CroCostArbitrage = () => (
   <ArticleLayout
     category="Cross-Border Strategy"
@@ -10,6 +60,8 @@ const CroCostArbitrage = () => (
     isoDate="2026-04-14"
     slug="chinese-cros-cost-arbitrage"
     heroGradient="from-secondary via-secondary/90 to-primary/70"
+    heroVisual={<HeroVisual />}
+    ogImage="/articles/cro-cost-arbitrage.jpg"
   >
     <p className="lede">
       A Phase I study that might cost roughly $7 million to run in Boston can cost closer to $2.5 million to run in Shanghai.
@@ -48,6 +100,7 @@ const CroCostArbitrage = () => (
       over 18 months would typically break down as follows based on published CRO benchmarks:
     </p>
 
+    <div className="table-wrap">
     <table className="data-table">
       <thead>
         <tr>
@@ -66,6 +119,7 @@ const CroCostArbitrage = () => (
         <tr><td><strong>Total program cost</strong></td><td><strong>~$12M</strong></td><td><strong>~$4.3M</strong></td><td><strong>~64%</strong></td></tr>
       </tbody>
     </table>
+    </div>
 
     <p>
       These are directional figures based on published benchmarks and our practitioner experience, not precise quotations.

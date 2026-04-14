@@ -1,5 +1,58 @@
 import ArticleLayout from './ArticleLayout';
 
+const HeroVisual = () => (
+  <svg viewBox="0 0 480 400" className="w-full max-w-[440px]" aria-hidden="true">
+    <defs>
+      <linearGradient id="aiJudg" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#f59e0b" stopOpacity="0.7" />
+        <stop offset="1" stopColor="#f59e0b" stopOpacity="1" />
+      </linearGradient>
+    </defs>
+
+    {/* Eyebrow */}
+    <text x="20" y="24" fill="rgba(255,255,255,0.55)" fontSize="11" fontFamily="Lexend, sans-serif" letterSpacing="2.5" fontWeight="500">
+      ONE CONSULTANT WEEK · TIME ALLOCATION
+    </text>
+    <line x1="20" y1="34" x2="60" y2="34" stroke="#2e8bc0" strokeWidth="1.5" />
+
+    {/* Grid guide */}
+    <g stroke="rgba(255,255,255,0.08)" strokeDasharray="2 4">
+      <line x1="20" y1="70" x2="380" y2="70" />
+      <line x1="20" y1="300" x2="380" y2="300" />
+    </g>
+
+    {/* Row 1: PRE-AI */}
+    <text x="20" y="88" fill="rgba(255,255,255,0.72)" fontSize="12" fontFamily="Lexend, sans-serif" fontWeight="500" letterSpacing="2.5">PRE-AI</text>
+    <g transform="translate(20, 100)">
+      <rect x="0" y="0" width="270" height="50" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.30)" strokeWidth="1" />
+      <rect x="270" y="0" width="90" height="50" fill="url(#aiJudg)" />
+      <text x="135" y="31" fill="rgba(255,255,255,0.72)" fontSize="11" fontFamily="Lexend, sans-serif" fontWeight="500" letterSpacing="2" textAnchor="middle">ASSEMBLY · 75%</text>
+      <text x="315" y="31" fill="#fff" fontSize="10" fontFamily="Lexend, sans-serif" fontWeight="600" letterSpacing="1.5" textAnchor="middle">25%</text>
+    </g>
+
+    {/* Row 2: AI-AUGMENTED */}
+    <text x="20" y="225" fill="#7fb7d9" fontSize="12" fontFamily="Lexend, sans-serif" fontWeight="600" letterSpacing="2.5">AI-AUGMENTED</text>
+    <g transform="translate(20, 237)">
+      <rect x="0" y="0" width="72" height="50" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.30)" strokeWidth="1" />
+      <rect x="72" y="0" width="288" height="50" fill="url(#aiJudg)" />
+      <text x="36" y="31" fill="rgba(255,255,255,0.7)" fontSize="10" fontFamily="Lexend, sans-serif" fontWeight="500" letterSpacing="1.5" textAnchor="middle">20%</text>
+      <text x="216" y="31" fill="#fff" fontSize="12" fontFamily="Lexend, sans-serif" fontWeight="600" letterSpacing="2" textAnchor="middle">JUDGMENT · 80%</text>
+    </g>
+
+    {/* Dotted guide showing judgment edge shifting left */}
+    <path d="M 290 150 Q 180 193 92 237" fill="none" stroke="rgba(245,158,11,0.55)" strokeWidth="1.3" strokeDasharray="3 4" />
+
+    {/* 3× JUDGMENT callout */}
+    <g transform="translate(395, 180)">
+      <line x1="0" y1="-20" x2="14" y2="-20" stroke="#f59e0b" strokeWidth="1.3" />
+      <line x1="14" y1="-20" x2="14" y2="38" stroke="#f59e0b" strokeWidth="1.3" />
+      <line x1="0" y1="38" x2="14" y2="38" stroke="#f59e0b" strokeWidth="1.3" />
+      <text x="24" y="10" fill="#f59e0b" fontSize="26" fontWeight="700" fontFamily="Lexend, sans-serif">3×</text>
+      <text x="24" y="28" fill="rgba(245,158,11,0.75)" fontSize="10" fontFamily="Lexend, sans-serif" letterSpacing="2.5">JUDGMENT</text>
+    </g>
+  </svg>
+);
+
 const AiAdvisory = () => (
   <ArticleLayout
     category="AI & Advisory"
@@ -10,6 +63,8 @@ const AiAdvisory = () => (
     isoDate="2026-04-14"
     slug="ai-reshaping-biotech-consulting"
     heroGradient="from-primary via-primary/80 to-secondary/90"
+    heroVisual={<HeroVisual />}
+    ogImage="/articles/ai-advisory.jpg"
   >
     <p className="lede">
       The biotech consulting industry is at an inflection point. Not because AI is going to replace consultants,
@@ -54,6 +109,7 @@ const AiAdvisory = () => (
       AI-augmented workflows became standard:
     </p>
 
+    <div className="table-wrap">
     <table className="data-table">
       <thead>
         <tr>
@@ -71,6 +127,7 @@ const AiAdvisory = () => (
         <tr><td>Regulatory precedent review</td><td>~50</td><td>~12</td><td>Deeper historical reach</td></tr>
       </tbody>
     </table>
+    </div>
 
     <div className="callout">
       <span className="callout-label">The 3x Framing</span>

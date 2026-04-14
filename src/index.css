@@ -171,8 +171,15 @@
   .article-body .sources ol {
     @apply pl-5 space-y-1.5;
   }
+  .article-body .table-wrap {
+    @apply my-10 overflow-x-auto;
+  }
+  .article-body .table-wrap > .data-table {
+    @apply my-0;
+  }
   .article-body .data-table {
     @apply w-full my-10 text-sm border-collapse;
+    min-width: 560px;
   }
   .article-body .data-table th {
     @apply bg-secondary text-white font-heading font-semibold text-left px-4 py-3 text-xs uppercase tracking-wider;
