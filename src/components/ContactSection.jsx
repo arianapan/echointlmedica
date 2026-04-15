@@ -94,21 +94,6 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-white/[0.07] text-primary flex items-center justify-center shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-heading text-sm font-semibold text-white/80 mb-1">Phone</h4>
-                  <a href="tel:+16282258386" className="text-white/50 text-[15px] hover:text-primary transition-colors">
-                    +1 (628) 225-8386
-                  </a>
-                </div>
-              </div>
-
               {/* Offices */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-white/[0.07] text-primary flex items-center justify-center shrink-0 mt-0.5">
@@ -121,11 +106,15 @@ const ContactSection = () => {
                   <h4 className="font-heading text-sm font-semibold text-white/80 mb-3">Offices</h4>
                   <div className="space-y-3 text-white/50 text-[14px] leading-relaxed">
                     <p>
+                      <span className="text-white/70 font-medium">United States:</span><br />
+                      327 J St, Davis, CA 95616
+                    </p>
+                    <p>
                       <span className="text-white/70 font-medium">Hong Kong:</span><br />
                       RM22 2/F Fu Tao Bldg, No.98 Argyle St, Mong Kok, Hong Kong
                     </p>
                     <p>
-                      <span className="text-white/70 font-medium">China:</span><br />
+                      <span className="text-white/70 font-medium">China Mainland:</span><br />
                       Unit 2806, Bldg C, Huangdu Plaza, Futian Dist, Shenzhen, China
                     </p>
                   </div>

@@ -6,6 +6,8 @@ const AboutSection = lazy(() => import('../components/AboutSection'));
 const ServiceSection = lazy(() => import('../components/ServiceCarousel'));
 const AIAdvantageSection = lazy(() => import('../components/MissionSection'));
 const ResultsSection = lazy(() => import('../components/ResultsSection'));
+const PricingTiers = lazy(() => import('../components/PricingTiers'));
+const PricingDetails = lazy(() => import('../components/PricingDetails'));
 const QuoteSection = lazy(() => import('../components/QuoteSection'));
 const InsightsSection = lazy(() => import('../components/InsightsSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
@@ -51,32 +53,39 @@ const Home = () => {
       {/* ─ divider ─ */}
       <Divider />
 
-      {/* 3. Services — dark marquee + white cards with slide-in detail */}
+      {/* 3. Services — What we do (companion to About) */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <ServiceSection />
       </Suspense>
 
-      {/* 4. AI Advantage — dark section, numbered steps + metrics */}
+      {/* 4. Pricing — 3-tier summary + collapsible feature matrix / add-ons / scenarios / FAQ */}
+      <Suspense fallback={<section style={{ minHeight: '500px' }} aria-hidden="true" />}>
+        <PricingTiers variant="home">
+          <PricingDetails />
+        </PricingTiers>
+      </Suspense>
+
+      {/* 5. AI Advantage — dark section, numbered steps + metrics */}
       <Suspense fallback={<section style={{ minHeight: '500px' }} aria-hidden="true" />}>
         <AIAdvantageSection />
       </Suspense>
 
-      {/* 5. Results — white, case study cards */}
+      {/* 6. Results — white, case study cards */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <ResultsSection />
       </Suspense>
 
-      {/* 6. Quote — dark statement break */}
+      {/* 7. Quote — dark statement break */}
       <Suspense fallback={<section style={{ minHeight: '200px' }} aria-hidden="true" />}>
         <QuoteSection />
       </Suspense>
 
-      {/* 7. Insights — light gray, article cards */}
+      {/* 8. Insights — light gray, article cards */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <InsightsSection />
       </Suspense>
 
-      {/* 8. Contact — dark, full form + info */}
+      {/* 9. Contact — dark, full form + info */}
       <Suspense fallback={<section style={{ minHeight: '300px' }} aria-hidden="true" />}>
         <ContactSection />
       </Suspense>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import assets from '../assets';
 
 const Navbar = () => {
@@ -7,10 +7,11 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { path: '/#about', label: 'About' },
-    { path: '/services/fractional-ai-cfo', label: 'Pricing', external: true },
+    { path: '/#pricing', label: 'Pricing' },
     { path: '/#ai-advantage', label: 'AI Approach' },
     { path: '/#results', label: 'Results' },
     { path: '/#insights', label: 'Insights' },
@@ -21,7 +22,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['hero', 'services', 'ai-advantage', 'results', 'insights', 'about', 'contact'];
+      const sections = ['hero', 'services', 'ai-advantage', 'results', 'pricing', 'insights', 'about', 'contact'];
       const currentSection = sections.find(sectionId => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -59,13 +60,24 @@ const Navbar = () => {
   const handleLinkClick = useCallback((path) => {
     setIsMenuOpen(false);
     const targetId = path.replace('/#', '');
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      setActiveSection(targetId);
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      window.history.replaceState(null, null, `#${targetId}`);
+
+    const scrollToTarget = () => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        setActiveSection(targetId);
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.replaceState(null, null, `#${targetId}`);
+      }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(scrollToTarget, 80);
+      return;
     }
-  }, []);
+
+    scrollToTarget();
+  }, [location.pathname, navigate]);
 
   return (
     <>
