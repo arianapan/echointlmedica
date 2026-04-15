@@ -34,6 +34,52 @@ const articles = [
     category: 'Institutional Partnerships',
     isoDate: '2026-04-14',
   },
+  {
+    pathPrefix: 'case-studies',
+    slug: 'us-oncology-china-entry',
+    title: 'How a US Oncology Biotech Opened a Greater China Clinical Pathway at 65% Lower Cost',
+    description: 'Inside the 16-week engagement that designed a full China clinical and commercialization strategy for a first-in-class therapeutic, and anchored a $10M+ capital raise.',
+    ogImage: '/articles/ai-advisory.jpg',
+    category: 'Client Success Story',
+    isoDate: '2026-04-14',
+  },
+  {
+    pathPrefix: 'case-studies',
+    slug: 'us-china-cancer-center-partnership',
+    title: 'A Top-Tier US Cancer Center × Chinese Hospital Partnership That Actually Produces Output',
+    description: 'How Echo structured a multi-year cross-Pacific collaboration covering physician education, remote tumor boards, and joint research, and the governance that kept it alive past the signing ceremony.',
+    ogImage: '/og-preview.jpg',
+    category: 'Client Success Story',
+    isoDate: '2026-04-14',
+  },
+  {
+    pathPrefix: 'case-studies',
+    slug: 'ai-fundraising-package-5-days',
+    title: 'A Complete Biotech Fundraising Package in 5 Days: Inside an AI-Accelerated Workflow',
+    description: 'How Echo delivered a full investor-readiness package — financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard — end-to-end in under a week.',
+    ogImage: '/articles/ai-advisory.jpg',
+    category: 'Client Success Story',
+    isoDate: '2026-04-14',
+  },
+];
+
+// Non-article landing pages (services, comparison). Prerendered into per-route
+// HTML so social scrapers and AI crawlers see full meta without executing JS.
+const pages = [
+  {
+    path: '/services/fractional-ai-cfo',
+    title: 'Fractional AI CFO for Biotech | Monthly Retainer for Cross-Border Life Sciences',
+    description: 'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,450/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.',
+    ogImage: '/articles/ai-advisory.jpg',
+    ogType: 'website',
+  },
+  {
+    path: '/compare/fractional-cfo-biotech',
+    title: 'Fractional CFO for Biotech: Pilot vs Toptal vs Brightbal vs Echo | 2026 Comparison',
+    description: 'An honest 2026 comparison of fractional CFO options for biotech: Pilot, Toptal, Brightbal, Burkland, Kruze, and Echo. Pricing, specialization, cross-border capability, and which fits your stage.',
+    ogImage: '/articles/ai-advisory.jpg',
+    ogType: 'article',
+  },
 ];
 
 const esc = (s) =>
@@ -55,7 +101,8 @@ if (!fs.existsSync(templatePath)) {
 const template = fs.readFileSync(templatePath, 'utf8');
 
 for (const a of articles) {
-  const canonical = `${SITE_URL}/insights/${a.slug}`;
+  const prefix = a.pathPrefix || 'insights';
+  const canonical = `${SITE_URL}/${prefix}/${a.slug}`;
   const ogImageUrl = a.ogImage.startsWith('http') ? a.ogImage : `${SITE_URL}${a.ogImage}`;
   const pageTitle = `${a.title} | Echo International Medica`;
 
@@ -112,10 +159,42 @@ for (const a of articles) {
 
   html = html.replace('</head>', `${articleMeta}\n    ${ldScript}\n  </head>`);
 
-  const outDir = path.join(distDir, 'insights', a.slug);
+  const outDir = path.join(distDir, prefix, a.slug);
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
-  console.log(`Prerendered: /insights/${a.slug}/index.html`);
+  console.log(`Prerendered: /${prefix}/${a.slug}/index.html`);
+}
+
+// Prerender non-article pages (services, comparison)
+for (const p of pages) {
+  const canonical = `${SITE_URL}${p.path}`;
+  const ogImageUrl = p.ogImage.startsWith('http') ? p.ogImage : `${SITE_URL}${p.ogImage}`;
+  const pageTitle = `${p.title.includes('Echo') ? p.title : p.title + ' | Echo International Medica'}`;
+
+  let html = template;
+  const replaceTag = (pattern, replacement) => {
+    if (pattern.test(html)) html = html.replace(pattern, replacement);
+    else html = html.replace('</head>', `    ${replacement}\n  </head>`);
+  };
+
+  replaceTag(/<title>[^<]*<\/title>/i, `<title>${esc(pageTitle)}</title>`);
+  replaceTag(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${esc(p.description)}" />`);
+  replaceTag(/<link\s+rel="canonical"[^>]*>/i, `<link rel="canonical" href="${canonical}" />`);
+
+  replaceTag(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="${p.ogType || 'website'}" />`);
+  replaceTag(/<meta\s+property="og:url"[^>]*>/i, `<meta property="og:url" content="${canonical}" />`);
+  replaceTag(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${esc(p.title)}" />`);
+  replaceTag(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${esc(p.description)}" />`);
+  replaceTag(/<meta\s+property="og:image"[^>]*>/i, `<meta property="og:image" content="${ogImageUrl}" />`);
+
+  replaceTag(/<meta\s+name="twitter:title"[^>]*>/i, `<meta name="twitter:title" content="${esc(p.title)}" />`);
+  replaceTag(/<meta\s+name="twitter:description"[^>]*>/i, `<meta name="twitter:description" content="${esc(p.description)}" />`);
+  replaceTag(/<meta\s+name="twitter:image"[^>]*>/i, `<meta name="twitter:image" content="${ogImageUrl}" />`);
+
+  const outDir = path.join(distDir, ...p.path.split('/').filter(Boolean));
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html);
+  console.log(`Prerendered: ${p.path}/index.html`);
 }
 
 // SPA fallback for GitHub Pages: any unknown route → 404.html → React Router
@@ -123,4 +202,4 @@ for (const a of articles) {
 fs.copyFileSync(templatePath, path.join(distDir, '404.html'));
 console.log(`SPA fallback: 404.html written`);
 
-console.log(`\nDone. ${articles.length} article HTMLs + 404 fallback generated.`);
+console.log(`\nDone. ${articles.length} article HTMLs + ${pages.length} page HTMLs + 404 fallback generated.`);

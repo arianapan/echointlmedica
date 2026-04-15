@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import assets from '../assets';
 
 const cases = [
@@ -10,6 +11,7 @@ const cases = [
       { value: '65%', label: 'Cost reduction vs. US clinical trials' },
       { value: '$10M+', label: 'Capital raise supported' },
     ],
+    href: '/case-studies/us-oncology-china-entry',
     image: assets.Story1,
     srcSet: assets.Story1SrcSet,
     alt: 'Business professionals discussing cross-border biotech strategy',
@@ -22,6 +24,7 @@ const cases = [
       { value: '2', label: 'Institutions connected across the Pacific' },
       { value: 'Multi-year', label: 'Partnership structure delivered' },
     ],
+    href: '/case-studies/us-china-cancer-center-partnership',
     image: assets.Story2,
     srcSet: assets.Story2SrcSet,
     alt: 'Medical professionals in a cross-border tumor board collaboration',
@@ -34,6 +37,7 @@ const cases = [
       { value: '5 days', label: 'Full package delivered end-to-end' },
       { value: '80+', label: 'Investors mapped and scored' },
     ],
+    href: '/case-studies/ai-fundraising-package-5-days',
     image: assets.Story3,
     srcSet: assets.Story3SrcSet,
     alt: 'AI-accelerated investor readiness and fundraising workflow',
@@ -141,12 +145,12 @@ const ResultsSection = () => {
             </div>
 
             {/* Read story link */}
-            <button className="flex items-center text-primary text-sm font-heading font-semibold group cursor-pointer">
+            <Link to={c.href} className="inline-flex items-center text-primary text-sm font-heading font-semibold group cursor-pointer">
               Read Story
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1.5 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </button>
+            </Link>
           </div>
 
           {/* Right — image area */}
@@ -169,10 +173,9 @@ const ResultsSection = () => {
           </div>
         </div>
 
-        {/* Carousel indicators + CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-between mt-12 md:mt-16 pt-8 border-t border-borderLight">
-          {/* Dots */}
-          <div className="flex gap-2.5 mb-6 sm:mb-0">
+        {/* Carousel indicators */}
+        <div className="flex items-center justify-center mt-12 md:mt-16 pt-8 border-t border-borderLight">
+          <div className="flex gap-2.5">
             {cases.map((_, index) => (
               <button
                 key={index}
@@ -186,11 +189,6 @@ const ResultsSection = () => {
               />
             ))}
           </div>
-
-          {/* See all button */}
-          <button className="font-heading text-xs font-semibold tracking-[0.15em] uppercase text-textDark border-b-2 border-textDark pb-1 hover:text-primary hover:border-primary transition-colors cursor-pointer">
-            See All Client Results
-          </button>
         </div>
 
       </div>

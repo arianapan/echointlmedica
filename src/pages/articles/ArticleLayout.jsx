@@ -31,6 +31,9 @@ const ArticleLayout = ({
   publishDate,
   isoDate,
   slug,
+  pathPrefix = 'insights',
+  backHref = '/#insights',
+  backLabel = 'Back to Our Thinking',
   heroGradient,
   heroVisual,
   ogImage,
@@ -44,7 +47,7 @@ const ArticleLayout = ({
   }, [slug]);
 
   useEffect(() => {
-    const canonical = `${SITE_URL}/insights/${slug}`;
+    const canonical = `${SITE_URL}/${pathPrefix}/${slug}`;
     const description = subtitle || title;
     const pageTitle = `${title} | Echo International Medica`;
 
@@ -116,7 +119,7 @@ const ArticleLayout = ({
       const cleanup = document.getElementById(ldId);
       if (cleanup) cleanup.remove();
     };
-  }, [category, title, subtitle, slug, isoDate, ogImage]);
+  }, [category, title, subtitle, slug, pathPrefix, isoDate, ogImage]);
 
   return (
     <article className="bg-white overflow-x-hidden">
@@ -125,11 +128,11 @@ const ArticleLayout = ({
           backgroundImage: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 30.5%, rgba(255,255,255,0.5) 31%, transparent 31.5%), linear-gradient(-45deg, transparent 70%, rgba(255,255,255,0.3) 70.5%, rgba(255,255,255,0.3) 71%, transparent 71.5%)',
         }} />
         <div className={`relative mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-28 ${heroVisual ? 'max-w-6xl' : 'max-w-4xl'}`}>
-          <Link to="/#insights" className="inline-flex items-center text-white/70 hover:text-white text-sm font-heading mb-10 transition-colors">
+          <Link to={backHref} className="inline-flex items-center text-white/70 hover:text-white text-sm font-heading mb-10 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" className="mr-2" aria-hidden="true">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Back to Our Thinking
+            {backLabel}
           </Link>
           <div className={heroVisual ? 'grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center' : ''}>
             <div>

@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const navLinks = [
     { path: '/#about', label: 'About' },
-    { path: '/#services', label: 'Services' },
+    { path: '/services/fractional-ai-cfo', label: 'Pricing', external: true },
     { path: '/#ai-advantage', label: 'AI Approach' },
     { path: '/#results', label: 'Results' },
     { path: '/#insights', label: 'Insights' },
@@ -48,6 +48,9 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const getIsActive = useCallback((path) => {
+    if (path && !path.startsWith('/#')) {
+      return location.pathname === path;
+    }
     if (location.pathname === '/thanks') return path === '/#contact';
     const sectionId = path.replace('/#', '');
     return activeSection === sectionId;
@@ -103,26 +106,36 @@ const Navbar = () => {
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.path}
-                  className={`relative py-2 text-[15px] font-medium transition-colors duration-300 cursor-pointer ${
-                    getIsActive(link.path)
-                      ? scrolled ? 'text-secondary' : 'text-white'
-                      : scrolled
-                        ? 'text-textMedium hover:text-secondary'
-                        : 'text-white/70 hover:text-white'
-                  }`}
-                  onClick={() => handleLinkClick(link.path)}
-                >
-                  {link.label}
-                  {getIsActive(link.path) && (
-                    <span className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                      scrolled ? 'bg-primary' : 'bg-white'
-                    }`} />
-                  )}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isExternal = link.external || !link.path.startsWith('/#');
+                const className = `relative py-2 text-[15px] font-medium transition-colors duration-300 cursor-pointer ${
+                  getIsActive(link.path)
+                    ? scrolled ? 'text-secondary' : 'text-white'
+                    : scrolled
+                      ? 'text-textMedium hover:text-secondary'
+                      : 'text-white/70 hover:text-white'
+                }`;
+                const underline = getIsActive(link.path) && (
+                  <span className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
+                    scrolled ? 'bg-primary' : 'bg-white'
+                  }`} />
+                );
+                return isExternal ? (
+                  <Link key={link.path} to={link.path} className={className}>
+                    {link.label}
+                    {underline}
+                  </Link>
+                ) : (
+                  <button
+                    key={link.path}
+                    className={className}
+                    onClick={() => handleLinkClick(link.path)}
+                  >
+                    {link.label}
+                    {underline}
+                  </button>
+                );
+              })}
               <button
                 className={`!py-2.5 !px-6 text-[15px] font-heading font-semibold rounded transition-all duration-300 cursor-pointer ${
                   scrolled
@@ -162,19 +175,30 @@ const Navbar = () => {
         <div className="fixed inset-0 z-[99] bg-white flex flex-col lg:hidden">
           <div className="h-16" />
           <nav className="flex-1 flex flex-col justify-center px-10 space-y-2">
-            {navLinks.map((link) => (
-              <button
-                key={link.path}
-                className={`text-left text-2xl font-heading font-semibold py-3 border-b border-borderLight transition-colors ${
-                  getIsActive(link.path)
-                    ? 'text-primary'
-                    : 'text-secondary hover:text-primary'
-                }`}
-                onClick={() => handleLinkClick(link.path)}
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const isExternal = link.external || !link.path.startsWith('/#');
+              const className = `text-left text-2xl font-heading font-semibold py-3 border-b border-borderLight transition-colors ${
+                getIsActive(link.path) ? 'text-primary' : 'text-secondary hover:text-primary'
+              }`;
+              return isExternal ? (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={className}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.path}
+                  className={className}
+                  onClick={() => handleLinkClick(link.path)}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
             <button
               className="btn-primary mt-8 text-lg w-full cursor-pointer"
               onClick={() => handleLinkClick('/#contact')}
