@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const TIERS = [
   {
     name: 'Insight',
-    monthly: 1450,
-    annual: 1305,
+    monthly: 1650,
+    annual: 1485,
     stage: 'Seed',
     role: 'Beyond an in-house FP&A analyst',
     highlight: false,
@@ -19,8 +19,8 @@ export const TIERS = [
   },
   {
     name: 'Foundation',
-    monthly: 4500,
-    annual: 4050,
+    monthly: 3500,
+    annual: 3150,
     stage: 'Seed to Series A',
     role: 'Finance-manager level',
     highlight: true,
@@ -37,8 +37,8 @@ export const TIERS = [
   },
   {
     name: 'Growth',
-    monthly: 8500,
-    annual: 7650,
+    monthly: 6000,
+    annual: 5400,
     stage: 'Series A to B',
     role: 'CFO-level partner',
     highlight: false,
@@ -65,9 +65,12 @@ const PricingTiers = ({ children, variant = 'full' }) => {
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-10">
           <span className="section-label">PRICING</span>
-          <h2 className="section-heading max-w-2xl mx-auto mb-4">One Flat Rate.<br />Every Month. No Lock-In.</h2>
-          <p className="text-textMedium text-base leading-relaxed max-w-xl mx-auto">
-            Month-to-month billing. Annual pre-payment saves 10%.
+          <h2 className="section-heading max-w-2xl mx-auto mb-3">Fractional AI CFO</h2>
+          <p className="text-textDark text-base leading-relaxed max-w-2xl mx-auto mb-2">
+            Senior finance consultants, amplified by AI. Fewer FP&A errors, faster insights, a fraction of the cost.
+          </p>
+          <p className="text-textMedium text-sm leading-relaxed max-w-xl mx-auto">
+            One flat rate. Every month. No lock-in. Annual pre-payment saves 10%.
           </p>
         </div>
 

@@ -7,7 +7,7 @@ const SITE_URL = 'https://echointlmedica.com';
 const PAGE_PATH = '/services/fractional-ai-cfo';
 const PAGE_TITLE = 'Fractional AI CFO for Biotech | Monthly Retainer for Cross-Border Life Sciences';
 const PAGE_DESCRIPTION =
-  'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,450/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.';
+  'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,650/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.';
 const OG_IMAGE = '/articles/ai-advisory.jpg';
 
 const setMeta = (attr, key, value) => {

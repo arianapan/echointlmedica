@@ -36,7 +36,7 @@ const PROVIDERS = [
   {
     name: 'Echo',
     shortName: 'Echo',
-    price: 'From $1,450 / mo',
+    price: 'From $1,650 / mo',
     biotechDepth: 'Biotech-native',
     crossBorder: 'Core specialty',
     aiWorkflows: 'Core to delivery',
@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: 'Why is Echo priced below most of the alternatives for biotech specialization?',
-    a: 'AI-augmented delivery. Our senior advisors spend their hours on judgment (investor tone, board framing, cross-border strategy), and AI workflows handle the analytical assembly layer. That compresses the cost structure without reducing deliverable quality. Echo Insight at $1,450/mo delivers biotech-specific FP&A at roughly a third the cost of traditional biotech-specialized firms, and Growth at $8,500/mo sits at the bottom of the premium biotech-CFO range while adding cross-border capability.',
+    a: 'AI-augmented delivery. Our senior advisors spend their hours on judgment (investor tone, board framing, cross-border strategy), and AI workflows handle the analytical assembly layer. That compresses the cost structure without reducing deliverable quality. Echo Insight at $1,650/mo delivers biotech-specific FP&A at roughly a third the cost of traditional biotech-specialized firms, and Growth at $6,000/mo sits at the bottom of the premium biotech-CFO range while adding cross-border capability.',
   },
   {
     q: 'Why does cross-border capability matter for biotech CFOs?',
@@ -66,7 +66,7 @@ const FAQS = [
   },
   {
     q: 'How does Echo compare to hiring a full-time biotech CFO?',
-    a: 'A US-based biotech CFO base salary is typically $250,000 to $400,000, plus 0.5 to 1.5 percent equity dilution. Fully loaded, expect $350,000+ annually in cash plus dilution. Echo Growth at $8,500/mo equals $102,000 per year ($91,800 on annual billing) with no equity dilution. For Seed through Series A-B biotechs, the fractional option delivers comparable strategic leadership at a fraction of the cost.',
+    a: 'A US-based biotech CFO base salary is typically $250,000 to $400,000, plus 0.5 to 1.5 percent equity dilution. Fully loaded, expect $350,000+ annually in cash plus dilution. Echo Growth at $6,000/mo equals $72,000 per year ($64,800 on annual billing) with no equity dilution. For Seed through Series A-B biotechs, the fractional option delivers comparable strategic leadership at a fraction of the cost.',
   },
   {
     q: 'What if I already have an accountant or bookkeeper?',
@@ -260,10 +260,10 @@ const CompareFractionalCfo = () => {
           <h2 className="section-heading mb-10">If you are...</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,450/mo ($1,305 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
-              { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $4,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
-              { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $8,500/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
-              { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $8,500/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
+              { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,650/mo ($1,485 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
+              { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $3,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
+              { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $6,000/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
+              { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $6,000/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
               { scenario: 'Chinese biotech building credible US operations', answer: 'Echo is a direct fit. Our cross-border practice works both directions: FDA-acceptable data strategy, US investor narrative, US BD targeting.' },
               { scenario: 'Need a one-time sprint rather than a retainer', answer: 'Echo Fundraising Sprint ($9,000) or China Entry Engagement ($30,000). Retainer optional.' },
             ].map((s, i) => (

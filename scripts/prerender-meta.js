@@ -69,7 +69,7 @@ const pages = [
   {
     path: '/services/fractional-ai-cfo',
     title: 'Fractional AI CFO for Biotech | Monthly Retainer for Cross-Border Life Sciences',
-    description: 'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,450/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.',
+    description: 'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,650/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.',
     ogImage: '/articles/ai-advisory.jpg',
     ogType: 'website',
   },

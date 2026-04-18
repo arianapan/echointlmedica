@@ -8,7 +8,7 @@ export const FAQS = [
   },
   {
     q: 'How does this compare to a full-time CFO?',
-    a: 'A biotech FTE CFO in the US costs $250,000 to $400,000 in base salary plus 0.5 to 1.5 percent equity, typically $350,000+ fully loaded. Our Growth retainer at $8,500 per month equals about $102,000 per year (or $91,800 on the annual plan), roughly one-third the cost, with no equity dilution.',
+    a: 'A biotech FTE CFO in the US costs $250,000 to $400,000 in base salary plus 0.5 to 1.5 percent equity, typically $350,000+ fully loaded. Our Growth retainer at $6,000 per month equals about $72,000 per year (or $64,800 on the annual plan), roughly one-fifth the cost, with no equity dilution.',
   },
   {
     q: 'What AI tools are used, and how is the output verified?',
@@ -16,7 +16,7 @@ export const FAQS = [
   },
   {
     q: 'How is pricing structured?',
-    a: 'SaaS-style monthly subscription across three flat-rate tiers. Insight at $1,450/mo ($1,305 on annual) for seed biotechs, delivering more than an in-house FP&A analyst. Foundation at $4,500/mo ($4,050 annual), our most popular tier, is finance-manager-level partner with scenario-modeled runway, scored investor universe, cap table modeling, and bi-weekly advisor calls. Growth at $8,500/mo ($7,650 annual) is CFO-level support for Series A to B fundraising or cross-border programs, including weekly advisor calls, monthly CEO strategy, and always-on investor pipeline. Annual pre-payment saves 10 percent. Month-to-month billing has no commitment beyond the current month.',
+    a: 'SaaS-style monthly subscription across three flat-rate tiers. Insight at $1,650/mo ($1,485 on annual) for seed biotechs, delivering more than an in-house FP&A analyst. Foundation at $3,500/mo ($3,150 annual), our most popular tier, is finance-manager-level partner with scenario-modeled runway, scored investor universe, cap table modeling, and bi-weekly advisor calls. Growth at $6,000/mo ($5,400 annual) is CFO-level support for Series A to B fundraising or cross-border programs, including weekly advisor calls, monthly CEO strategy, and always-on investor pipeline. Annual pre-payment saves 10 percent. Month-to-month billing has no commitment beyond the current month.',
   },
   {
     q: 'How fast is onboarding?',
@@ -29,10 +29,10 @@ export const FAQS = [
 ];
 
 const SCENARIOS = [
-  { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,450/mo ($1,305 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
-  { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $4,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
-  { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $8,500/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
-  { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $8,500/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
+  { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,650/mo ($1,485 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
+  { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $3,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
+  { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $6,000/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
+  { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $6,000/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
   { scenario: 'Chinese biotech building credible US operations', answer: 'Echo is a direct fit. Our cross-border practice works both directions: FDA-acceptable data strategy, US investor narrative, US BD targeting.' },
   { scenario: 'Need a one-time sprint rather than a retainer', answer: 'Echo Fundraising Sprint ($9,000) or China Entry Engagement ($30,000). Retainer optional.' },
 ];
