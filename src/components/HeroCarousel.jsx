@@ -23,21 +23,6 @@ const slides = [
     cta: 'Request a Therapeutic Area Briefing',
     ctaTarget: '#services',
   },
-  {
-    color: '#1a4a6e',
-    image: assets.background3,
-    label: 'AI-AUGMENTED INTELLIGENCE',
-    headline: <>Where the Existing Databases Stop,<br />Echo Begins.</>,
-    description: (
-      <>
-        Citeline and GlobalData under-cover China.<br />
-        Chinese databases aren't built for Western BD workflows.<br />
-        Echo bridges the gap with primary-source depth in a deal-grade format.
-      </>
-    ),
-    cta: 'Our AI Approach',
-    ctaTarget: '#ai-advantage',
-  },
 ];
 
 const HeroCarousel = () => {

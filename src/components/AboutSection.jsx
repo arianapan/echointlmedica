@@ -9,8 +9,8 @@ const capabilities = [
         <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
       </svg>
     ),
-    title: 'Cross-Border Access',
-    brief: 'Direct relationships with US institutions, Chinese hospitals, CROs, and investors on both sides of the Pacific.',
+    title: 'Mainland China Coverage',
+    brief: 'Analysts on the ground in Shanghai and Beijing, tracking antibody and cell therapy programs across CDE filings, conference disclosures, and primary-source company contact.',
   },
   {
     icon: (
@@ -20,8 +20,8 @@ const capabilities = [
         <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
       </svg>
     ),
-    title: 'AI-First Operations',
-    brief: 'Proprietary AI workflows power every engagement, from research synthesis to financial modeling.',
+    title: 'AI-Native Intelligence',
+    brief: 'Proprietary AI workflows synthesize Chinese-language regulatory filings, patents, and trial data into deal-grade English briefs in days, not weeks.',
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const capabilities = [
         <circle cx="12" cy="15" r="2" />
       </svg>
     ),
-    title: 'Finance Expertise',
-    brief: 'Silicon Valley hedge fund and operations background applied to biotech capital strategy.',
+    title: 'Modality Depth',
+    brief: 'Specialized coverage of ADCs, bispecifics, CAR-T, TCR-T, and next-generation cell therapies — the modalities driving China-origin BD activity.',
   },
   {
     icon: (
@@ -41,8 +41,8 @@ const capabilities = [
         <path d="M12 6v6l4 2" />
       </svg>
     ),
-    title: 'Outcome-Driven Pricing',
-    brief: 'Retainer and success-fee models aligned with client outcomes, not hours billed.',
+    title: 'BD-Ready Output',
+    brief: 'Structured target lists, competitor maps, and licensing diligence formatted for global pharma BD workflows — not academic research dumps.',
   },
 ];
 
@@ -69,9 +69,9 @@ const AboutSection = () => {
         <div className="mb-16 md:mb-20 fade-in grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <span className="section-label">ABOUT ECHO</span>
-            <h2 className="section-heading mb-6">China BD Intelligence<br />for Western Pharma.</h2>
+            <h2 className="section-heading mb-6">Antibody and Cell Therapy BD Intelligence<br />for Western Pharma</h2>
             <p className="text-textMedium text-lg md:text-xl leading-relaxed">
-              Echo turns fragmented Chinese regulatory filings, deal data, and company intelligence into structured briefs Western BD teams can act on. Headquartered in Hong Kong. Analysts on the ground in mainland China.
+              Structured intelligence on China-origin ADCs, bispecifics, CAR-T, and next-generation cell therapies, built for global pharma BD teams. Hong Kong headquartered. Analysts on the ground in mainland China.
             </p>
           </div>
           <div className="lg:col-span-5 group overflow-hidden rounded-2xl ring-1 ring-black/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] transition-shadow duration-500 ease-out hover:shadow-[0_4px_16px_rgba(0,0,0,0.06),0_20px_60px_rgba(0,0,0,0.12)]">
