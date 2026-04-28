@@ -35,10 +35,11 @@ import Story3Webp from './Story3.jpg?imagetools&format=webp&width=400;600;900&as
 import Story3JpgSet from './Story3.jpg?imagetools&format=jpg&width=400;600;900&as=srcset';
 import Story3_600 from './Story3.jpg?imagetools&width=600';
 
-// 背景图：使用 1920 宽 webp 作为默认（Hero 背景）
-import background1_1920 from './background1.jpg?imagetools&format=webp&width=1920';
-import background2_1920 from './background2.jpg?imagetools&format=webp&width=1920';
-import background3_1920 from './background3.jpg?imagetools&format=webp&width=1920';
+// 背景图：统一 1920x1080（16:9）webp，保证 Hero 轮播各张背景同尺寸
+import background1_1920 from './background1.jpg?imagetools&format=webp&width=1920&height=1080&fit=cover';
+import background2_1920 from './background2.jpg?imagetools&format=webp&width=1920&height=1080&fit=cover';
+import background2OptionA_1920 from './background2-optionA.png?imagetools&format=webp&width=1920&height=1080&fit=cover';
+import background3_1920 from './background3.jpg?imagetools&format=webp&width=1920&height=1080&fit=cover';
 
 // 导出统一的assets对象
 const assets = {
@@ -62,6 +63,7 @@ const assets = {
   // 背景图（webp）
   background1: background1_1920,
   background2: background2_1920,
+  background2OptionA: background2OptionA_1920,
   background3: background3_1920,
 };
 

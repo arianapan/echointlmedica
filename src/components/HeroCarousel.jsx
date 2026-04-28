@@ -5,31 +5,36 @@ import assets from '../assets';
 const slides = [
   {
     color: '#0d2b45',
-    image: assets.background1,
-    label: 'AI-POWERED BIOTECH ADVISORY',
-    headline: 'Cross-Border Biotech Strategy, Accelerated.',
+    image: assets.background2,
+    label: 'CROSS-BORDER BD INTELLIGENCE',
+    headline: 'China BD Intelligence for Global Pharma',
     description:
-      'We help US biotech companies raise capital, enter Greater China, and build institutional partnerships, powered by AI-augmented intelligence.',
-    cta: 'Start a Conversation',
+      'Echo helps global pharma BD teams source, screen, and prioritize China-origin biotech assets with decision-ready intelligence built from Chinese language regulatory, deal, and company data.',
+    cta: 'See a Sample Brief',
     ctaTarget: '#contact',
   },
   {
     color: '#2e8bc0',
-    image: assets.background2,
-    label: 'CROSS-BORDER EXECUTION',
+    image: assets.background2OptionA,
+    label: 'MARKET ENTRY READINESS',
     headline: <>Navigate China<br />with Confidence.</>,
     description:
-      'End-to-end advisory for US biotech companies entering Greater China, from CRO selection and clinical cost modeling to regulatory strategy.',
-    cta: 'Explore Services',
+      'Each brief is structured around the signals BD teams actually use: mechanism, regulatory status, comparable deals, IP landscape, and BD readiness.',
+    cta: 'Request a Therapeutic Area Briefing',
     ctaTarget: '#services',
   },
   {
     color: '#1a4a6e',
     image: assets.background3,
     label: 'AI-AUGMENTED INTELLIGENCE',
-    headline: <>3× the Output.<br />A Fraction of the Cost.</>,
-    description:
-      'Proprietary AI workflows collapse production time while maintaining premium advisory quality. More insight, faster.',
+    headline: <>Where the Existing Databases Stop,<br />Echo Begins.</>,
+    description: (
+      <>
+        Citeline and GlobalData under-cover China.<br />
+        Chinese databases like Yaozhi (药智) and Pharmcube (医药魔方) aren't built for Western BD workflows.<br />
+        Echo bridges the gap with primary-source depth in a deal-grade format.
+      </>
+    ),
     cta: 'Our AI Approach',
     ctaTarget: '#ai-advantage',
   },
@@ -76,7 +81,7 @@ const HeroCarousel = () => {
         setCurrent((prev) => (prev + 1) % slides.length);
         setIsTransitioning(false);
       }, 400);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [imagesReady]);
 
