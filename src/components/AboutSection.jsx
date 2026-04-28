@@ -69,9 +69,9 @@ const AboutSection = () => {
         <div className="mb-16 md:mb-20 fade-in grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <span className="section-label">ABOUT ECHO</span>
-            <h2 className="section-heading mb-6">Global Reach,<br />Local Expertise.</h2>
+            <h2 className="section-heading mb-6">China BD Intelligence<br />for Western Pharma.</h2>
             <p className="text-textMedium text-lg md:text-xl leading-relaxed">
-              Echo International Medica is a specialized cross-border biotech advisory firm headquartered in Hong Kong, connecting US life sciences companies with high-value opportunities across Greater China.
+              Echo turns fragmented Chinese regulatory filings, deal data, and company intelligence into structured briefs Western BD teams can act on. Headquartered in Hong Kong. Analysts on the ground in mainland China.
             </p>
           </div>
           <div className="lg:col-span-5 group overflow-hidden rounded-2xl ring-1 ring-black/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] transition-shadow duration-500 ease-out hover:shadow-[0_4px_16px_rgba(0,0,0,0.06),0_20px_60px_rgba(0,0,0,0.12)]">

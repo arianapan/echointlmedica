@@ -31,7 +31,7 @@ const slides = [
     description: (
       <>
         Citeline and GlobalData under-cover China.<br />
-        Chinese databases like Yaozhi (药智) and Pharmcube (医药魔方) aren't built for Western BD workflows.<br />
+        Chinese databases aren't built for Western BD workflows.<br />
         Echo bridges the gap with primary-source depth in a deal-grade format.
       </>
     ),
