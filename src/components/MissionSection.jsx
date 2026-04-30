@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 
 const steps = [
-  { num: '01', title: 'AI Research Synthesis', brief: 'Market data, clinical trials, SEC filings — aggregated in hours, not weeks' },
-  { num: '02', title: 'AI-Accelerated Modeling', brief: 'Financial models and valuations built in hours, refined with expert judgment' },
-  { num: '03', title: 'AI Investor Matching', brief: 'Thesis-fit scoring across 100+ investors with warm intro mapping' },
-  { num: '04', title: 'AI Pipeline Intelligence', brief: 'Automated tracking, follow-up drafting, and sentiment analysis' },
-  { num: '05', title: 'Human-Led Strategy', brief: 'Relationships, negotiations, and high-stakes decisions stay with senior advisors' },
+  { num: '01', title: 'Primary Source Ingestion', brief: 'CDE filings, Chinese trial registries, conference disclosures, and patent records, read in the original Chinese.' },
+  { num: '02', title: 'Structured Synthesis', brief: 'AI augmented workflows convert raw source material into structured asset profiles covering mechanism, stage, IP, deal comps, and BD readiness.' },
+  { num: '03', title: 'Analyst Judgment Layer', brief: 'Named analysts produce explicit views on every asset, including BD attractiveness, realistic deal range, top risks, and recommended action.' },
+  { num: '04', title: 'BD Framing', brief: 'Every brief is structured around how Western BD teams evaluate assets, not how Chinese databases organize them.' },
+  { num: '05', title: 'Decision Grade Output', brief: 'Memos and landscapes designed for IC committee submission. Edit and submit, rather than research and rebuild.' },
 ];
 
 const metrics = [
-  { value: '80%', label: 'Reduction in research and production time' },
-  { value: '3×', label: 'Deliverable depth per engagement' },
-  { value: '24hr', label: 'Turnaround on investor briefing packages' },
+  { value: '150+', label: 'China origin antibody and cell-therapy assets actively tracked' },
+  { value: '25+', label: 'Source types monitored across regulatory, clinical, patent, company, and transaction data' },
+  { value: 'Weekly', label: 'CDE filings, trial registry, and conference disclosure monitoring' },
 ];
 
 const AIAdvantageSection = () => {
@@ -44,7 +44,7 @@ const AIAdvantageSection = () => {
             OUR AI ADVANTAGE
           </span>
           <h2 className="font-heading text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-bold max-w-2xl" style={{ lineHeight: 1.08, letterSpacing: '-0.02em' }}>
-            AI doesn&apos;t replace judgment. It amplifies it.
+            How We Work
           </h2>
         </div>
 
@@ -74,7 +74,7 @@ const AIAdvantageSection = () => {
           <div className="lg:w-2/5 flex flex-col justify-center">
             <div className="fade-in bg-gradient-to-br from-white/[0.07] to-white/[0.02] rounded-xl p-8 md:p-10 border border-white/10 backdrop-blur-sm">
               <p className="text-white/80 text-base leading-relaxed mb-10">
-                We deliver <span className="text-white font-semibold">3× the output</span> at a fraction of the traditional cost.
+                Echo&apos;s analyst layer combines what no database delivers and no consultancy productizes.
               </p>
               <div className="space-y-7">
                 {metrics.map((m, i) => (

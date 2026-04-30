@@ -6,15 +6,38 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openMobileGroup, setOpenMobileGroup] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   const navLinks = [
-    { path: '/#about', label: 'About' },
+    {
+      path: '/#about',
+      label: 'About',
+      children: [
+        { path: '/#services', label: 'Service' },
+        { path: '/#engagement', label: 'Deliverables' },
+      ],
+    },
     { path: '/#pricing', label: 'Pricing' },
-    { path: '/#ai-advantage', label: 'AI Approach' },
+    {
+      path: '/#ai-advantage',
+      label: 'AI Approach',
+      children: [
+        { path: '/#ai-advantage', label: 'Methodology' },
+        { path: '/#how-echo-compares', label: 'Comparative Advantages' },
+      ],
+    },
     { path: '/#results', label: 'Results' },
-    { path: '/#insights', label: 'Insights' },
+    {
+      path: '/#insights',
+      label: 'Insights',
+      children: [
+        { path: '/#insights', label: 'Articles' },
+        { path: '/#faq', label: 'Q&A' },
+      ],
+    },
   ];
 
   // Track scroll position for navbar style + active section
@@ -22,7 +45,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['hero', 'services', 'ai-advantage', 'results', 'pricing', 'insights', 'about', 'contact'];
+      const sections = ['hero', 'services', 'engagement', 'ai-advantage', 'how-echo-compares', 'results', 'pricing', 'insights', 'faq', 'about', 'contact'];
       const currentSection = sections.find(sectionId => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -48,17 +71,24 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
-  const getIsActive = useCallback((path) => {
+  const getIsActive = useCallback((link) => {
+    const path = link.path;
     if (path && !path.startsWith('/#')) {
       return location.pathname === path;
     }
     if (location.pathname === '/thanks') return path === '/#contact';
-    const sectionId = path.replace('/#', '');
-    return activeSection === sectionId;
+    const ownId = path.replace('/#', '');
+    if (activeSection === ownId) return true;
+    if (link.children) {
+      return link.children.some((c) => activeSection === c.path.replace('/#', ''));
+    }
+    return false;
   }, [location.pathname, activeSection]);
 
   const handleLinkClick = useCallback((path) => {
     setIsMenuOpen(false);
+    setOpenDropdown(null);
+    setOpenMobileGroup(null);
     const targetId = path.replace('/#', '');
 
     const scrollToTarget = () => {
@@ -119,28 +149,72 @@ const Navbar = () => {
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => {
-                const isExternal = link.external || !link.path.startsWith('/#');
-                const className = `relative py-2 text-[15px] font-medium transition-colors duration-300 cursor-pointer ${
-                  getIsActive(link.path)
+                const active = getIsActive(link);
+                const baseClass = `relative py-2 text-[15px] font-medium transition-colors duration-300 cursor-pointer ${
+                  active
                     ? scrolled ? 'text-secondary' : 'text-white'
                     : scrolled
                       ? 'text-textMedium hover:text-secondary'
                       : 'text-white/70 hover:text-white'
                 }`;
-                const underline = getIsActive(link.path) && (
+                const underline = active && (
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
                     scrolled ? 'bg-primary' : 'bg-white'
                   }`} />
                 );
-                return isExternal ? (
-                  <Link key={link.path} to={link.path} className={className}>
-                    {link.label}
-                    {underline}
-                  </Link>
-                ) : (
+
+                if (link.children) {
+                  const isOpen = openDropdown === link.label;
+                  return (
+                    <div
+                      key={link.path}
+                      className="relative"
+                      onMouseEnter={() => setOpenDropdown(link.label)}
+                      onMouseLeave={() => setOpenDropdown(null)}
+                    >
+                      <button
+                        className={`${baseClass} flex items-center gap-1`}
+                        onClick={() => handleLinkClick(link.path)}
+                      >
+                        {link.label}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="12"
+                          height="12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          aria-hidden="true"
+                          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                        >
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                        {underline}
+                      </button>
+                      {isOpen && (
+                        <div className="absolute left-0 top-full pt-2 min-w-[220px]">
+                          <div className="bg-white border border-borderLight rounded-md shadow-lg py-2">
+                            {link.children.map((child) => (
+                              <button
+                                key={child.path}
+                                className="w-full text-left px-4 py-2 text-[14px] text-textMedium hover:text-secondary hover:bg-lightBg transition-colors cursor-pointer"
+                                onClick={() => handleLinkClick(child.path)}
+                              >
+                                {child.label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
                   <button
                     key={link.path}
-                    className={className}
+                    className={baseClass}
                     onClick={() => handleLinkClick(link.path)}
                   >
                     {link.label}
@@ -186,25 +260,65 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 z-[99] bg-white flex flex-col lg:hidden">
           <div className="h-16" />
-          <nav className="flex-1 flex flex-col justify-center px-10 space-y-2">
+          <nav className="flex-1 flex flex-col px-10 py-6 space-y-1 overflow-y-auto">
             {navLinks.map((link) => {
-              const isExternal = link.external || !link.path.startsWith('/#');
-              const className = `text-left text-2xl font-heading font-semibold py-3 border-b border-borderLight transition-colors ${
-                getIsActive(link.path) ? 'text-primary' : 'text-secondary hover:text-primary'
+              const active = getIsActive(link);
+              const baseClass = `text-left text-2xl font-heading font-semibold py-3 border-b border-borderLight transition-colors ${
+                active ? 'text-primary' : 'text-secondary hover:text-primary'
               }`;
-              return isExternal ? (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={className}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ) : (
+
+              if (link.children) {
+                const isOpen = openMobileGroup === link.label;
+                return (
+                  <div key={link.path} className="border-b border-borderLight">
+                    <button
+                      className={`flex items-center justify-between w-full text-left text-2xl font-heading font-semibold py-3 transition-colors ${
+                        active ? 'text-primary' : 'text-secondary hover:text-primary'
+                      }`}
+                      onClick={() => setOpenMobileGroup(isOpen ? null : link.label)}
+                    >
+                      {link.label}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        aria-hidden="true"
+                        className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </button>
+                    {isOpen && (
+                      <div className="pb-3 pl-2 flex flex-col">
+                        <button
+                          className="text-left text-base font-heading font-medium py-2 text-textMedium hover:text-primary"
+                          onClick={() => handleLinkClick(link.path)}
+                        >
+                          Overview
+                        </button>
+                        {link.children.map((child) => (
+                          <button
+                            key={child.path}
+                            className="text-left text-base font-heading font-medium py-2 text-textMedium hover:text-primary"
+                            onClick={() => handleLinkClick(child.path)}
+                          >
+                            {child.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
                 <button
                   key={link.path}
-                  className={className}
+                  className={baseClass}
                   onClick={() => handleLinkClick(link.path)}
                 >
                   {link.label}

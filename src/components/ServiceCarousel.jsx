@@ -105,7 +105,7 @@ const ServicesSection = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
           {/* Header */}
           <div className="mb-16 md:mb-20 fade-in">
-            <span className="section-label">CONSULTING SERVICES</span>
+            <span className="section-label">SERVICES</span>
             <h2 className="section-heading">What We Do</h2>
           </div>
 
@@ -167,7 +167,7 @@ const ServicesSection = () => {
 
             <div className="p-10 md:p-14 pt-6">
               {/* Category label */}
-              <span className="section-label">CONSULTING SERVICES</span>
+              <span className="section-label">SERVICES</span>
 
               {/* Title */}
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-textDark leading-snug mt-3 mb-4">

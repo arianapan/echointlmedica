@@ -4,12 +4,15 @@ import HeroCarousel from '../components/HeroCarousel';
 
 const AboutSection = lazy(() => import('../components/AboutSection'));
 const ServiceSection = lazy(() => import('../components/ServiceCarousel'));
+const HowWeWorkSection = lazy(() => import('../components/HowWeWork'));
 const AIAdvantageSection = lazy(() => import('../components/MissionSection'));
+const HowEchoComparesSection = lazy(() => import('../components/HowEchoCompares'));
 const ResultsSection = lazy(() => import('../components/ResultsSection'));
 const PricingTiers = lazy(() => import('../components/PricingTiers'));
 const PricingDetails = lazy(() => import('../components/PricingDetails'));
 const QuoteSection = lazy(() => import('../components/QuoteSection'));
 const InsightsSection = lazy(() => import('../components/InsightsSection'));
+const FaqSection = lazy(() => import('../components/FaqSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 
 /* Thin gray divider between light-background sections */
@@ -58,7 +61,12 @@ const Home = () => {
         <ServiceSection />
       </Suspense>
 
-      {/* 4. Pricing — 3-tier summary + collapsible feature matrix / add-ons / scenarios / FAQ */}
+      {/* 4. How We Work — engagement models */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <HowWeWorkSection />
+      </Suspense>
+
+      {/* 5. Pricing — 3-tier summary + collapsible feature matrix / add-ons / scenarios / FAQ */}
       <Suspense fallback={<section style={{ minHeight: '500px' }} aria-hidden="true" />}>
         <PricingTiers variant="home">
           <PricingDetails />
@@ -70,7 +78,12 @@ const Home = () => {
         <AIAdvantageSection />
       </Suspense>
 
-      {/* 6. Results — white, case study cards */}
+      {/* 6. How Echo Compares — three-column differentiation */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <HowEchoComparesSection />
+      </Suspense>
+
+      {/* 7. Results — white, case study cards */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <ResultsSection />
       </Suspense>
@@ -85,7 +98,12 @@ const Home = () => {
         <InsightsSection />
       </Suspense>
 
-      {/* 9. Contact — dark, full form + info */}
+      {/* 9. FAQ — text Q&A indexed for AI crawlers, sits within Insights nav category */}
+      <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
+        <FaqSection />
+      </Suspense>
+
+      {/* 10. Contact — dark, full form + info */}
       <Suspense fallback={<section style={{ minHeight: '300px' }} aria-hidden="true" />}>
         <ContactSection />
       </Suspense>

@@ -69,7 +69,7 @@ const AboutSection = () => {
         <div className="mb-16 md:mb-20 fade-in grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <span className="section-label">ABOUT ECHO</span>
-            <h2 className="section-heading mb-6">Antibody and Cell Therapy BD Intelligence<br />for Western Pharma</h2>
+            <h2 className="section-heading mb-6">China-Origin Antibody and Cell Therapy BD Intelligence</h2>
             <p className="text-textMedium text-lg md:text-xl leading-relaxed">
               Structured intelligence on China-origin ADCs, bispecifics, CAR-T, and next-generation cell therapies, built for global pharma BD teams. Hong Kong headquartered. Analysts on the ground in mainland China.
             </p>

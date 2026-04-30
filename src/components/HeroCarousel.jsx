@@ -17,7 +17,7 @@ const slides = [
     color: '#2e8bc0',
     image: assets.background2OptionA,
     label: 'MARKET ENTRY READINESS',
-    headline: <>Navigate China<br />with Confidence.</>,
+    headline: <>Navigate China<br />with Confidence</>,
     description:
       'Each brief is structured around the signals BD teams actually use: mechanism, regulatory status, comparable deals, IP landscape, and BD readiness.',
     cta: 'Request a Therapeutic Area Briefing',
