@@ -12,6 +12,7 @@ import CancerCenterPartnership from './pages/articles/CancerCenterPartnership';
 import AiFundraisingPackage from './pages/articles/AiFundraisingPackage';
 import FractionalAiCfo from './pages/FractionalAiCfo';
 import CompareFractionalCfo from './pages/CompareFractionalCfo';
+import SampleBrief from './pages/SampleBrief';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/case-studies/ai-fundraising-package-5-days" element={<AiFundraisingPackage />} />
         <Route path="/services/fractional-ai-cfo" element={<FractionalAiCfo />} />
         <Route path="/compare/fractional-cfo-biotech" element={<CompareFractionalCfo />} />
+        <Route path="/sample-brief" element={<SampleBrief />} />
       </Routes>
       <Footer />
     </div>

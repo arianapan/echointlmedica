@@ -103,7 +103,7 @@ const HowWeWork = () => {
         {/* 16px gap, then single CTA */}
         <div className="mt-4 flex justify-center fade-in">
           <Link to="/sample-brief" className="btn-primary inline-block">
-            Request a Sample Brief
+            See a Sample Brief
           </Link>
         </div>
       </div>
