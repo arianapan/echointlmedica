@@ -8,8 +8,6 @@ const HowWeWorkSection = lazy(() => import('../components/HowWeWork'));
 const AIAdvantageSection = lazy(() => import('../components/MissionSection'));
 const HowEchoComparesSection = lazy(() => import('../components/HowEchoCompares'));
 const ResultsSection = lazy(() => import('../components/ResultsSection'));
-const PricingTiers = lazy(() => import('../components/PricingTiers'));
-const PricingDetails = lazy(() => import('../components/PricingDetails'));
 const QuoteSection = lazy(() => import('../components/QuoteSection'));
 const InsightsSection = lazy(() => import('../components/InsightsSection'));
 const FaqSection = lazy(() => import('../components/FaqSection'));
@@ -64,13 +62,6 @@ const Home = () => {
       {/* 4. How We Work — engagement models */}
       <Suspense fallback={<section style={{ minHeight: '400px' }} aria-hidden="true" />}>
         <HowWeWorkSection />
-      </Suspense>
-
-      {/* 5. Pricing — 3-tier summary + collapsible feature matrix / add-ons / scenarios / FAQ */}
-      <Suspense fallback={<section style={{ minHeight: '500px' }} aria-hidden="true" />}>
-        <PricingTiers variant="home">
-          <PricingDetails />
-        </PricingTiers>
       </Suspense>
 
       {/* 5. AI Advantage — dark section, numbered steps + metrics */}

@@ -92,9 +92,12 @@ const HowWeWork = () => {
           ))}
         </div>
 
-        {/* Summary line — generous gap above */}
+        {/* Summary lines — generous gap above */}
         <p className="mt-14 md:mt-16 text-center text-textMedium text-sm md:text-base max-w-3xl mx-auto fade-in">
-          Engagements range from single-asset diligence to annual intelligence partnerships, with standalone landscape reports starting at <strong className="font-semibold">$25,000</strong>.
+          Engagements range from single-asset diligence to annual intelligence partnerships.
+        </p>
+        <p className="mt-2 text-center text-textMedium text-sm md:text-base max-w-3xl mx-auto fade-in">
+          Standalone landscape reports start at <strong className="font-semibold">$25,000</strong>.
         </p>
 
         {/* 16px gap, then single CTA */}

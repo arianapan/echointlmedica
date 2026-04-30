@@ -9,8 +9,8 @@ const slides = [
     label: 'CROSS-BORDER BD INTELLIGENCE',
     headline: 'China BD Intelligence for Global Pharma',
     description:
-      'Echo helps global pharma BD teams source, screen, and prioritize China-origin biotech assets with decision-ready intelligence built from Chinese language regulatory, deal, and company data.',
-    cta: 'See a Sample Brief',
+      'Echo helps BD teams source, screen, and prioritize China origin biotech assets with primary source research, AI accelerated synthesis, and experienced analyst judgment.',
+    cta: 'Request a Sample Brief',
     ctaTarget: '#contact',
   },
   {
@@ -20,8 +20,8 @@ const slides = [
     headline: <>Navigate China<br />with Confidence</>,
     description:
       'Each brief is structured around the signals BD teams actually use: mechanism, regulatory status, comparable deals, IP landscape, and BD readiness.',
-    cta: 'Request a Therapeutic Area Briefing',
-    ctaTarget: '#services',
+    cta: 'Schedule a 25-minute Scoping Call',
+    ctaTarget: '#contact',
   },
 ];
 

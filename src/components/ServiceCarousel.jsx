@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { TIERS, fmt } from './PricingTiers';
 
 const marqueeItems = [
   'FRACTIONAL AI CFO', 'INVESTOR PIPELINE', 'CHINA MARKET ENTRY',
@@ -205,6 +206,68 @@ const ServicesSection = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Pricing — only on Fractional AI CFO Retainer */}
+              {detail.title === 'Fractional AI CFO Retainer' && (
+                <div className="mt-12 pt-8 border-t border-borderLight">
+                  <h4 className="font-heading text-sm font-semibold text-textDark tracking-[0.1em] uppercase mb-3">
+                    Pricing
+                  </h4>
+                  <p className="text-textMedium text-sm leading-relaxed mb-6">
+                    One flat rate. Every month. No lock-in. Annual pre-payment saves 10%.
+                  </p>
+                  <div className="space-y-4">
+                    {TIERS.map((t) => (
+                      <div
+                        key={t.name}
+                        className={`rounded-lg p-5 border ${
+                          t.highlight
+                            ? 'border-primary bg-gradient-to-br from-white to-primary/[0.04]'
+                            : 'border-borderLight bg-white'
+                        }`}
+                      >
+                        <div className="flex items-baseline justify-between gap-4 mb-3">
+                          <div className="min-w-0">
+                            <h5 className="font-heading text-lg font-bold text-textDark">{t.name}</h5>
+                            <p className="text-textLight text-[10px] uppercase tracking-[0.12em] font-heading mt-0.5 leading-snug">
+                              {t.stage} · {t.role}
+                            </p>
+                          </div>
+                          <div className="text-right shrink-0">
+                            <span className="font-heading text-2xl font-bold text-textDark tracking-tight">
+                              {fmt(t.monthly)}
+                            </span>
+                            <span className="text-textMedium text-xs ml-0.5">/mo</span>
+                          </div>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {t.features.map((f, j) => (
+                            <li key={j} className="text-[13px] text-textMedium leading-relaxed flex items-start">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="13"
+                                height="13"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                className="text-primary mt-1 mr-2 shrink-0"
+                                aria-hidden="true"
+                              >
+                                <path d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-textLight text-xs mt-4">
+                    All tiers · no equity · no long-term contract · 30-day notice to cancel
+                  </p>
+                </div>
+              )}
 
               {/* CTA */}
               <div className="mt-12 pt-8 border-t border-borderLight">

@@ -20,7 +20,6 @@ const Navbar = () => {
         { path: '/#engagement', label: 'Deliverables' },
       ],
     },
-    { path: '/#pricing', label: 'Pricing' },
     {
       path: '/#ai-advantage',
       label: 'AI Approach',
@@ -45,7 +44,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['hero', 'services', 'engagement', 'ai-advantage', 'how-echo-compares', 'results', 'pricing', 'insights', 'faq', 'about', 'contact'];
+      const sections = ['hero', 'services', 'engagement', 'ai-advantage', 'how-echo-compares', 'results', 'insights', 'faq', 'about', 'contact'];
       const currentSection = sections.find(sectionId => {
         const element = document.getElementById(sectionId);
         if (element) {
