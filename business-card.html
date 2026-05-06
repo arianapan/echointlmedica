@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo Intl Medica — Business Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ECEAE2;
+    font-family: 'Inter', 'Noto Sans TC', 'PingFang TC', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px;
+    gap: 40px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Card sized at ~6.67× actual print: 90×54mm → 600×360px on screen */
+  .card {
+    width: 600px;
+    height: 360px;
+    background: #FAFAF6;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  /* ============== FRONT ============== */
+
+  .front-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px 30px;
+    text-align: center;
+  }
+
+  .logo-large {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 24px;
+    mix-blend-mode: multiply;
+    filter: contrast(1.04) saturate(1.05);
+  }
+
+  .front-brand-en {
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: #1A1A1A;
+    line-height: 1;
+  }
+
+  .front-brand-zh {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4.5px;
+    color: #7A7A78;
+    margin-top: 11px;
+    line-height: 1;
+  }
+
+  .front-rule {
+    width: 56px;
+    height: 1.5px;
+    background: #B83A1F;
+    margin: 24px 0 20px;
+  }
+
+  .front-tagline {
+    font-family: 'Cormorant Garamond', 'Noto Sans TC', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    color: #1A1A1A;
+    letter-spacing: 0.4px;
+    line-height: 1.4;
+  }
+
+  /* ============== BACK ============== */
+
+  .header {
+    position: absolute;
+    top: 24px;
+    left: 35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: contrast(1.04) saturate(1.05);
+  }
+  .brand-en {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #1A1A1A;
+    line-height: 1;
+  }
+  .brand-zh {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #7A7A78;
+    line-height: 1;
+    margin-top: 4px;
+  }
+
+  .hairline {
+    position: absolute;
+    top: 86px;
+    left: 35px;
+    right: 35px;
+    height: 0.5px;
+    background: #E0DFD9;
+  }
+
+  .left {
+    position: absolute;
+    top: 115px;
+    left: 35px;
+    width: 250px;
+  }
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .name-en {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1A1A1A;
+  }
+  .name-zh {
+    font-size: 15px;
+    font-weight: 400;
+    color: #6B6B6B;
+    letter-spacing: 3px;
+  }
+  .title {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    color: #B83A1F;
+    margin-top: 6px;
+  }
+  .contact {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #1A1A1A;
+    line-height: 1.85;
+    font-variant-numeric: tabular-nums;
+  }
+  .hq {
+    position: absolute;
+    bottom: 50px;
+    left: 35px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #7A7A78;
+  }
+
+  .vrule {
+    position: absolute;
+    top: 115px;
+    left: 295px;
+    width: 0.5px;
+    height: 195px;
+    background: #E0DFD9;
+  }
+
+  .right {
+    position: absolute;
+    top: 115px;
+    left: 320px;
+    right: 35px;
+  }
+  .services-label {
+    font-size: 12px;
+    letter-spacing: 3.5px;
+    color: #7A7A78;
+  }
+  .service {
+    display: flex;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .bar {
+    width: 3px;
+    background: #B83A1F;
+    flex-shrink: 0;
+  }
+  .service.navy .bar { background: #262C3D; }
+  .service-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1A1A1A;
+  }
+  .service-desc {
+    font-size: 12px;
+    color: #6B6B6B;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* shared bottom decorative waves */
+  .wave-red,
+  .wave-navy {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .card { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- FRONT -->
+  <div class="card front">
+    <div class="front-inner">
+      <img class="logo-large" src="./src/assets/companylogo.jpg" alt="Echo Intl Medica logo" />
+
+      <div class="front-brand-en">ECHO INTL MEDICA</div>
+      <div class="front-brand-zh">艾科國際醫療</div>
+
+      <div class="front-rule"></div>
+
+      <div class="front-tagline">Bold Steps Forward</div>
+    </div>
+
+    <svg class="wave-red" width="600" height="20" viewBox="0 0 600 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 20 L 0 3 Q 200 10 400 8 Q 500 7 600 10 L 600 20 Z" fill="#A33823"/>
+    </svg>
+    <svg class="wave-navy" width="170" height="8" viewBox="0 0 170 8" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 8 L 0 2 Q 70 6 150 8 L 150 8 Z" fill="#262C3D"/>
+    </svg>
+  </div>
+
+  <!-- BACK -->
+  <div class="card back">
+    <div class="header">
+      <img class="logo" src="./src/assets/companylogo.jpg" alt="Echo Intl Medica logo" />
+      <div>
+        <div class="brand-en">ECHO INTL MEDICA</div>
+        <div class="brand-zh">艾科國際醫療</div>
+      </div>
+    </div>
+
+    <div class="hairline"></div>
+
+    <div class="left">
+      <div class="name-row">
+        <span class="name-en">Ariana Pan</span>
+        <span class="name-zh">潘芷晴</span>
+      </div>
+      <div class="title">CHIEF EXECUTIVE OFFICER</div>
+      <div class="contact">
+        +86 138 2367 3394<br>
+        ariana@echointlmedica.com<br>
+        www.echointlmedica.com
+      </div>
+    </div>
+
+    <div class="hq">HONG KONG · HEADQUARTERS</div>
+
+    <div class="vrule"></div>
+
+    <div class="right">
+      <div class="services-label">SERVICES</div>
+      <div class="service">
+        <div class="bar"></div>
+        <div>
+          <div class="service-name">Clinical trial &amp; financial advisory</div>
+          <div class="service-desc">For global biotech entering China</div>
+        </div>
+      </div>
+      <div class="service navy">
+        <div class="bar"></div>
+        <div>
+          <div class="service-name">Intelligent BD sourcing</div>
+          <div class="service-desc">China antibody &amp; cell therapy<br>intelligence for global pharma</div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="wave-red" width="600" height="20" viewBox="0 0 600 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 20 L 0 3 Q 200 10 400 8 Q 500 7 600 10 L 600 20 Z" fill="#A33823"/>
+    </svg>
+    <svg class="wave-navy" width="170" height="8" viewBox="0 0 170 8" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 8 L 0 2 Q 70 6 150 8 L 150 8 Z" fill="#262C3D"/>
+    </svg>
+  </div>
+
+</body>
+</html>
