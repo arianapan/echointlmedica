@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "mcp__chrome-devtools__navigate_page"
+      "mcp__chrome-devtools__navigate_page",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\(x86\\)/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\(x86\\)/Microsoft/Edge/Application/**)",
+      "Bash(/c/Program Files/Google/Chrome/Application/chrome.exe *)"
     ]
   }
 }
