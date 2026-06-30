@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const SITE_URL = 'https://echointlmedica.com';
 const PAGE_PATH = '/compare/fractional-cfo-biotech';
-const PAGE_TITLE = 'Fractional CFO for Biotech: Pilot vs Toptal vs Brightbal vs Echo | 2026 Comparison';
+const PAGE_TITLE = 'Fractional CFO Comparison: Pilot vs Toptal vs Brightbal vs Echo | 2026';
 const PAGE_DESCRIPTION =
-  'An honest 2026 comparison of fractional CFO options for biotech: Pilot, Toptal, Brightbal, Burkland, Kruze, and Echo. Pricing, specialization, cross-border capability, and which fits your stage.';
+  'An honest 2026 comparison of fractional CFO options for founders: Pilot, Toptal, Brightbal, Burkland, Kruze, and Echo. Pricing, specialization, cross-border China-US capability, and which fits your stage. From $750/mo.';
 const OG_IMAGE = '/articles/ai-advisory.jpg';
 
 const PROVIDERS = [
@@ -13,7 +13,7 @@ const PROVIDERS = [
     name: 'Pilot',
     shortName: 'Pilot',
     price: '~$4,500 / mo',
-    biotechDepth: 'Generalist',
+    specialization: 'Generalist bookkeeping+',
     crossBorder: 'No',
     aiWorkflows: 'Limited',
   },
@@ -21,7 +21,7 @@ const PROVIDERS = [
     name: 'Brightbal',
     shortName: 'Brightbal',
     price: '~$11,500 / mo',
-    biotechDepth: 'Biotech-focused',
+    specialization: 'Startup-focused',
     crossBorder: 'Limited',
     aiWorkflows: 'Traditional',
   },
@@ -29,15 +29,15 @@ const PROVIDERS = [
     name: 'Burkland',
     shortName: 'Burkland',
     price: '~$7,000 / mo',
-    biotechDepth: 'Life sciences practice',
+    specialization: 'Startup practice',
     crossBorder: 'Limited',
     aiWorkflows: 'Traditional',
   },
   {
     name: 'Echo',
     shortName: 'Echo',
-    price: 'From $1,650 / mo',
-    biotechDepth: 'Biotech-native',
+    price: 'From $750 / mo',
+    specialization: 'Founder & cross-border',
     crossBorder: 'Core specialty',
     aiWorkflows: 'Core to delivery',
     featured: true,
@@ -46,35 +46,35 @@ const PROVIDERS = [
 
 const COMPARISON_ROWS = [
   { label: 'Typical price / mo', key: 'price' },
-  { label: 'Biotech depth', key: 'biotechDepth' },
-  { label: 'Cross-border (US–China)', key: 'crossBorder' },
+  { label: 'Specialization', key: 'specialization' },
+  { label: 'Cross-border (China-US)', key: 'crossBorder' },
   { label: 'AI-augmented delivery', key: 'aiWorkflows' },
 ];
 
 const FAQS = [
   {
     q: 'What makes Echo different from a generalist fractional CFO?',
-    a: 'Echo is biotech-native. Clinical milestones, pipeline modeling, R&D credit handling, and life-sciences investor thesis language are built into every workflow, rather than bolted on as a vertical add-on. Generalist fractional CFOs typically default to SaaS or e-commerce assumptions, which produces runway models that miss milestone-linked cash movements and board narratives that do not read as native to biotech investors.',
+    a: 'Echo is built for founders and cross-border (China-US) businesses, and AI-augmented from the ground up. Senior advisors spend their hours on judgment: cash strategy, investor framing, and cross-border structure. AI handles the analytical assembly. Generalist firms either avoid AI (slow and expensive) or treat cross-border as an afterthought.',
   },
   {
-    q: 'Why is Echo priced below most of the alternatives for biotech specialization?',
-    a: 'AI-augmented delivery. Our senior advisors spend their hours on judgment (investor tone, board framing, cross-border strategy), and AI workflows handle the analytical assembly layer. That compresses the cost structure without reducing deliverable quality. Echo Insight at $1,650/mo delivers biotech-specific FP&A at roughly a third the cost of traditional biotech-specialized firms, and Growth at $6,000/mo sits at the bottom of the premium biotech-CFO range while adding cross-border capability.',
+    q: 'Why is Echo priced below most of the alternatives?',
+    a: 'AI-augmented delivery compresses the cost structure without reducing quality. Monthly Finance Clarity starts at $750/mo for clean monthly reporting and runway; Growth CFO Support at $2,000/mo adds budgeting, scenarios, and investor updates; Fractional CFO Review at $5,000/mo is senior fractional-CFO support with cross-border finance. All three cost a fraction of a full-time CFO or a traditional specialized firm.',
   },
   {
-    q: 'Why does cross-border capability matter for biotech CFOs?',
-    a: 'Cross-border optionality (US–Greater China clinical development, NMPA filings, Chinese CRO selection) is now a standard consideration for Series A-B biotechs looking to extend runway or accelerate development. A CFO without cross-border fluency either avoids the option entirely or recommends it without pricing the real regulatory, data-governance, and operational costs. Echo builds cross-border into every Growth-tier engagement.',
+    q: 'Why does cross-border capability matter?',
+    a: 'If you operate across China and the US, you have multiple entities, currencies, and compliance calendars, and most fractional CFOs have never handled that. Echo builds multi-entity cash, FX, intercompany flows, and a cross-border investor narrative into its senior tier, instead of avoiding the complexity or under-pricing it.',
   },
   {
-    q: 'How does Echo compare to hiring a full-time biotech CFO?',
-    a: 'A US-based biotech CFO base salary is typically $250,000 to $400,000, plus 0.5 to 1.5 percent equity dilution. Fully loaded, expect $350,000+ annually in cash plus dilution. Echo Growth at $6,000/mo equals $72,000 per year ($64,800 on annual billing) with no equity dilution. For Seed through Series A-B biotechs, the fractional option delivers comparable strategic leadership at a fraction of the cost.',
+    q: 'How does Echo compare to hiring a full-time CFO?',
+    a: 'A US full-time CFO typically costs $250,000 to $400,000 in base salary plus equity, or $350,000+ fully loaded. Fractional CFO Review at $5,000/mo equals $60,000/year ($54,000 on annual billing) with no equity dilution, and you can start far lower and scale up only when you raise.',
   },
   {
     q: 'What if I already have an accountant or bookkeeper?',
-    a: 'A fractional CFO does not replace bookkeeping. The CFO works above the accounting layer: runway modeling, scenario analysis, board reporting, investor pipeline, capital strategy. Echo coordinates with existing accounting providers, or you can consolidate by adding our flat-rate $995/mo bookkeeping add-on.',
+    a: 'Echo does not replace them. We work above the accounting layer on runway modeling, scenario analysis, board and investor reporting, and capital strategy, and we coordinate with your existing bookkeeper, CPA, and tax advisor. We do not file taxes or provide audit or legal opinions.',
   },
   {
     q: 'How do I evaluate any fractional CFO in 2026 now that AI has changed delivery economics?',
-    a: 'Ask four questions. What percentage of analyst work is AI-augmented, and how is the output verified? Where do you explicitly not use AI, and why? Can I see a sample deliverable where AI did most of the assembly? What has happened to your pricing in the last 24 months? Firms that cannot answer these crisply have either resisted AI entirely (slow and expensive) or adopted it uncritically (confidently wrong work at speed). Echo answers all four in the free diagnostic.',
+    a: 'Ask four questions. What percentage of the analytical work is AI-augmented, and how is the output verified? Where do you explicitly not use AI, and why? Can I see a sample deliverable? What has happened to your pricing in the last 24 months? Firms that cannot answer crisply have either resisted AI (slow and expensive) or adopted it uncritically (confidently wrong work at speed). Echo answers all four in the free finance review.',
   },
 ];
 
@@ -112,7 +112,7 @@ const CompareFractionalCfo = () => {
 
     document.title = PAGE_TITLE;
     setMeta('name', 'description', PAGE_DESCRIPTION);
-    setMeta('name', 'keywords', 'fractional CFO biotech, Pilot vs Toptal, biotech fractional CFO comparison, Brightbal, Burkland, Kruze Consulting, fractional AI CFO, biotech CFO services comparison');
+    setMeta('name', 'keywords', 'fractional CFO comparison, Pilot vs Toptal, fractional CFO for startups, outsourced CFO comparison, cross-border CFO, Brightbal, Burkland, Kruze Consulting, AI CFO');
     setLink('canonical', canonical);
 
     setMeta('property', 'og:type', 'article');
@@ -184,10 +184,10 @@ const CompareFractionalCfo = () => {
             2026 Comparison &middot; Honest &middot; Updated Quarterly
           </span>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
-            Fractional CFO for Biotech: Pilot vs Toptal vs Brightbal vs Echo
+            Fractional CFO Comparison: Pilot vs Toptal vs Brightbal vs Echo
           </h1>
           <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light max-w-3xl">
-            An honest side-by-side of the most common fractional CFO options for biotech, including where each one is the right call, and where Echo is explicitly not the right fit.
+            An honest side-by-side of the most common fractional CFO options for founders, including where each one is the right call, and where Echo is explicitly not the right fit.
           </p>
         </div>
       </section>
@@ -196,7 +196,7 @@ const CompareFractionalCfo = () => {
       <section className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <p className="text-textMedium text-lg md:text-xl leading-relaxed">
-            Echo is biotech-native, cross-border, and AI-augmented, at a flat monthly rate that starts well below the rest of the market.
+            Echo is founder-focused, cross-border, and AI-augmented, at a flat monthly rate that starts well below the rest of the market.
           </p>
         </div>
       </section>
@@ -260,12 +260,12 @@ const CompareFractionalCfo = () => {
           <h2 className="section-heading mb-10">If you are...</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,650/mo ($1,485 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
-              { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $3,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
-              { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $6,000/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
-              { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $6,000/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
-              { scenario: 'Chinese biotech building credible US operations', answer: 'Echo is a direct fit. Our cross-border practice works both directions: FDA-acceptable data strategy, US investor narrative, US BD targeting.' },
-              { scenario: 'Need a one-time sprint rather than a retainer', answer: 'Echo Fundraising Sprint ($9,000) or China Entry Engagement ($30,000). Retainer optional.' },
+              { scenario: 'Solo founder or small business, want clean monthly numbers', answer: 'Monthly Finance Clarity at $750/mo ($675 annual). P&L, cash-flow, runway, and a one-page founder report, all senior-reviewed.' },
+              { scenario: 'Funded startup with recurring revenue, preparing to raise', answer: 'Growth CFO Support at $2,000/mo, our most popular tier. Budgeting, scenario runway, monthly investor updates, and a maintained diligence data room.' },
+              { scenario: 'Actively fundraising, need investor-ready materials', answer: 'Fractional CFO Review at $5,000/mo. Senior fractional CFO: investor-grade model, board deck, cap-table scenarios, always-on investor pipeline.' },
+              { scenario: 'Operating across China and the US', answer: 'Fractional CFO Review at $5,000/mo. Cross-border finance is a core specialty: multi-entity cash, FX, intercompany flows, and a cross-border investor narrative.' },
+              { scenario: 'Healthcare, biotech, or medical-device company', answer: 'A direct fit. Our team’s deepest domain experience is in healthcare and cross-border life sciences, now applied to your finance function.' },
+              { scenario: 'Need a one-time project rather than a retainer', answer: 'An Investor-Ready Sprint or a Financial Model Build, billed as a fixed project. Retainer optional afterward.' },
             ].map((s, i) => (
               <div key={i} className="bg-white rounded-lg p-6 border border-borderLight">
                 <h3 className="font-heading text-[15px] font-semibold text-textDark leading-snug mb-3">
@@ -306,14 +306,14 @@ const CompareFractionalCfo = () => {
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold leading-tight mb-6">Ready to talk to Echo?</h2>
           <p className="text-white/85 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-            Book a free 30-minute diagnostic. A senior advisor walks through your runway, flags the 2–3 highest-leverage decisions in front of you, and identifies any cross-border optionality. No pitch. One-page summary within 48 hours.
+            Book a free 20-minute finance review. A senior advisor walks through your runway, flags the 2 to 3 highest-leverage decisions in front of you, and points out any cross-border optionality. No pitch. One-page summary within 48 hours.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/services/fractional-ai-cfo" className="btn-primary inline-block bg-white !text-secondary hover:!bg-white/90">
               See our service details
             </Link>
             <Link to="/#contact" className="inline-block border border-white/60 text-white px-8 py-3.5 rounded font-heading font-semibold hover:bg-white/10 transition-all">
-              Book a free diagnostic
+              Book a finance review
             </Link>
           </div>
         </div>

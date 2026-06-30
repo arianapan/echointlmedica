@@ -6,22 +6,22 @@ const slides = [
   {
     color: '#0d2b45',
     image: assets.background2,
-    label: 'CROSS-BORDER BD INTELLIGENCE',
-    headline: 'China BD Intelligence for Global Pharma',
+    label: 'CROSS-BORDER CFO SERVICES',
+    headline: 'CFO Services for Cross-Border Founders',
     description:
-      'Echo helps BD teams source, screen, and prioritize China origin biotech assets with primary source research, AI accelerated synthesis, and experienced analyst judgment.',
-    cta: 'Request a Sample Brief',
+      'Echo is the finance function for founders raising and scaling across China and global markets. You get monthly reporting, cash-flow and runway forecasting, and investor-ready financials, with senior judgment amplified by AI.',
+    cta: 'Book a Free Finance Review',
     ctaTarget: '#contact',
   },
   {
     color: '#2e8bc0',
     image: assets.background2OptionA,
-    label: 'MARKET ENTRY READINESS',
-    headline: <>Navigate China<br />with Confidence</>,
+    label: 'FUNDRAISING & INVESTOR READINESS',
+    headline: <>Investor-Ready Financials,<br />Every Month</>,
     description:
-      'Each brief is structured around the signals BD teams actually use: mechanism, regulatory status, comparable deals, IP landscape, and BD readiness.',
-    cta: 'Schedule a 25-minute Scoping Call',
-    ctaTarget: '#contact',
+      'Runway models, board decks, and investor updates your investors take seriously. Each one is drafted from a live financial model and finalized by a senior advisor, never thrown together the night before a partner meeting.',
+    cta: 'See What We Deliver',
+    ctaTarget: '#engagement',
   },
 ];
 

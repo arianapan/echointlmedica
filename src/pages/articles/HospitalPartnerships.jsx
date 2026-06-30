@@ -4,7 +4,7 @@ const HospitalPartnerships = () => (
   <ArticleLayout
     category="Institutional Partnerships"
     title="Building Hospital Partnerships Across the Pacific: A Practitioner's Guide"
-    subtitle="Lessons from structuring US–China academic medical center collaborations, from framework design to ongoing management, and why most partnerships stall in year two."
+    subtitle="Lessons from structuring US-China academic medical center collaborations, from framework design to ongoing management, and why most partnerships stall in year two."
     readTime="12 min read"
     publishDate="April 2026"
     isoDate="2026-04-14"
@@ -40,7 +40,7 @@ const HospitalPartnerships = () => (
       A body of work anchored by Merson and colleagues in <em>Academic Medicine</em> on the global engagement of
       US academic medical centers has documented the rapid growth of university health partnerships over the past
       two decades, along with the well-known pattern that most signed agreements produce little measurable output
-      in their first two years. Practitioner experience in the US–China corridor specifically is consistent with
+      in their first two years. Practitioner experience in the US-China corridor specifically is consistent with
       that literature: in our own dataset of cross-Pacific hospital engagements, a clear majority of signed MOUs
       have produced no tracked output beyond the initial agreement within 24 months.
     </p>

@@ -74,7 +74,7 @@ const ContactSection = () => {
           {/* Left — Contact info */}
           <div className="lg:w-5/12 fade-in">
             <p className="text-white/60 text-lg leading-relaxed mb-12">
-              Whether you&apos;re raising capital, entering China, or building cross-border institutional partnerships — we&apos;d like to hear about your challenge.
+              Whether you need monthly clarity, a cash-flow forecast, or investor-ready numbers, tell us where your finances stand and what&apos;s on your mind. We&apos;ll start with a free finance review.
             </p>
 
             <div className="space-y-8">
@@ -193,7 +193,7 @@ const ContactSection = () => {
                     value={form.message}
                     onChange={handleChange}
                     className="w-full bg-white/[0.06] border border-white/10 rounded px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
-                    placeholder="Tell us about your challenge..."
+                    placeholder="Tell us about your business and what you need help with..."
                   />
                 </div>
 

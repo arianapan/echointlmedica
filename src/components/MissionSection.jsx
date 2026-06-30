@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 
 const steps = [
-  { num: '01', title: 'Primary Source Ingestion', brief: 'CDE filings, Chinese trial registries, conference disclosures, and patent records, read in the original Chinese.' },
-  { num: '02', title: 'Structured Synthesis', brief: 'AI augmented workflows convert raw source material into structured asset profiles covering mechanism, stage, IP, deal comps, and BD readiness.' },
-  { num: '03', title: 'Analyst Judgment Layer', brief: 'Named analysts produce explicit views on every asset, including BD attractiveness, realistic deal range, top risks, and recommended action.' },
-  { num: '04', title: 'BD Framing', brief: 'Every brief is structured around how Western BD teams evaluate assets, not how Chinese databases organize them.' },
-  { num: '05', title: 'Decision Grade Output', brief: 'Memos and landscapes designed for IC committee submission. Edit and submit, rather than research and rebuild.' },
+  { num: '01', title: 'Secure Data Ingestion', brief: 'Bank and card statements, QuickBooks or Excel exports, payroll and invoices, uploaded securely in whatever format you already have.' },
+  { num: '02', title: 'AI Categorization & Reconciliation', brief: 'AI sorts every transaction into revenue, cost, and expense categories and reconciles the month, turning raw activity into structured numbers in hours, not days.' },
+  { num: '03', title: 'Modeling & Analysis', brief: 'Cash-flow, runway, budget-vs-actuals, and scenarios are built from the structured data, surfacing the few drivers that actually move your business.' },
+  { num: '04', title: 'Senior CFO Review', brief: 'A senior finance professional checks every figure, pressure-tests the assumptions, and adds the judgment AI cannot, before anything reaches you.' },
+  { num: '05', title: 'Founder-Ready Reporting', brief: 'You get a one-page report in plain English: what changed this month, whether you are profitable, how long your cash lasts, and what to watch next.' },
 ];
 
 const metrics = [
-  { value: '150+', label: 'China origin antibody and cell-therapy assets actively tracked' },
-  { value: '25+', label: 'Source types monitored across regulatory, clinical, patent, company, and transaction data' },
-  { value: 'Weekly', label: 'CDE filings, trial registry, and conference disclosure monitoring' },
+  { value: '48 hrs', label: 'Typical turnaround from your data to a first-draft monthly report' },
+  { value: '100%', label: 'Of figures reviewed by a senior finance professional before delivery' },
+  { value: '1 page', label: 'Plain-English summary of what changed and what to watch next' },
 ];
 
 const AIAdvantageSection = () => {
@@ -74,7 +74,7 @@ const AIAdvantageSection = () => {
           <div className="lg:w-2/5 flex flex-col justify-center">
             <div className="fade-in bg-gradient-to-br from-white/[0.07] to-white/[0.02] rounded-xl p-8 md:p-10 border border-white/10 backdrop-blur-sm">
               <p className="text-white/80 text-base leading-relaxed mb-10">
-                Echo&apos;s analyst layer combines what no database delivers and no consultancy productizes.
+                AI does the heavy lifting. A senior finance professional owns the judgment, and every number that reaches you.
               </p>
               <div className="space-y-7">
                 {metrics.map((m, i) => (

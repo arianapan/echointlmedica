@@ -1,13 +1,13 @@
 import { useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PricingTiers from '../components/PricingTiers';
+import PricingTiers, { TIERS } from '../components/PricingTiers';
 import PricingDetails, { FAQS } from '../components/PricingDetails';
 
 const SITE_URL = 'https://echointlmedica.com';
 const PAGE_PATH = '/services/fractional-ai-cfo';
-const PAGE_TITLE = 'Fractional AI CFO for Biotech | Monthly Retainer for Cross-Border Life Sciences';
+const PAGE_TITLE = 'Fractional CFO for Cross-Border Founders | Monthly Retainer | Echo';
 const PAGE_DESCRIPTION =
-  'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,650/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.';
+  'Cross-border fractional CFO service for founders. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, China-US finance. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.';
 const OG_IMAGE = '/articles/ai-advisory.jpg';
 
 const setMeta = (attr, key, value) => {
@@ -44,7 +44,7 @@ const FractionalAiCfo = () => {
 
     document.title = PAGE_TITLE;
     setMeta('name', 'description', PAGE_DESCRIPTION);
-    setMeta('name', 'keywords', 'fractional AI CFO biotech, fractional CFO biotech, biotech fractional CFO, cross-border biotech CFO, US China biotech CFO, AI-powered CFO biotech, biotech finance retainer, NMPA fundraising, biotech runway advisor');
+    setMeta('name', 'keywords', 'fractional CFO, cross-border CFO, China US CFO, fractional CFO for startups, outsourced CFO service, cash flow forecasting, runway model, investor updates, fundraising readiness, monthly financial reporting');
     setLink('canonical', canonical);
 
     setMeta('property', 'og:type', 'website');
@@ -68,7 +68,7 @@ const FractionalAiCfo = () => {
     serviceLd.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: 'Fractional AI CFO for Biotech',
+      name: 'Cross-Border Fractional CFO Service',
       serviceType: 'Fractional CFO Services',
       provider: {
         '@type': 'Organization',
@@ -122,7 +122,7 @@ const FractionalAiCfo = () => {
         }} />
         <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-24 text-center">
           <span className="inline-block text-[11px] font-heading font-semibold text-white/70 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full tracking-[0.16em] uppercase mb-6">
-            Monthly Retainer · Biotech · Cross-Border
+            Monthly Retainer · Cross-Border · Founder-Focused
           </span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6 max-w-3xl mx-auto">
             <span className="relative inline-block">
@@ -131,20 +131,20 @@ const FractionalAiCfo = () => {
             </span>{' '}
             Fractional CFO.<br className="hidden sm:block" /> Built For{' '}
             <span className="relative inline-block">
-              <span className="relative z-10">Biotech</span>
+              <span className="relative z-10">Founders</span>
               <span className="absolute inset-x-0 bottom-1 h-[0.3em] bg-primary/60 -z-0 rounded-sm"></span>
             </span>
             .
           </h1>
           <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light max-w-2xl mx-auto mb-8">
-            Senior finance leadership on a flat monthly retainer. AI-augmented delivery at one-third the cost of an FTE CFO.
+            Monthly reporting, cash-flow and runway forecasting, and investor-ready financials for founders operating across China and global markets. AI-amplified delivery at a fraction of a full-time CFO.
           </p>
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <a href="#pricing" className="btn-primary inline-block bg-white !text-secondary hover:!bg-white/90">
               See pricing
             </a>
             <Link to="/#contact" className="text-white/90 hover:text-white text-sm font-heading font-semibold border-b border-white/40 hover:border-white pb-1 transition-colors">
-              Book free 30-min diagnostic &rarr;
+              Book a free 20-min finance review &rarr;
             </Link>
           </div>
         </div>
@@ -160,7 +160,7 @@ const FractionalAiCfo = () => {
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-textDark mb-3">Comparing options?</h2>
           <p className="text-textMedium text-base leading-relaxed mb-6 max-w-xl mx-auto">
-            Honest 2026 comparison vs. Pilot, Toptal, Brightbal, Burkland, and Kruze. See how Echo compares on price, biotech depth, and cross-border.
+            Honest 2026 comparison vs. Pilot, Toptal, Brightbal, Burkland, and Kruze. See how Echo compares on price, founder-readability, and cross-border China-US finance.
           </p>
           <Link to="/compare/fractional-cfo-biotech" className="btn-primary inline-block">
             Read the comparison
@@ -171,12 +171,12 @@ const FractionalAiCfo = () => {
       {/* Final CTA */}
       <section className="py-20 md:py-24 bg-gradient-to-br from-secondary via-secondary/95 to-primary/80 text-white">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold leading-tight mb-4">Book your free 30-min diagnostic.</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold leading-tight mb-4">Book your free 20-min finance review.</h2>
           <p className="text-white/85 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Senior advisor walks your runway, flags 2–3 highest-leverage decisions, identifies cross-border optionality. No pitch. One-page summary within 48 hours.
+            A senior advisor walks your runway, flags 2 to 3 highest-leverage decisions, and points out cross-border optionality. No pitch. One-page summary within 48 hours.
           </p>
           <Link to="/#contact" className="btn-primary inline-block bg-white !text-secondary hover:!bg-white/90">
-            Contact Echo
+            Book a Finance Review
           </Link>
         </div>
       </section>

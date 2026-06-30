@@ -3,53 +3,51 @@ import { Link } from 'react-router-dom';
 
 export const TIERS = [
   {
-    name: 'Insight',
-    monthly: 1650,
-    annual: 1485,
-    stage: 'Seed',
-    role: 'Beyond an in-house FP&A analyst',
+    name: 'Monthly Finance Clarity',
+    monthly: 750,
+    annual: 675,
+    stage: 'Solo & very early',
+    role: 'Beyond a part-time bookkeeper',
     highlight: false,
     features: [
-      'Live runway dashboard',
-      'Investor database (300+ funds)',
-      'Monthly financial snapshot (PDF + live view)',
-      'Monthly 45-min advisor call',
+      'Monthly P&L + cash-flow statement',
+      'Live runway forecast',
+      'One-page founder operating report',
+      'Cash-flow risk & unusual-spend flags',
       'Email support',
     ],
   },
   {
-    name: 'Foundation',
-    monthly: 3500,
-    annual: 3150,
-    stage: 'Seed to Series A',
-    role: 'Finance-manager level',
+    name: 'Growth CFO Support',
+    monthly: 2000,
+    annual: 1800,
+    stage: 'Pre-seed to Series A',
+    role: 'Your outsourced finance team',
     highlight: true,
     badge: 'Most Popular',
     features: [
-      'Everything in Insight',
-      'Scenario runway (senior-owned)',
-      '80+ scored investor universe',
-      'Monthly KPI dashboard + budget vs. actuals',
-      'Quarterly board deck + cap table modeling',
-      'Bi-weekly 45-min advisor call',
+      'Everything in Monthly Finance Clarity',
+      'Budget vs. actuals + scenario runway',
+      'Monthly investor update, drafted for you',
+      'Diligence data room, maintained',
+      'Monthly 30-min advisor call',
       'Slack + email support',
     ],
   },
   {
-    name: 'Growth',
-    monthly: 6000,
-    annual: 5400,
-    stage: 'Series A to B',
-    role: 'CFO-level partner',
+    name: 'Fractional CFO Review',
+    monthly: 5000,
+    annual: 4500,
+    stage: 'Raising or cross-border',
+    role: 'Senior fractional CFO partner',
     highlight: false,
     features: [
-      'Everything in Foundation',
-      'Monthly board deck, senior-finalized',
+      'Everything in Growth CFO Support',
+      'Senior fractional CFO, every number human-reviewed',
+      'Cross-border (China-US) cash & entities',
+      'Fundraising model + board deck + cap table',
       'Always-on investor pipeline + prep briefs',
-      'Cross-border (CRO, NMPA, PIPL) touchpoint',
-      'Investor update drafting + DD data room',
-      'Weekly advisor call + monthly CEO strategy',
-      'Quarterly strategic planning session',
+      'Bi-weekly advisor call + monthly CEO strategy',
     ],
   },
 ];
@@ -65,12 +63,12 @@ const PricingTiers = ({ children, variant = 'full' }) => {
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-10">
           <span className="section-label">PRICING</span>
-          <h2 className="section-heading max-w-2xl mx-auto mb-3">Fractional AI CFO</h2>
+          <h2 className="section-heading max-w-2xl mx-auto mb-3">Cross-Border CFO Service</h2>
           <p className="text-textDark text-base leading-relaxed max-w-2xl mx-auto mb-2">
-            Senior finance consultants, amplified by AI. Fewer FP&A errors, faster insights, a fraction of the cost.
+            A senior finance team, amplified by AI. Fewer errors, faster answers, a fraction of a full-time CFO.
           </p>
           <p className="text-textMedium text-sm leading-relaxed max-w-xl mx-auto">
-            One flat rate. Every month. No lock-in. Annual pre-payment saves 10%.
+            One flat rate. Every month. No lock-in. Annual pre-payment saves 10%. One-time onboarding from $500.
           </p>
         </div>
 
@@ -146,7 +144,7 @@ const PricingTiers = ({ children, variant = 'full' }) => {
                       : 'border border-textDark text-textDark hover:bg-textDark hover:text-white'
                   }`}
                 >
-                  Claim My Free Diagnostic
+                  Book a Finance Review
                 </Link>
               </div>
             );

@@ -4,9 +4,9 @@ import assets from '../assets';
 
 const cases = [
   {
-    category: 'Featured client success story',
+    category: 'Cross-border finance & fundraising',
     title: 'US Oncology Biotech Enters Greater China Clinical Pathway',
-    detail: 'Designed a complete China clinical and commercialization strategy for a first-in-class therapeutic, including CRO selection, cost modeling, regulatory timeline, and investor narrative for a $10M+ capital raise.',
+    detail: 'Built the cost model, regulatory-timeline budget, and investor narrative behind a first-in-class therapeutic’s Greater China entry, supporting a $10M+ raise at roughly 65% lower projected trial cost.',
     metrics: [
       { value: '65%', label: 'Cost reduction vs. US clinical trials' },
       { value: '$10M+', label: 'Capital raise supported' },
@@ -17,9 +17,9 @@ const cases = [
     alt: 'Business professionals discussing cross-border biotech strategy',
   },
   {
-    category: 'Featured client success story',
+    category: 'Cross-border healthcare advisory',
     title: 'Top-Tier US Cancer Center × Chinese Hospital Collaboration',
-    detail: 'Structured a cross-border partnership between a leading US academic medical center and Chinese hospital network, covering education programs, remote tumor board services, and strategic research collaboration.',
+    detail: 'Structured a cross-border partnership between a leading US academic medical center and a Chinese hospital network. It is the kind of complex multi-entity, multi-currency execution our team now brings to founders’ finances.',
     metrics: [
       { value: '2', label: 'Institutions connected across the Pacific' },
       { value: 'Multi-year', label: 'Partnership structure delivered' },
@@ -30,9 +30,9 @@ const cases = [
     alt: 'Medical professionals in a cross-border tumor board collaboration',
   },
   {
-    category: 'Featured client success story',
+    category: 'Fundraising readiness',
     title: 'Fundraising Support Package Delivered in Days, Not Weeks',
-    detail: 'Deployed AI-accelerated workflows to deliver a complete investor readiness package: financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard in under one week.',
+    detail: 'Delivered a complete investor-readiness package in under one week using AI-accelerated workflows: a financial model, an 80+ investor targeting report, meeting prep briefs, and a pipeline dashboard.',
     metrics: [
       { value: '5 days', label: 'Full package delivered end-to-end' },
       { value: '80+', label: 'Investors mapped and scored' },
@@ -102,6 +102,9 @@ const ResultsSection = () => {
           <h2 className="font-heading text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-light text-textDark" style={{ lineHeight: 1.1, letterSpacing: '-0.02em' }}>
             Bold Steps Forward.
           </h2>
+          <p className="text-textMedium text-base md:text-lg leading-relaxed max-w-2xl mt-5">
+            Cross-border finance, fundraising, and healthcare engagements from our team’s work. The same analytical depth now sits behind Echo’s CFO service.
+          </p>
         </div>
 
         {/* Two-column: text left, image right */}

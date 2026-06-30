@@ -22,10 +22,10 @@ const Navbar = () => {
     },
     {
       path: '/#ai-advantage',
-      label: 'AI Approach',
+      label: 'How It Works',
       children: [
-        { path: '/#ai-advantage', label: 'Methodology' },
-        { path: '/#how-echo-compares', label: 'Comparative Advantages' },
+        { path: '/#ai-advantage', label: 'Our Process' },
+        { path: '/#how-echo-compares', label: 'Why Echo' },
       ],
     },
     { path: '/#results', label: 'Results' },
@@ -229,7 +229,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => handleLinkClick('/#contact')}
               >
-                Get in Touch
+                Book a Finance Review
               </button>
             </nav>
 
@@ -328,7 +328,7 @@ const Navbar = () => {
               className="btn-primary mt-8 text-lg w-full cursor-pointer"
               onClick={() => handleLinkClick('/#contact')}
             >
-              Get in Touch
+              Book a Finance Review
             </button>
           </nav>
         </div>

@@ -20,6 +20,15 @@
     font-family: 'Lexend', sans-serif;
   }
 
+  /* Hide native <details> disclosure triangle (Safari shows it even with
+     list-none, which breaks justify-between layouts). Custom chevrons are used. */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   /* Prevent layout shifts from font loading */
   .fonts-loaded * {
     font-display: swap;

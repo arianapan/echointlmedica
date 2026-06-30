@@ -4,7 +4,7 @@ const AiFundraisingPackage = () => (
   <ArticleLayout
     category="Client Success Story"
     title="A Complete Biotech Fundraising Package in 5 Days: Inside an AI-Accelerated Workflow"
-    subtitle="How Echo delivered a full investor-readiness package — financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard — end-to-end in under a week."
+    subtitle="How Echo delivered a full investor-readiness package end-to-end in under a week: a financial model, an 80+ investor targeting report, meeting prep briefs, and a pipeline dashboard."
     readTime="9 min read"
     publishDate="April 2026"
     isoDate="2026-04-14"

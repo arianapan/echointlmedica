@@ -4,78 +4,74 @@ import { Link } from 'react-router-dom';
 export const FAQS = [
   {
     q: 'Who is this service for?',
-    a: 'Seed through Series A-B biotech companies that need senior finance leadership but are not ready to hire a full-time CFO. We are especially well-fit for biotech sponsors running cross-border US-China programs or planning a raise in the next 3 to 12 months. Series B+ biotechs typically bring finance in-house and are not our core fit.',
+    a: 'Founders and small-business owners who need a real finance function but are not ready to hire a full-time CFO. We are especially well-fit for cross-border founders operating across China and global markets (startups, medical device and hardtech companies, consulting firms), and for anyone preparing to raise in the next 3 to 12 months. Companies with a mature in-house finance team are not our core fit.',
   },
   {
     q: 'How does this compare to a full-time CFO?',
-    a: 'A biotech FTE CFO in the US costs $250,000 to $400,000 in base salary plus 0.5 to 1.5 percent equity, typically $350,000+ fully loaded. Our Growth retainer at $6,000 per month equals about $72,000 per year (or $64,800 on the annual plan), roughly one-fifth the cost, with no equity dilution.',
+    a: 'A full-time CFO in the US costs $250,000 to $400,000 in base salary plus equity, typically $350,000+ fully loaded. Our Fractional CFO Review retainer at $5,000 per month equals about $60,000 per year (or $54,000 on the annual plan), roughly one-sixth the cost, with no equity dilution. You can start at $750/mo and scale up only when you raise.',
   },
   {
     q: 'What AI tools are used, and how is the output verified?',
-    a: 'Frontier large language models for unstructured synthesis and first-draft generation, structured data pipelines for financial model updates and KPI dashboards, and proprietary workflows for biotech-specific tasks like trial cost benchmarking and investor thesis scoring. All AI output is supervised by a senior advisor with biotech finance experience. Judgment under ambiguity, investor tone calibration, and objection handling remain the senior advisor\'s work.',
+    a: 'Frontier large language models for transaction categorization and first-draft reports, and structured spreadsheet pipelines for the actual numbers: P&L, cash flow, and runway. AI never produces a final figure on its own. Every number that reaches you is calculated by formula and reviewed by a senior advisor before delivery. Judgment, investor tone, and anything that touches tax or compliance remain human work, and reports are clearly marked as management information, not an audit or tax opinion.',
   },
   {
     q: 'How is pricing structured?',
-    a: 'SaaS-style monthly subscription across three flat-rate tiers. Insight at $1,650/mo ($1,485 on annual) for seed biotechs, delivering more than an in-house FP&A analyst. Foundation at $3,500/mo ($3,150 annual), our most popular tier, is finance-manager-level partner with scenario-modeled runway, scored investor universe, cap table modeling, and bi-weekly advisor calls. Growth at $6,000/mo ($5,400 annual) is CFO-level support for Series A to B fundraising or cross-border programs, including weekly advisor calls, monthly CEO strategy, and always-on investor pipeline. Annual pre-payment saves 10 percent. Month-to-month billing has no commitment beyond the current month.',
+    a: 'A flat monthly retainer across three tiers, plus a one-time onboarding fee from $500 to clean up and build your initial model. Monthly Finance Clarity at $750/mo ($675 annual) covers monthly reporting, a one-page operating report, and a live runway forecast. Growth CFO Support at $2,000/mo ($1,800 annual), our most popular tier, adds budget-vs-actuals, scenario runway, monthly investor updates, and a maintained data room. Fractional CFO Review at $5,000/mo ($4,500 annual) is senior fractional CFO support with cross-border China-US finance, fundraising materials, and an always-on investor pipeline. Annual pre-payment saves 10 percent; month-to-month has no commitment beyond the current month.',
   },
   {
     q: 'How fast is onboarding?',
-    a: 'Free diagnostic in 24 to 48 hours. Full retainer kickoff in 5 to 7 business days, during which we ingest financials, build the initial runway model, and assemble the first investor universe pass. By end of week two, you have a live model, an initial investor pipeline, and a draft KPI dashboard.',
+    a: 'Free CFO review in 24 to 48 hours. Full retainer kickoff in 5 to 7 business days, during which we ingest your transactions, build the initial runway model, and produce your first operating report. By end of week two you have a live model, a clean monthly report, and a clear view of your runway.',
   },
   {
     q: 'Is there a minimum commitment?',
-    a: 'No long-term contract. The retainer is month-to-month with a 30-day notice period to wind down, so the only commitment is the current month. Most clients stay 12 to 24 months because the work is continuous.',
+    a: 'No long-term contract. The retainer is month-to-month with a 30-day notice period to wind down, so the only commitment is the current month. Most clients stay because the work is continuous: cash, reporting, and fundraising never stop.',
   },
 ];
 
 const SCENARIOS = [
-  { scenario: 'Seed biotech, want biotech-specific FP&A on a tight budget', answer: 'Echo Insight at $1,650/mo ($1,485 annual). Biotech-native runway and investor database, roughly 35% below the nearest generalist entry tier.' },
-  { scenario: 'Pre-Series A or Series A biotech, preparing to raise', answer: 'Echo Foundation at $3,500/mo, our most popular tier. Finance-manager-level partner with scenario-modeled runway, scored investor universe, monthly KPI dashboard, and cap table modeling.' },
-  { scenario: 'Series A to B biotech, actively fundraising', answer: 'Echo Growth at $6,000/mo. CFO-level support: monthly board deck senior-finalized, always-on investor pipeline, DD data room, weekly advisor call.' },
-  { scenario: 'Series A to B biotech, evaluating or running a China program', answer: 'Echo Growth at $6,000/mo. Cross-border (US, Greater China) is a core specialty, not an add-on. NMPA regulatory watch, CRO oversight, and cross-border investor narrative are built in.' },
-  { scenario: 'Chinese biotech building credible US operations', answer: 'Echo is a direct fit. Our cross-border practice works both directions: FDA-acceptable data strategy, US investor narrative, US BD targeting.' },
-  { scenario: 'Need a one-time sprint rather than a retainer', answer: 'Echo Fundraising Sprint ($9,000) or China Entry Engagement ($30,000). Retainer optional.' },
+  { scenario: 'Solo founder, just need clean numbers and a runway I can trust', answer: 'Monthly Finance Clarity at $750/mo ($675 annual). Monthly P&L, cash-flow statement, a one-page operating report, and a live runway forecast, all senior-reviewed.' },
+  { scenario: 'Pre-seed or seed startup, preparing to raise', answer: 'Growth CFO Support at $2,000/mo, our most popular tier. Your outsourced finance team: scenario runway, budget vs. actuals, monthly investor updates, and a maintained diligence data room.' },
+  { scenario: 'Raising now, need investor-ready materials and a model', answer: 'Fractional CFO Review at $5,000/mo. Senior fractional CFO: fundraising model, board deck, cap table scenarios, always-on investor pipeline, bi-weekly advisor call.' },
+  { scenario: 'Operating across China and global markets', answer: 'Fractional CFO Review at $5,000/mo. Cross-border China-US finance is a core specialty, not an add-on: multi-entity cash, FX, and a cross-border investor narrative are built in.' },
+  { scenario: 'Small business owner who just wants the books to make sense', answer: 'Start with Monthly Finance Clarity at $750/mo. If you also want a senior person owning your finance decisions, step up to Growth CFO Support.' },
+  { scenario: 'Need a one-time push rather than a retainer', answer: 'Echo Fundraising Sprint ($9,000) gets your investor materials and model ready in a week. Retainer optional afterward.' },
 ];
 
 const FEATURE_GROUPS = [
   {
     group: 'Financial Operations',
     rows: [
-      { name: 'Live runway model', i: true, f: 'Scenarios', g: 'Weekly, senior-reviewed' },
-      { name: 'Burn & cash-to-milestone tracking', i: true, f: true, g: true },
-      { name: 'Headcount & hiring plan', i: true, f: true, g: true },
-      { name: 'Monthly financial snapshot', i: true, f: true, g: true },
+      { name: 'Monthly P&L + cash-flow statement', i: true, f: true, g: true },
+      { name: 'Live runway forecast', i: true, f: 'Scenarios', g: 'Scenarios + sensitivity' },
+      { name: 'One-page founder operating report', i: true, f: true, g: true },
+      { name: 'Cash-flow risk & unusual-spend flags', i: true, f: true, g: true },
       { name: 'Budget vs. actuals review', i: false, f: 'Monthly', g: 'Monthly + variance analysis' },
-      { name: 'Cap table scenario modeling', i: false, f: true, g: true },
-      { name: 'Scenario modeling (base / accelerated / delayed)', i: false, f: true, g: 'With sensitivity' },
+      { name: 'Cap table scenario modeling', i: false, f: false, g: true },
     ],
   },
   {
     group: 'Investor Relations',
     rows: [
-      { name: 'Investor database (300+ biotech funds)', i: true, f: true, g: true },
-      { name: 'Scored investor universe (80+ funds)', i: false, f: true, g: true },
-      { name: 'Always-on pipeline refresh', i: false, f: false, g: true },
+      { name: 'Investor database access', i: false, f: true, g: true },
+      { name: 'Monthly investor update (drafted)', i: false, f: true, g: 'Senior-reviewed' },
+      { name: 'Always-on investor pipeline', i: false, f: false, g: true },
       { name: 'Per-meeting prep briefs', i: false, f: false, g: true },
     ],
   },
   {
     group: 'Board & Reporting',
     rows: [
-      { name: 'Monthly KPI dashboard', i: false, f: true, g: true },
-      { name: 'Quarterly board deck', i: false, f: true, g: 'Monthly' },
-      { name: 'Monthly board deck (senior-finalized)', i: false, f: false, g: true },
-      { name: 'Investor update template', i: false, f: true, g: true },
-      { name: 'Investor update drafting (senior-reviewed)', i: false, f: false, g: true },
-      { name: 'Due-diligence data room support', i: false, f: false, g: true },
+      { name: 'Diligence data room', i: false, f: 'Maintained', g: 'Maintained + DD support' },
+      { name: 'Board deck', i: false, f: false, g: 'Monthly, senior-finalized' },
+      { name: 'Fundraising financial model', i: false, f: 'Standard', g: 'Investor-grade' },
     ],
   },
   {
-    group: 'Cross-Border (US–China)',
+    group: 'Cross-Border (China-US)',
     rows: [
-      { name: 'NMPA regulatory watch', i: false, f: false, g: true },
-      { name: 'CRO oversight + shortlist refresh', i: false, f: false, g: true },
-      { name: 'Data governance (PIPL / DSL)', i: false, f: false, g: true },
+      { name: 'Multi-entity cash & reporting', i: false, f: false, g: true },
+      { name: 'FX & cross-border payments view', i: false, f: false, g: true },
+      { name: 'Data & compliance reminders', i: false, f: false, g: true },
       { name: 'Cross-border investor narrative', i: false, f: false, g: true },
     ],
   },
@@ -84,9 +80,9 @@ const FEATURE_GROUPS = [
     rows: [
       { name: 'Email support', i: true, f: true, g: true },
       { name: 'Slack support', i: false, f: true, g: true },
-      { name: 'Advisor review call', i: 'Monthly 45-min', f: 'Bi-weekly 45-min', g: 'Weekly 30-min' },
+      { name: 'Advisor review call', i: false, f: 'Monthly 30-min', g: 'Bi-weekly 45-min' },
       { name: 'CEO strategy session', i: false, f: false, g: 'Monthly 60-min' },
-      { name: 'Quarterly strategic planning', i: false, f: false, g: true },
+      { name: 'Every figure human-reviewed', i: true, f: true, g: true },
     ],
   },
 ];
@@ -98,9 +94,9 @@ const ADDONS = [
     detail: 'Monthly close, accrual + cash, QuickBooks or Xero ownership, 1099 prep. AI categorization, senior-reviewed.',
   },
   {
-    name: 'R&D tax credit filing',
-    price: '$1,500 / yr',
-    detail: 'Form 6765 preparation + substantiation memo delivered with your annual tax return.',
+    name: 'Tax-prep package',
+    price: 'From $1,500 / yr',
+    detail: 'Year-end books cleaned and organized into a filing-ready package for your accountant. We prepare; your CPA files.',
   },
 ];
 
@@ -108,19 +104,19 @@ const PROJECT_ENGAGEMENTS = [
   {
     name: 'Fundraising Sprint',
     price: '$9,000',
-    detail: 'Full investor-readiness package in one week: integrated financial model, 80+ investor targeting, per-meeting prep briefs, board-ready KPI dashboard.',
+    detail: 'Full investor-readiness package in one week: integrated financial model, scenario runway, investor update, and a board-ready KPI dashboard.',
     href: '/case-studies/ai-fundraising-package-5-days',
   },
   {
-    name: 'China Entry Engagement',
-    price: '$30,000',
-    detail: 'End-to-end China clinical and commercialization strategy: CRO shortlisting, per-patient cost model, FDA + NMPA timeline, investor narrative. 40–65% program cost reduction typical.',
-    href: '/case-studies/us-oncology-china-entry',
+    name: 'Cross-Border Finance Setup',
+    price: 'From $6,000',
+    detail: 'Get your China-US finances in order: multi-entity cash map, FX and intercompany flow, reporting structure, and a compliance checklist. Retainer optional afterward.',
+    href: null,
   },
   {
-    name: 'Standalone CRO Selection',
-    price: '$12,000',
-    detail: 'Independent CRO shortlisting, site-visit diligence, per-patient cost benchmarking, contract-term review. Decision memo with 3 shortlisted vendors.',
+    name: 'Financial Model Build',
+    price: 'From $4,000',
+    detail: 'A clean, investor-grade operating and runway model built from your real numbers, with base and downside scenarios you can drive yourself.',
     href: null,
   },
 ];
@@ -152,9 +148,9 @@ const PricingDetails = () => (
           <thead>
             <tr className="bg-lightBg text-left">
               <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-textMedium">Feature</th>
-              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-textMedium text-center w-[120px]">Insight</th>
-              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-textMedium text-center w-[140px]">Foundation</th>
-              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-primary text-center w-[160px]">Growth</th>
+              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-textMedium text-center w-[120px]">Clarity</th>
+              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-textMedium text-center w-[140px]">Growth</th>
+              <th className="py-3 px-4 text-[11px] font-heading font-semibold tracking-[0.1em] uppercase text-primary text-center w-[160px]">Fractional CFO</th>
             </tr>
           </thead>
           <tbody>
@@ -250,7 +246,7 @@ const PricingDetails = () => (
         </div>
 
         <h3 className="font-heading text-sm font-bold tracking-[0.14em] uppercase text-secondary mb-4">Frequently asked</h3>
-        <div className="space-y-3 max-w-3xl mx-auto">
+        <div className="space-y-3 max-w-3xl">
           {FAQS.map((f, i) => (
             <details key={i} className="group/q bg-white rounded-lg border border-borderLight open:shadow-sm">
               <summary className="cursor-pointer list-none p-5 flex items-start justify-between gap-4">

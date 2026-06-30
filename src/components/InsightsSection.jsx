@@ -8,7 +8,7 @@ const aiCoverImg = '/articles/ai-advisory.jpg';
 const articles = [
   {
     category: 'CROSS-BORDER STRATEGY',
-    title: 'Why Chinese CROs Are 65% Cheaper — and What US Biotechs Need to Know',
+    title: 'Why Chinese CROs Are 65% Cheaper, and What US Biotechs Need to Know',
     brief: 'A deep look at the cost arbitrage in cross-border clinical development and the operational considerations that determine success.',
     href: '/insights/chinese-cros-cost-arbitrage',
     image: croCoverImg,
@@ -16,14 +16,14 @@ const articles = [
   {
     category: 'AI & ADVISORY',
     title: 'The 3× Deliverable Model: How AI Is Reshaping Biotech Consulting',
-    brief: 'Why the future of advisory isn\'t cheaper consulting — it\'s fundamentally better outcomes delivered through AI-augmented intelligence.',
+    brief: 'Why the future of advisory isn\'t cheaper consulting. It\'s fundamentally better outcomes delivered through AI-augmented intelligence.',
     href: '/insights/ai-reshaping-biotech-consulting',
     image: aiCoverImg,
   },
   {
     category: 'INSTITUTIONAL PARTNERSHIPS',
     title: 'Building Hospital Partnerships Across the Pacific: A Practitioner\'s Guide',
-    brief: 'Lessons from structuring US–China academic medical center collaborations, from framework design to ongoing management.',
+    brief: 'Lessons from structuring US-China academic medical center collaborations, from framework design to ongoing management.',
     href: '/insights/pacific-hospital-partnerships',
     image: snap2Img,
   },

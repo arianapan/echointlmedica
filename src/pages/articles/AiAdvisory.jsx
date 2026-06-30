@@ -79,7 +79,7 @@ const AiAdvisory = () => (
         <span className="label">Deliverable depth per engagement week</span>
       </div>
       <div className="stat-card">
-        <span className="num">$60–110B</span>
+        <span className="num">$60 to 110B</span>
         <span className="label">Annual AI value in pharma (McKinsey, 2023)</span>
       </div>
       <div className="stat-card">

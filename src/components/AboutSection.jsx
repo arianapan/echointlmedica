@@ -9,8 +9,8 @@ const capabilities = [
         <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
       </svg>
     ),
-    title: 'Mainland China Coverage',
-    brief: 'Analysts on the ground in Shanghai and Beijing, tracking antibody and cell therapy programs across CDE filings, conference disclosures, and primary-source company contact.',
+    title: 'Cash-Flow & Runway',
+    brief: 'Live cash-flow and runway models, updated every month, so you always know how many months of cash you have and exactly what changes them.',
   },
   {
     icon: (
@@ -20,8 +20,8 @@ const capabilities = [
         <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
       </svg>
     ),
-    title: 'AI-Native Intelligence',
-    brief: 'Proprietary AI workflows synthesize Chinese-language regulatory filings, patents, and trial data into deal-grade English briefs in days, not weeks.',
+    title: 'Fundraising Readiness',
+    brief: 'Investor updates, scenario models, and a clean diligence data room your investors take seriously, ready before you raise instead of scrambled together during.',
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const capabilities = [
         <circle cx="12" cy="15" r="2" />
       </svg>
     ),
-    title: 'Modality Depth',
-    brief: 'Specialized coverage of ADCs, bispecifics, CAR-T, TCR-T, and next-generation cell therapies — the modalities driving China-origin BD activity.',
+    title: 'Cross-Border Finance',
+    brief: 'China and US entities, cash, and reporting, handled by people who work across both sides every day rather than a generalist seeing it for the first time.',
   },
   {
     icon: (
@@ -41,8 +41,8 @@ const capabilities = [
         <path d="M12 6v6l4 2" />
       </svg>
     ),
-    title: 'BD-Ready Output',
-    brief: 'Structured target lists, competitor maps, and licensing diligence formatted for global pharma BD workflows — not academic research dumps.',
+    title: 'AI-Amplified, Human-Owned',
+    brief: 'AI does the analytical heavy lifting in the background. A senior advisor owns every number that reaches you, and the judgment behind it.',
   },
 ];
 
@@ -69,9 +69,9 @@ const AboutSection = () => {
         <div className="mb-16 md:mb-20 fade-in grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <span className="section-label">ABOUT ECHO</span>
-            <h2 className="section-heading mb-6">China-Origin Antibody and Cell Therapy BD Intelligence</h2>
+            <h2 className="section-heading mb-6">Cross-Border CFO Services for Founders</h2>
             <p className="text-textMedium text-lg md:text-xl leading-relaxed">
-              Structured intelligence on China-origin ADCs, bispecifics, CAR-T, and next-generation cell therapies, built for global pharma BD teams. Hong Kong headquartered. Analysts on the ground in mainland China.
+              Echo is the finance function for founders operating across China and global markets. We handle financial modeling, cash-flow management, fundraising readiness, and monthly reporting, with senior judgment amplified by AI. Hong Kong headquartered.
             </p>
           </div>
           <div className="lg:col-span-5 group overflow-hidden rounded-2xl ring-1 ring-black/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] transition-shadow duration-500 ease-out hover:shadow-[0_4px_16px_rgba(0,0,0,0.06),0_20px_60px_rgba(0,0,0,0.12)]">

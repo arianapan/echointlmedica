@@ -2,36 +2,36 @@ import { useEffect, useState } from 'react';
 
 const faqs = [
   {
-    q: 'What kinds of assets does Echo cover?',
-    a: 'Echo specializes in China-origin antibody and cell therapy assets — antibody-drug conjugates (ADCs), bispecific antibodies, T-cell engagers, CAR-T cell therapy, TIL therapy, allogeneic platforms, and next-generation antibody scaffolds. We track these classes across mainland China and, increasingly, Korea and Japan. Therapeutic areas outside antibody and cell therapy are out of scope.',
+    q: 'What exactly does Echo do each month?',
+    a: 'We turn your bank, card, and accounting data into a clean profit-and-loss statement, a cash-flow statement, and a runway forecast, plus a one-page report in plain English: what changed, whether you are profitable, and how long your cash lasts. Higher tiers add budgeting, scenario analysis, investor updates, and fundraising materials.',
   },
   {
-    q: "Who are Echo's typical clients?",
-    a: 'Global pharma BD, search & evaluation, and external innovation teams — from mid-cap specialty pharma to top-20 multinationals. Echo does not serve early-stage US biotech fundraising, CRO selection, fractional CFO needs, or hospital partnership facilitation.',
+    q: 'Is Echo a bookkeeper or an accountant?',
+    a: 'No. Echo is your management-reporting and CFO function. We work alongside your bookkeeper, CPA, and tax advisor. We do not replace them, file your taxes, or provide audit or legal opinions. We turn the numbers they keep into decisions you can actually act on, and a senior finance professional reviews sensitive outputs before delivery.',
   },
   {
-    q: 'How is Echo different from Citeline or GlobalData?',
-    a: 'Citeline and GlobalData are comprehensive global pipeline databases. Echo is an analyst-led intelligence firm specializing in China-origin antibody and cell therapy assets. We go deeper on early-clinical and pre-clinical Chinese assets where the global databases under-cover, and we deliver decision-grade memos with named-analyst views — not database access. Most of our clients subscribe to a global database and add Echo for China depth.',
+    q: 'Who is Echo for?',
+    a: 'Founders and small businesses that need CFO-level clarity without hiring a full-time CFO, especially companies operating across China and the US, and healthcare, biotech, and medical-device companies. We also serve consulting firms, ecommerce sellers, and other small international businesses.',
   },
   {
-    q: 'How is Echo different from PharmCube?',
-    a: 'PharmCube has strong source-side coverage of Chinese pharma, originally built for the Chinese market. Echo reframes intelligence for Western BD workflows: every brief is structured for how global pharma sourcing teams actually evaluate assets, written in English by analysts fluent in both CDE regulatory mechanics and Western BD framing.',
+    q: 'How do you use AI, and is it safe?',
+    a: 'AI categorizes transactions and drafts reports so we work faster and at a fraction of the cost of a traditional CFO. It never produces a final number on its own: every figure is calculated by formula and reviewed by a senior finance professional before it reaches you. Your data is handled in a secure, per-client workspace and is not used to train public models.',
   },
   {
-    q: 'What does an engagement with Echo look like?',
-    a: 'Four engagement models. Single-asset deep dives are 15–20 page memos delivered in 10–15 business days. Therapeutic area landscape reports are quarterly publications, available standalone or as annual bundles. Echo subscriptions are year-long intelligence partnerships across one or more therapeutic areas. Strategic briefings are custom-scoped 4–8 week research engagements.',
+    q: 'What do I need to provide?',
+    a: 'Usually your bank and card statements and a QuickBooks or Excel export. For fundraising or growth support, also your payroll summary, existing financial model, and investor materials. We send a short checklist before kickoff so nothing is a surprise.',
   },
   {
-    q: "How is Echo's pricing structured?",
-    a: 'Engagements range from high five-figure project work to low six-figure annual subscriptions. Standalone landscape reports start at $25,000. Subscription pricing scales with therapeutic area coverage. Specific pricing is set during a scoping call.',
+    q: 'How is Echo priced?',
+    a: 'Flat monthly retainers: Monthly Finance Clarity from $750, Growth CFO Support from $2,000, and Fractional CFO Review from $5,000, each with a one-time onboarding fee. No equity and no long-term contract: month-to-month with 30 days’ notice, and annual pre-payment saves 10%.',
+  },
+  {
+    q: 'How fast can we start?',
+    a: 'A free finance review within a few days, and your first monthly report within about two weeks of kickoff, once we have ingested your data and built your initial runway model.',
   },
   {
     q: 'Where is Echo based?',
-    a: 'Hong Kong headquartered, with analysts on the ground in mainland China (Shanghai and Beijing) and commercial reach in the US and Europe.',
-  },
-  {
-    q: 'Does Echo work with Chinese biotech companies directly?',
-    a: "Echo's primary work is buy-side intelligence for global pharma BD teams. We also offer sell-side BD readiness advisory to selected Chinese biotechs preparing for outbound licensing — managed under a published conflict policy with internal Chinese walls. Sell-side engagements are not advertised on our buy-side channels.",
+    a: 'Hong Kong headquartered, with a US office in California and a mainland China office in Shenzhen. That is why cross-border China-US finance is a core strength, not an add-on.',
   },
 ];
 
@@ -59,7 +59,7 @@ const FaqSection = () => {
         {/* Header */}
         <div className="mb-12 md:mb-14 fade-in">
           <span className="section-label">FAQs</span>
-          <h2 className="section-heading">What BD Teams Ask</h2>
+          <h2 className="section-heading">What Founders Ask</h2>
         </div>
 
         {/* Q&A accordion — answers stay in DOM for AI crawler indexing, visually collapsed */}

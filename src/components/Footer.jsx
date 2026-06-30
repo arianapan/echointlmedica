@@ -4,7 +4,7 @@ import assets from '../assets';
 const footerLinks = [
   { label: 'About', path: '/#about' },
   { label: 'Services', path: '/#services' },
-  { label: 'AI Approach', path: '/#ai-advantage' },
+  { label: 'How It Works', path: '/#ai-advantage' },
   { label: 'Results', path: '/#results' },
   { label: 'Insights', path: '/#insights' },
   { label: 'Contact', path: '/#contact' },
@@ -96,10 +96,10 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
             <div className="lg:max-w-xl">
               <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-4" style={{ letterSpacing: '-0.01em' }}>
-                Stay ahead in a rapidly evolving market.
+                Run a sharper finance function.
               </h3>
               <p className="text-white/50 text-[15px] leading-relaxed">
-                Subscribe to Echo Insights — our periodic look at the forces shaping cross-border biotech, AI-augmented advisory, and US–China life sciences partnerships.
+                Subscribe to Echo Insights for practical notes on cash flow, fundraising readiness, and cross-border finance for founders and small businesses.
               </p>
             </div>
 

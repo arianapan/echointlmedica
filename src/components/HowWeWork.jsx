@@ -3,32 +3,28 @@ import { Link } from 'react-router-dom';
 
 const engagements = [
   {
-    title: 'Single-Asset Deep Dive',
+    title: 'Monthly Operating Report',
     description:
-      "A 15–20 page decision memo on one China-origin asset. Covers mechanism, regulatory trajectory, clinical readouts, IP landscape, comparable deals, and Echo's named-analyst view. Built for IC committee review.",
-    footer: <>Typically delivered in 10–15 business days.</>,
+      'A one-page report built for founders: what happened to revenue, cost, and cash this month, what it means, and what to watch. It is backed by a full P&L and cash-flow statement reviewed by a senior advisor.',
+    footer: <>Delivered every month, on a fixed schedule.</>,
   },
   {
-    title: 'Therapeutic Area Landscape',
+    title: 'Cash-Flow & Runway Forecast',
     description:
-      'A 40–60 page quarterly report covering one vertical: ADCs, bispecifics, CAR-T, or next-generation cell therapies. Profiles clinical-stage assets with comparable deal benchmarks and BD-readiness scoring.',
-    footer: (
-      <>
-        <strong className="font-semibold">Standalone reports from $25,000.</strong> Annual bundles available.
-      </>
-    ),
+      'A live runway model showing how many months of cash you have under base and downside scenarios, updated each month and stress-tested against your real burn, so cash surprises never come from your own books.',
+    footer: <>Updated monthly · scenario-ready.</>,
   },
   {
-    title: 'Echo Subscription',
+    title: 'Investor Update & Data Room',
     description:
-      'A year-long intelligence partnership for BD teams with active China-sourcing mandates. Quarterly landscapes, monthly briefings, weekly regulatory alerts, named-analyst access, and ad-hoc deep dives across selected therapeutic areas.',
-    footer: <>Annual partnerships. Pricing scales with therapeutic area coverage.</>,
+      'A drafted monthly investor update plus a maintained diligence data room, so your investors stay informed between rounds and your next raise starts ahead instead of from scratch.',
+    footer: <>Drafted for you · finalized by a senior advisor.</>,
   },
   {
-    title: 'Strategic Mandate Briefing',
+    title: 'Fundraising & Board Materials',
     description:
-      'Bespoke research on a client-defined sourcing, diligence, or competitive strategy question. Delivered as a written report plus presentation, with 90 days of follow-up access to the lead analyst.',
-    footer: <>Custom-scoped. Typically 4–8 week engagements.</>,
+      'Board decks, cap-table scenarios, and the financial model investors ask for, prepared when you need them instead of the night before a partner meeting.',
+    footer: <>On-demand within your monthly retainer.</>,
   },
 ];
 
@@ -94,16 +90,19 @@ const HowWeWork = () => {
 
         {/* Summary lines — generous gap above */}
         <p className="mt-14 md:mt-16 text-center text-textMedium text-sm md:text-base max-w-3xl mx-auto fade-in">
-          Engagements range from single-asset diligence to annual intelligence partnerships.
+          One predictable bundle every month, not a stack of one-off projects.
         </p>
         <p className="mt-2 text-center text-textMedium text-sm md:text-base max-w-3xl mx-auto fade-in">
-          Standalone landscape reports start at <strong className="font-semibold">$25,000</strong>.
+          Flat monthly retainers from <strong className="font-semibold">$750</strong>. No equity, no long-term contract.
         </p>
 
         {/* 16px gap, then single CTA */}
-        <div className="mt-4 flex justify-center fade-in">
-          <Link to="/sample-brief" className="btn-primary inline-block">
-            See a Sample Brief
+        <div className="mt-4 flex flex-col items-center gap-3 fade-in">
+          <Link to="/#contact" className="btn-primary inline-block">
+            Book a Finance Review
+          </Link>
+          <Link to="/services/fractional-ai-cfo" className="text-primary text-sm font-heading font-semibold hover:underline">
+            See full pricing and packages &rarr;
           </Link>
         </div>
       </div>

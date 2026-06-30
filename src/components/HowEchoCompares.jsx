@@ -2,19 +2,19 @@ import { useEffect } from 'react';
 
 const columns = [
   {
-    header: 'vs. Western databases',
-    competitors: 'Citeline, GlobalData, Evaluate',
-    body: "Comprehensive global pipelines, but China coverage is shallow at the early-clinical and pre-clinical stages where the best deal terms exist. Echo goes deeper on the assets they miss, with primary-source CDE fluency they don't have.",
+    header: 'vs. bookkeeping tools',
+    competitors: 'Pilot, Bench, QuickBooks',
+    body: 'Great at recording what already happened, but they stop at the books. Echo turns your numbers into runway, fundraising readiness, and decisions, with a senior advisor on the account instead of just software you operate yourself.',
   },
   {
-    header: 'vs. Chinese databases',
-    competitors: 'PharmCube, Yaozhi',
-    body: 'Source-side data depth, but built for Chinese readers — not Western BD workflows. Echo translates structure, not just language: every brief is decision-grade and reframed for how global pharma sourcing teams actually evaluate assets.',
+    header: 'vs. a full-time CFO hire',
+    competitors: 'A $200k+ salary and equity',
+    body: "The judgment you want, at a cost early companies can't justify. Echo gives you senior, fractional CFO judgment on a monthly retainer, and scales up only when you actually raise.",
   },
   {
-    header: 'vs. BD consultancies',
-    competitors: 'Locust Walk, Back Bay, McKinsey',
-    body: "Strong relationship-led project advisory, but project-paced and not productized. Echo's recurring intelligence accumulates depth across every engagement, with named-analyst views you can cite, not anonymous consulting decks.",
+    header: 'vs. generic fractional CFOs',
+    competitors: 'Local finance advisory firms',
+    body: 'Solid finance help, but rarely built for cross-border founders. Echo works across China and global markets every day, and amplifies a senior advisor with AI, so you get more done for less.',
   },
 ];
 
@@ -40,7 +40,7 @@ const HowEchoCompares = () => {
         {/* Header */}
         <div className="mb-12 md:mb-14 fade-in">
           <span className="section-label">WHERE ECHO FITS</span>
-          <h2 className="section-heading">Built for the gap incumbents can&apos;t fill.</h2>
+          <h2 className="section-heading">Built for the gap between a bookkeeper and a CFO.</h2>
         </div>
 
         {/* Three-column comparison */}
@@ -68,7 +68,7 @@ const HowEchoCompares = () => {
 
         {/* Italic centered closing line */}
         <p className="mt-14 md:mt-16 text-center text-textMedium italic text-sm md:text-base max-w-3xl mx-auto fade-in">
-          Echo sits alongside the database you already subscribe to — not against it.
+          Echo sits between your bookkeeper and a full-time CFO, exactly where most growing founders are stuck.
         </p>
       </div>
     </section>

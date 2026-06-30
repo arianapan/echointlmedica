@@ -29,7 +29,7 @@ const articles = [
   {
     slug: 'pacific-hospital-partnerships',
     title: "Building Hospital Partnerships Across the Pacific: A Practitioner's Guide",
-    description: 'Lessons from structuring US–China academic medical center collaborations, from framework design to ongoing management, and why most partnerships stall in year two.',
+    description: 'Lessons from structuring US-China academic medical center collaborations, from framework design to ongoing management, and why most partnerships stall in year two.',
     ogImage: '/og-preview.jpg',
     category: 'Institutional Partnerships',
     isoDate: '2026-04-14',
@@ -56,7 +56,7 @@ const articles = [
     pathPrefix: 'case-studies',
     slug: 'ai-fundraising-package-5-days',
     title: 'A Complete Biotech Fundraising Package in 5 Days: Inside an AI-Accelerated Workflow',
-    description: 'How Echo delivered a full investor-readiness package — financial model, 80+ investor targeting report, meeting prep briefs, and pipeline dashboard — end-to-end in under a week.',
+    description: 'How Echo delivered a full investor-readiness package end-to-end in under a week: a financial model, an 80+ investor targeting report, meeting prep briefs, and a pipeline dashboard.',
     ogImage: '/articles/ai-advisory.jpg',
     category: 'Client Success Story',
     isoDate: '2026-04-14',
@@ -68,15 +68,15 @@ const articles = [
 const pages = [
   {
     path: '/services/fractional-ai-cfo',
-    title: 'Fractional AI CFO for Biotech | Monthly Retainer for Cross-Border Life Sciences',
-    description: 'Fractional AI CFO for biotech. Live runway, AI-driven investor pipeline, board-ready reporting, cross-border strategy. From $1,650/mo. Annual saves 10%. Month-to-month, no equity. Free 30-min diagnostic.',
+    title: 'Fractional CFO for Cross-Border Founders | Monthly Retainer | Echo',
+    description: 'Cross-border fractional CFO service for founders. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, China-US finance. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.',
     ogImage: '/articles/ai-advisory.jpg',
     ogType: 'website',
   },
   {
     path: '/compare/fractional-cfo-biotech',
-    title: 'Fractional CFO for Biotech: Pilot vs Toptal vs Brightbal vs Echo | 2026 Comparison',
-    description: 'An honest 2026 comparison of fractional CFO options for biotech: Pilot, Toptal, Brightbal, Burkland, Kruze, and Echo. Pricing, specialization, cross-border capability, and which fits your stage.',
+    title: 'Fractional CFO Comparison: Pilot vs Toptal vs Brightbal vs Echo | 2026',
+    description: 'An honest 2026 comparison of fractional CFO options for founders: Pilot, Toptal, Brightbal, Burkland, Kruze, and Echo. Pricing, specialization, cross-border China-US capability, and which fits your stage. From $750/mo.',
     ogImage: '/articles/ai-advisory.jpg',
     ogType: 'article',
   },

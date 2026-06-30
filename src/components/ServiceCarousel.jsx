@@ -2,52 +2,53 @@ import { useEffect, useState } from 'react';
 import { TIERS, fmt } from './PricingTiers';
 
 const marqueeItems = [
-  'FRACTIONAL AI CFO', 'INVESTOR PIPELINE', 'CHINA MARKET ENTRY',
-  'CRO SELECTION', 'INSTITUTIONAL PARTNERSHIPS', 'AI-AUGMENTED RESEARCH',
-  'CROSS-BORDER EXECUTION', 'CLINICAL TRIAL STRATEGY',
+  'FRACTIONAL CFO', 'CASH-FLOW FORECASTING', 'RUNWAY MODELING',
+  'INVESTOR UPDATES', 'FUNDRAISING READINESS', 'MONTHLY REPORTING',
+  'CROSS-BORDER FINANCE', 'BUDGET & SCENARIO ANALYSIS',
 ];
 
 const services = [
   {
-    title: 'Cross-Border China Strategy & Execution',
-    tagline: 'Market entry, CRO selection, and execution management for US biotech entering Greater China.',
+    title: 'Monthly Reporting & Cash-Flow',
+    tagline: 'We turn your raw bank and card activity into a clean P&L, a cash-flow statement, and a one-page report you can actually read, every month.',
     // Detail page content
-    heroLine: 'We design your market entry so you don\'t navigate it alone.',
+    heroLine: 'Close the month in days, not weeks, and actually understand it.',
     paragraphs: [
-      'End-to-end advisory for US biotech companies entering Greater China. We design your market entry, select CRO and hospital partners, build execution budgets, and manage the cross-border relationship.',
-      'Our team has direct access to China-side institutional relationships: CROs, hospitals, investors, and regulatory networks, enabling us to move faster and with more precision than traditional advisory firms.',
+      'Connect QuickBooks or upload your bank and card statements, and we own the close: every transaction categorized, revenue and cost reconciled, and a clean monthly P&L and cash-flow statement produced. A senior advisor reviews it before it reaches you.',
+      'You get a one-page operating report written for founders, not accountants: what changed in revenue, cost, and cash this month, what it means, and what to watch. It also flags unusual spend, late receivables, and cash-flow risk automatically.',
     ],
-    capabilities: ['CRO Matching', 'Clinical Cost Analysis', 'Regulatory Landscape', 'Partner Selection', 'AI-Powered Research'],
+    capabilities: ['Transaction Categorization', 'Monthly P&L', 'Cash-Flow Statement', 'Founder Operating Report', 'Spend & Risk Flags'],
   },
   {
-    title: 'Institutional Partnership Facilitation',
-    tagline: 'Structured matchmaking between US academic medical centers and Chinese hospitals.',
-    heroLine: 'Building collaborations that last across the Pacific.',
+    title: 'Budgeting & Scenario Planning',
+    tagline: 'A live budget and runway model that answers the only question that matters: how many months of cash do you have, and what changes them.',
+    heroLine: 'Make the hire, the spend, or the bet with the numbers already in front of you.',
     paragraphs: [
-      'We design the collaboration framework between US academic medical centers and leading Chinese hospitals, identifying counterparties, packaging the value proposition, and managing the ongoing partnership.',
-      'Our partnerships cover education programs, remote tumor board services, strategic research collaboration, and clinical exchange programs.',
+      'We build and maintain your annual budget and a driver-based runway model, then keep it live against actuals so variances surface the moment they appear, not at year-end when it is too late to react.',
+      'Before any big decision, whether a key hire, a new market, or a price change, we model it first: base, upside, and downside scenarios with sensitivity on the few drivers that actually move your runway. You decide with evidence instead of gut feel.',
     ],
-    capabilities: ['AMC Partnerships', 'Hospital Matching', 'Program Design', 'Relationship Management', 'AI-Curated Intelligence'],
+    capabilities: ['Annual Budget', 'Driver-Based Runway', 'Budget vs. Actuals', 'Scenario & Sensitivity', 'Hiring & Spend Planning'],
   },
   {
-    title: 'Continuous Investor Pipeline',
-    tagline: 'Always-on AI investor matching and warm-intro mapping on a monthly retainer.',
-    heroLine: 'Your investor pipeline, running every month, not just before the raise.',
+    title: 'Fundraising & Investor Materials',
+    tagline: 'The model, data room, and investor updates your investors actually ask for, ready before the raise instead of built the night before.',
+    heroLine: 'Walk into the raise already prepared.',
     paragraphs: [
-      'A monthly retainer that keeps your investor pipeline live at all times. AI thesis-fit scoring across hundreds of biotech investors, warm-intro mapping, sentiment tracking, and weekly briefing packages. An optional 2 to 4 week onboarding sprint brings the pipeline to full speed.',
-      'When the data reads out, the list is already prioritized. No cold-start scramble, no piecemeal outreach. Retainer pricing, not hourly billing.',
+      'We build the investor-grade financial model, cap-table scenarios, and a clean diligence data room that hold up under partner scrutiny. Everything is drafted from your live numbers and finalized by a senior advisor.',
+      'Between rounds, we draft your monthly investor updates so existing investors stay warm and your next raise starts from a position of strength instead of a cold-start scramble.',
     ],
-    capabilities: ['AI Investor Matching', 'Warm-Intro Mapping', 'Investor Sentiment Tracking', 'Weekly Briefing Packages', 'Onboarding Sprint Option'],
+    capabilities: ['Investor-Grade Model', 'Cap Table Scenarios', 'Diligence Data Room', 'Monthly Investor Updates', 'Board Deck'],
   },
   {
-    title: 'Fractional AI CFO Retainer',
-    tagline: 'Monthly retainer: live runway, board decks, investor pipeline, and KPI dashboard, AI-augmented.',
-    heroLine: 'The finance function a biotech actually needs, on subscription.',
+    title: 'Cross-Border Finance',
+    tagline: 'For founders running between China and global markets: multi-entity cash, FX, intercompany flows, and filing-ready tax prep, handled by people who do it every day.',
+    heroLine: 'One clear financial picture across both sides of the Pacific.',
     paragraphs: [
-      'Our flagship product. A bundled monthly subscription built for biotech finance: a continuously updated cash runway and scenario model, a monthly board deck and investor update drafted from the live model and finalized by a senior advisor, an always-on investor pipeline with AI thesis-fit scoring, and a KPI dashboard tracking burn, milestones, and cash-to-milestone coverage.',
-      'AI does the analytical work. A senior advisor owns the judgment and the client relationship. Retainer pricing replaces hourly billing, because cash runway, investor relationships, and board reporting are continuous functions, not discrete projects.',
+      'Operating across China and the US multiplies the finance work: multiple entities, currencies, and bank accounts, intercompany transfers, FX exposure, and two separate compliance calendars. We consolidate it into one clear picture of where your cash actually is.',
+      'We map your intercompany flows, track FX, keep a cross-border compliance checklist, and organize year-end books into a filing-ready package for your accountants on each side, so nothing falls through the gap between two systems.',
     ],
-    capabilities: ['Live Runway Model', 'Monthly Board Deck', 'AI Investor Pipeline', 'KPI Dashboard', 'Senior Advisor Judgment Layer'],
+    capabilities: ['Multi-Entity Consolidation', 'FX & Intercompany Flows', 'Cross-Border Cash Map', 'Tax-Prep Coordination', 'Compliance Reminders'],
+    showPricing: true,
   },
 ];
 
@@ -207,14 +208,14 @@ const ServicesSection = () => {
                 </div>
               </div>
 
-              {/* Pricing — only on Fractional AI CFO Retainer */}
-              {detail.title === 'Fractional AI CFO Retainer' && (
+              {/* Pricing — shown on the service flagged with showPricing */}
+              {detail.showPricing && (
                 <div className="mt-12 pt-8 border-t border-borderLight">
                   <h4 className="font-heading text-sm font-semibold text-textDark tracking-[0.1em] uppercase mb-3">
                     Pricing
                   </h4>
                   <p className="text-textMedium text-sm leading-relaxed mb-6">
-                    One flat rate. Every month. No lock-in. Annual pre-payment saves 10%.
+                    All four services are delivered through one monthly retainer. No lock-in. Annual pre-payment saves 10%.
                   </p>
                   <div className="space-y-4">
                     {TIERS.map((t) => (
