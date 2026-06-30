@@ -68,8 +68,8 @@ const articles = [
 const pages = [
   {
     path: '/services/fractional-ai-cfo',
-    title: 'Fractional CFO for Cross-Border Founders | Monthly Retainer | Echo',
-    description: 'Cross-border fractional CFO service for founders. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, China-US finance. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.',
+    title: 'Fractional CFO for Founders | Cross-Border & US-China | Echo',
+    description: 'Fractional CFO service for founders and small businesses. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, and deep cross-border US-China experience. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.',
     ogImage: '/articles/ai-advisory.jpg',
     ogType: 'website',
   },

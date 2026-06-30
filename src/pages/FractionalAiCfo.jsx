@@ -5,9 +5,9 @@ import PricingDetails, { FAQS } from '../components/PricingDetails';
 
 const SITE_URL = 'https://echointlmedica.com';
 const PAGE_PATH = '/services/fractional-ai-cfo';
-const PAGE_TITLE = 'Fractional CFO for Cross-Border Founders | Monthly Retainer | Echo';
+const PAGE_TITLE = 'Fractional CFO for Founders | Cross-Border & US-China | Echo';
 const PAGE_DESCRIPTION =
-  'Cross-border fractional CFO service for founders. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, China-US finance. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.';
+  'Fractional CFO service for founders and small businesses. Monthly reporting, cash-flow and runway forecasting, investor-ready financials, and deep cross-border US-China experience. From $750/mo. Annual saves 10%. Month-to-month, no equity. Free 20-min finance review.';
 const OG_IMAGE = '/articles/ai-advisory.jpg';
 
 const setMeta = (attr, key, value) => {
@@ -122,7 +122,7 @@ const FractionalAiCfo = () => {
         }} />
         <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-24 text-center">
           <span className="inline-block text-[11px] font-heading font-semibold text-white/70 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full tracking-[0.16em] uppercase mb-6">
-            Monthly Retainer · Cross-Border · Founder-Focused
+            Monthly Retainer · Founder-Focused · Cross-Border
           </span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6 max-w-3xl mx-auto">
             <span className="relative inline-block">
@@ -137,7 +137,7 @@ const FractionalAiCfo = () => {
             .
           </h1>
           <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light max-w-2xl mx-auto mb-8">
-            Monthly reporting, cash-flow and runway forecasting, and investor-ready financials for founders operating across China and global markets. AI-amplified delivery at a fraction of a full-time CFO.
+            Monthly reporting, cash-flow and runway forecasting, and investor-ready financials for founders and small businesses. AI-amplified delivery at a fraction of a full-time CFO, with deep cross-border experience when you need it.
           </p>
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <a href="#pricing" className="btn-primary inline-block bg-white !text-secondary hover:!bg-white/90">

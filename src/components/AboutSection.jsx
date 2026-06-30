@@ -69,9 +69,9 @@ const AboutSection = () => {
         <div className="mb-16 md:mb-20 fade-in grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <span className="section-label">ABOUT ECHO</span>
-            <h2 className="section-heading mb-6">Cross-Border CFO Services for Founders</h2>
+            <h2 className="section-heading mb-6">A Finance Function Built for Founders</h2>
             <p className="text-textMedium text-lg md:text-xl leading-relaxed">
-              Echo is the finance function for founders operating across China and global markets. We handle financial modeling, cash-flow management, fundraising readiness, and monthly reporting, with senior judgment amplified by AI. Hong Kong headquartered.
+              Echo is the finance function for founders and small businesses. We handle financial modeling, cash-flow management, fundraising readiness, and monthly reporting, with senior judgment amplified by AI. With offices in the US, Hong Kong, and mainland China, we are unusually strong when your operations cross borders.
             </p>
           </div>
           <div className="lg:col-span-5 group overflow-hidden rounded-2xl ring-1 ring-black/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] transition-shadow duration-500 ease-out hover:shadow-[0_4px_16px_rgba(0,0,0,0.06),0_20px_60px_rgba(0,0,0,0.12)]">

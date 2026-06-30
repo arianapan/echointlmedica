@@ -6,10 +6,10 @@ const slides = [
   {
     color: '#0d2b45',
     image: assets.background2,
-    label: 'CROSS-BORDER CFO SERVICES',
-    headline: 'CFO Services for Cross-Border Founders',
+    label: 'FRACTIONAL CFO SERVICES',
+    headline: 'CFO-Level Clarity for Founders',
     description:
-      'Echo is the finance function for founders raising and scaling across China and global markets. You get monthly reporting, cash-flow and runway forecasting, and investor-ready financials, with senior judgment amplified by AI.',
+      'Echo is the finance function for founders and small businesses: monthly reporting, cash-flow and runway forecasting, and investor-ready financials, with senior judgment amplified by AI. We work with founders across the US, Europe, and China, and we are unusually strong when operations cross borders.',
     cta: 'Book a Free Finance Review',
     ctaTarget: '#contact',
   },
