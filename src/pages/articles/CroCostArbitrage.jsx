@@ -45,7 +45,7 @@ const HeroVisual = () => (
       <line x1="370" y1="60" x2="370" y2="240" />
       <line x1="355" y1="240" x2="370" y2="240" />
     </g>
-    <text x="382" y="158" fill="#f59e0b" fontSize="26" fontWeight="700" fontFamily="Lexend, sans-serif">−65%</text>
+    <text x="382" y="158" fill="#f59e0b" fontSize="26" fontWeight="700" fontFamily="Lexend, sans-serif">-65%</text>
     <text x="382" y="178" fill="rgba(245,158,11,0.7)" fontSize="10" fontFamily="Lexend, sans-serif" letterSpacing="2.5">DELTA</text>
   </svg>
 );
@@ -71,7 +71,7 @@ const CroCostArbitrage = () => (
 
     <div className="stat-grid">
       <div className="stat-card">
-        <span className="num">40 to 65%</span>
+        <span className="num">40 to 60%</span>
         <span className="label">Typical cost reduction vs. US sites</span>
       </div>
       <div className="stat-card">
@@ -138,11 +138,11 @@ const CroCostArbitrage = () => (
 
     <h3>2. Patient recruitment velocity</h3>
     <p>
-      This is the factor most US sponsors underweight. Peking Union Medical College Hospital (PUMCH) publicly reports over
-      <strong> 3 million outpatient visits annually</strong>. For context, the Cleveland Clinic reports approximately 2.6
-      million outpatient visits in its most recent annual statistics across its entire Ohio flagship system. Concentration of
-      patients within single large institutions in China means a 120-patient trial can often enroll at 3 to 5 sites rather
-      than the 15 to 25 sites typical in the US. Fewer sites mean lower startup, monitoring, and coordination costs, a
+      This is the factor most US sponsors underweight. Peking Union Medical College Hospital (PUMCH) publicly reports well over
+      <strong> 3 million outpatient visits annually</strong>, and several leading Chinese hospitals report even higher
+      volumes concentrated in a single institution. That concentration means a 120-patient trial can often enroll at 3 to 5
+      sites rather than the 15 to 25 sites typical in the US, where comparable patient volume is spread across many
+      facilities. Fewer sites mean lower startup, monitoring, and coordination costs, a
       second order effect that compounds the labor savings.
     </p>
 

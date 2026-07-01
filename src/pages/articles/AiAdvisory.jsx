@@ -83,7 +83,7 @@ const AiAdvisory = () => (
         <span className="label">Annual AI value in pharma (McKinsey, 2023)</span>
       </div>
       <div className="stat-card">
-        <span className="num">30%+</span>
+        <span className="num">Up to 30%</span>
         <span className="label">Productivity gains in knowledge work (Bain)</span>
       </div>
     </div>
@@ -194,8 +194,8 @@ const AiAdvisory = () => (
     <p>
       An interesting question: if AI compresses analyst hours by 60 to 75%, does consulting get cheaper? In the
       short term, for commoditized work, yes. Bain &amp; Company&apos;s research on generative AI in professional
-      services points to 30%+ productivity gains in knowledge work intensive service industries, with the fastest
-      gains in research heavy verticals. For biotech advisory specifically, we see three distinct market segments
+      services points to productivity gains of up to 30% in knowledge work intensive service industries, with typical
+      tool rollouts capturing closer to 10 to 15 percent, and the fastest gains in research heavy verticals. For biotech advisory specifically, we see three distinct market segments
       evolving:
     </p>
 

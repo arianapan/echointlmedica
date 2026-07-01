@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import snap2Img from '../assets/Snap2.jpg';
+import snapImg from '../assets/Snap.jpg';
+import story3Img from '../assets/Story3.jpg';
 
 const croCoverImg = '/articles/cro-cost-arbitrage.jpg';
 const aiCoverImg = '/articles/ai-advisory.jpg';
+const cashflowCoverImg = '/articles/cross-border-cash-flow.jpg';
 
 const articles = [
   {
@@ -21,11 +24,32 @@ const articles = [
     image: aiCoverImg,
   },
   {
-    category: 'INSTITUTIONAL PARTNERSHIPS',
-    title: 'Building Hospital Partnerships Across the Pacific: A Practitioner\'s Guide',
-    brief: 'Lessons from structuring US-China academic medical center collaborations, from framework design to ongoing management.',
-    href: '/insights/pacific-hospital-partnerships',
+    category: 'CROSS-BORDER FINANCE',
+    title: 'Managing Cash Flow When Your Supplier Is in China',
+    brief: 'Why a profitable hardware brand can still run out of cash, and how to forecast the gap between paying a Chinese factory and getting paid by US customers.',
+    href: '/insights/cross-border-cash-flow-china-suppliers',
+    image: cashflowCoverImg,
+  },
+  {
+    category: 'MONTHLY REPORTING',
+    title: 'Monthly Reporting for a US-China Dual-Entity Company',
+    brief: 'Two ledgers, two currencies, and intercompany transfers add up to numbers no one trusts. How to consolidate them into one clean monthly picture.',
+    href: '/insights/us-china-dual-entity-monthly-reporting',
     image: snap2Img,
+  },
+  {
+    category: 'FUNDRAISING READINESS',
+    title: 'Building a Cross-Border Runway Model Investors Take Seriously',
+    brief: 'A runway number that ignores currency, multiple entities, and the timing of cross-border cash is the one that gets you caught in a partner meeting.',
+    href: '/insights/cross-border-runway-model-investors',
+    image: story3Img,
+  },
+  {
+    category: 'BUDGETING & SCENARIO PLANNING',
+    title: 'The Real Landed Cost of a Product Made in China',
+    brief: 'Your factory quote is not your cost. Freight, duty, tariffs, and FX decide whether the product makes money, and every one of them can move against you.',
+    href: '/insights/china-product-landed-cost-margin',
+    image: snapImg,
   },
 ];
 

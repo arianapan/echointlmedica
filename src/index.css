@@ -158,8 +158,10 @@
     @apply bg-lightBg border border-borderLight rounded-lg p-6 text-center;
   }
   .article-body .stat-card .num {
-    @apply font-heading text-3xl md:text-4xl font-bold text-primary mb-2 block;
+    @apply font-heading text-3xl md:text-4xl font-bold text-primary mb-2 flex items-center justify-center;
     letter-spacing: -0.02em;
+    line-height: 1.1;
+    min-height: 2.3em;
   }
   .article-body .stat-card .label {
     @apply text-xs text-textMedium uppercase tracking-wider;

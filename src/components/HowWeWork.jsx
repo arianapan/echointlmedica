@@ -101,9 +101,14 @@ const HowWeWork = () => {
           <Link to="/#contact" className="btn-primary inline-block">
             Book a Finance Review
           </Link>
-          <Link to="/services/fractional-ai-cfo" className="text-primary text-sm font-heading font-semibold hover:underline">
-            See full pricing and packages &rarr;
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link to="/sample-report" className="text-primary text-sm font-heading font-semibold hover:underline">
+              See a sample monthly report &rarr;
+            </Link>
+            <Link to="/services/fractional-ai-cfo" className="text-primary text-sm font-heading font-semibold hover:underline">
+              See full pricing and packages &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </section>

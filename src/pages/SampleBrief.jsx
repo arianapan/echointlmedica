@@ -2,49 +2,25 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const serifStack = "'Charter', 'Georgia', 'Cambria', 'Times New Roman', serif";
+const PDF_URL = '/sample-monthly-report.pdf';
+const PREVIEW_URL = '/sample-monthly-report-preview.png';
 
-const headerRows = [
-  ['Asset code', '[REDACTED]-1811'],
-  ['Originator', 'Top-5 China oncology biotech, HKEX-listed'],
-  ['Target', 'HER3'],
-  ['Payload', 'Topoisomerase I inhibitor (DXd-class)'],
-  ['DAR', '8'],
-  ['Linker', 'Cleavable, tetrapeptide-based'],
-  ['Stage (China)', 'Phase II (NSCLC, breast)'],
-  ['Stage (Global)', 'Phase I (US, EU)'],
-  ['CDE designations', 'Breakthrough Therapy (Mar 2025); Priority Review track'],
-];
-
-const dealRows = [
-  ['Q3 2025', 'HER3-ADC', '[Redacted] → Top-10 pharma', '$145M', '$1.85B', 'Ex-China'],
-  ['Q4 2025', 'HER2-ADC', '[Redacted] → Top-10 pharma', '$90M', '$1.35B', 'Global'],
-  ['Q1 2026', 'Bispecific HER2/3 ADC', '[Redacted] → Top-20 pharma', '$175M', '$2.4B', 'Ex-China'],
-  ['Q1 2026', 'HER3-ADC (early)', '[Redacted] → Top-15 pharma', '$60M', '$1.1B', 'Global'],
-];
-
-const risks = [
-  <><strong>Manufacturing transferability.</strong> Originator uses a proprietary linker conjugation process at a CDMO partner under capacity constraints. Tech transfer to a Western CDMO may add 9–14 months and is the most likely deal-delaying factor.</>,
-  <><strong>Phase II EGFR-mutant readout dependency.</strong> Headline ORR in osimertinib-resistant subpopulation drives most of the comparable valuation. A readout below 35% ORR collapses the upper end of the deal range materially.</>,
-  <><strong>Competing China program.</strong> Top-3 China oncology biotech [REDACTED] has a parallel HER3-ADC at Phase I with similar payload chemistry. If they reach Phase II in H2 2026, asset competition could compress this originator&apos;s negotiating leverage.</>,
+const inside = [
+  'A plain-English summary of what changed this month and what to watch next',
+  'Profit and loss, with gross margin and net result',
+  'Cash position and runway, across your US and China accounts',
+  'Cross-border cash and FX, flagged in plain terms instead of buried',
+  'Budget versus actual, and the specific risks for the month ahead',
 ];
 
 const SampleBrief = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    company: '',
-    role: '',
-    interest: '',
-    notes: '',
-    _honey: '',
-  });
+  const [form, setForm] = useState({ name: '', email: '', company: '', notes: '', _honey: '' });
   const [sending, setSending] = useState(false);
 
   useEffect(() => {
     const prev = document.title;
-    document.title = 'Sample Brief — China ADC Landscape Q2 2026 | Echo Intl Medica';
+    document.title = 'Sample Monthly Report | Echo International Medica';
     window.scrollTo(0, 0);
     return () => { document.title = prev; };
   }, []);
@@ -57,9 +33,7 @@ const SampleBrief = () => {
     e.preventDefault();
     setSending(true);
     const message = [
-      '[Sample Brief Request — China ADC Landscape Q2 2026]',
-      `Role: ${form.role || '—'}`,
-      `Therapeutic area interest: ${form.interest || '—'}`,
+      '[Sample Report / Finance Review request]',
       '',
       form.notes || '(no additional notes)',
     ].join('\n');
@@ -87,7 +61,7 @@ const SampleBrief = () => {
 
   const scrollToForm = (e) => {
     if (e) e.preventDefault();
-    const el = document.getElementById('request-full-report');
+    const el = document.getElementById('request-review');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -98,130 +72,84 @@ const SampleBrief = () => {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/[0.06] to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <span className="font-heading font-semibold text-xs tracking-[0.25em] uppercase mb-4 block text-primary">
-            SAMPLE INTELLIGENCE
+            SAMPLE REPORT
           </span>
           <h1
             className="font-heading text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-bold leading-[1.08] mb-6"
             style={{ letterSpacing: '-0.02em' }}
           >
-            Inside an Echo Brief
+            Inside an Echo Monthly Report
           </h1>
           <p className="text-white/70 text-lg md:text-xl leading-relaxed">
-            Excerpted from China ADC Landscape — Q2 2026
+            An illustrative monthly operating report for a cross-border founder. This is the kind of report that lands in your inbox every month.
           </p>
         </div>
       </section>
 
-      {/* Excerpt artifact */}
+      {/* Preview + CTAs */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <article
-            className="mx-auto bg-[#FAFAFA] border border-[#E5E5E5] rounded-md p-6 sm:p-10 md:p-12 shadow-sm"
-            style={{ maxWidth: '720px', fontFamily: serifStack, color: '#222' }}
-          >
-            {/* Header table */}
-            <table className="w-full text-[14px] md:text-[15px] leading-relaxed">
-              <tbody>
-                {headerRows.map(([label, value], i) => (
-                  <tr key={label} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F5F5F5]'}>
-                    <th scope="row" className="text-left align-top font-semibold py-2.5 px-3 w-[42%] border-b border-[#EAEAEA]">
-                      {label}
-                    </th>
-                    <td className="py-2.5 px-3 border-b border-[#EAEAEA]">{value}</td>
-                  </tr>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Preview image */}
+            <div className="order-2 lg:order-1">
+              <a
+                href={PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg overflow-hidden ring-1 ring-black/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_18px_50px_rgba(0,0,0,0.10)] transition-shadow duration-500 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08),0_28px_70px_rgba(0,0,0,0.16)]"
+              >
+                <img
+                  src={PREVIEW_URL}
+                  alt="Sample monthly operating report from Echo, for an illustrative cross-border hardware brand"
+                  className="w-full h-auto"
+                  width="1081"
+                  height="1400"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            {/* What's inside + CTAs */}
+            <div className="order-1 lg:order-2">
+              <span className="section-label">WHAT&apos;S INSIDE</span>
+              <h2 className="section-heading mb-5">The numbers, in one page you can read.</h2>
+              <p className="text-textMedium text-base md:text-lg leading-relaxed mb-7">
+                Most founders get a P&amp;L they cannot act on. Echo turns your data into a single report that says what happened, whether you are profitable, and how long your cash lasts, with the cross-border parts handled.
+              </p>
+              <ul className="space-y-3 mb-9">
+                {inside.map((item, i) => (
+                  <li key={i} className="flex items-start text-textDark text-[15px] leading-relaxed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-primary mt-0.5 mr-3 shrink-0" aria-hidden="true">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
                 ))}
-              </tbody>
-            </table>
-
-            {/* ECHO'S VIEW */}
-            <h2
-              className="mt-10 mb-4 text-[12px] font-bold tracking-[0.18em] text-[#3a3a3a]"
-              style={{ fontFamily: 'Lexend, sans-serif' }}
-            >
-              ECHO&apos;S VIEW
-            </h2>
-            <p className="text-[15px] md:text-[16px] leading-[1.7] mb-4">
-              <strong>BD attractiveness: 4 / 5.</strong> The HER3 ADC space remains under-licensed relative to HER2-ADC density, and this asset is one of three China-origin programs with credible Phase II readouts expected before EOY 2026. Comparable to Daiichi&apos;s HER3-DXd (patritumab deruxtecan) on payload chemistry but with materially earlier patient enrollment in EGFR-mutant NSCLC post-osimertinib — the highest-value subpopulation. Originator has signaled BD readiness through CBO hire (Q4 2025) and US entity establishment (Q1 2026).
-            </p>
-            <p className="text-[15px] md:text-[16px] leading-[1.7] mb-4">
-              <strong>Realistic deal range: $80M–$180M upfront, $1.4–2.2B total.</strong> Anchored to three 2025 China-origin HER3 and HER2-ADC comparables (see Comparable Deals below). Upper bound assumes ex-China rights only; global rights would push upfront 30–40% higher.
-            </p>
-            <p className="text-[15px] md:text-[16px] leading-[1.7] mb-3">
-              <strong>Three risks BD should diligence:</strong>
-            </p>
-            <ol className="list-decimal pl-6 space-y-3 text-[15px] md:text-[16px] leading-[1.7] mb-4">
-              {risks.map((r, i) => <li key={i}>{r}</li>)}
-            </ol>
-
-            {/* COMPARABLE DEALS */}
-            <h2
-              className="mt-10 mb-2 text-[12px] font-bold tracking-[0.18em] text-[#3a3a3a]"
-              style={{ fontFamily: 'Lexend, sans-serif' }}
-            >
-              COMPARABLE DEALS
-            </h2>
-            <p className="text-[13px] italic text-[#555] mb-4">
-              2025 China-origin HER3 / HER2-ADC transactions
-            </p>
-            <div className="overflow-x-auto -mx-6 sm:mx-0">
-              <table className="min-w-full text-[13px] md:text-[14px] leading-relaxed">
-                <thead>
-                  <tr className="bg-[#EFEFEF]">
-                    {['Date', 'Asset class', 'Licensor → Licensee', 'Upfront', 'Total', 'Territory'].map((h) => (
-                      <th key={h} className="text-left font-semibold py-2.5 px-3 border-b border-[#DADADA] whitespace-nowrap">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {dealRows.map((row, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F5F5F5]'}>
-                      {row.map((cell, j) => (
-                        <td key={j} className="py-2.5 px-3 border-b border-[#EAEAEA] whitespace-nowrap">{cell}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="btn-primary inline-block text-center">
+                  Download the sample (PDF)
+                </a>
+                <a href="#request-review" onClick={scrollToForm} className="inline-block text-center border border-textDark text-textDark font-heading font-semibold px-6 py-3 rounded hover:bg-textDark hover:text-white transition-colors">
+                  Book a free finance review
+                </a>
+              </div>
+              <p className="text-textLight text-xs mt-4 leading-relaxed">
+                Illustrative sample. Figures are fictional. Management information, not an audit or tax opinion.
+              </p>
             </div>
-
-            {/* Footer block */}
-            <div className="mt-10 pt-5 border-t border-[#E5E5E5] text-[13px] text-[#666] space-y-1">
-              <div>Analyst: [Senior Analyst Name], Echo</div>
-              <div>Last updated: April 22, 2026</div>
-              <div>Next regulatory checkpoint: Phase II interim readout expected ESMO 2026 (October)</div>
-            </div>
-
-            {/* Closing italic */}
-            <p className="mt-8 text-center italic text-[13px] md:text-[14px] text-[#555] leading-relaxed">
-              This excerpt represents one of 47 asset profiles in the China ADC Landscape — Q2 2026 report. The full report includes complete originator profiles, IP analysis, manufacturing risk scoring, and BD-readiness benchmarking across the universe of clinical-stage China-origin ADCs.
-            </p>
-          </article>
-
-          {/* CTAs below excerpt */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
-            <a href="#request-full-report" onClick={scrollToForm} className="btn-primary inline-block">
-              Request the Full Sample Report
-            </a>
-            <Link
-              to="/#engagement"
-              className="text-secondary font-heading font-medium underline underline-offset-4 hover:text-primary transition-colors"
-            >
-              See what subscribers get →
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Request form */}
-      <section id="request-full-report" className="py-16 md:py-24 bg-lightBg">
+      <section id="request-review" className="py-16 md:py-24 bg-lightBg">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-10">
-            <span className="section-label">REQUEST ACCESS</span>
-            <h2 className="section-heading">Get the full report</h2>
+            <span className="section-label">GET YOURS</span>
+            <h2 className="section-heading">Want a report like this for your business?</h2>
             <p className="mt-4 text-textMedium text-base md:text-lg max-w-2xl mx-auto">
-              Sample requests from buy-side counterparties are reviewed within one business day. We reply from a named analyst, not a marketing inbox.
+              Tell us a little about your business. We reply within one business day from a real person, not a marketing inbox, and start with a free finance review.
             </p>
           </div>
 
@@ -242,24 +170,11 @@ const SampleBrief = () => {
                 <Field id="sb-email" label="Work email" required type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@company.com" />
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                <Field id="sb-company" label="Company" required name="company" value={form.company} onChange={handleChange} placeholder="Your company" />
-                <Field id="sb-role" label="Role" name="role" value={form.role} onChange={handleChange} placeholder="BD, S&E, External Innovation…" />
-              </div>
-
-              <Field
-                id="sb-interest"
-                label="Therapeutic area interest"
-                name="interest"
-                value={form.interest}
-                onChange={handleChange}
-                placeholder="ADCs, bispecifics, CAR-T, cell therapy…"
-                wrapperClass="mb-4"
-              />
+              <Field id="sb-company" label="Company" name="company" value={form.company} onChange={handleChange} placeholder="Your company" wrapperClass="mb-4" />
 
               <div className="mb-6">
                 <label htmlFor="sb-notes" className="block text-textMedium text-xs font-heading tracking-wider uppercase mb-2">
-                  Anything else (optional)
+                  What do you need help with?
                 </label>
                 <textarea
                   id="sb-notes"
@@ -268,7 +183,7 @@ const SampleBrief = () => {
                   value={form.notes}
                   onChange={handleChange}
                   className="w-full bg-white border border-borderLight rounded px-4 py-3 text-textDark text-sm placeholder:text-textLight focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
-                  placeholder="Specific assets, mandates, or questions you'd like the sample to demonstrate."
+                  placeholder="Monthly reporting, cash flow, fundraising, cross-border finance, or where your numbers stand today."
                 />
               </div>
 
@@ -277,7 +192,7 @@ const SampleBrief = () => {
                 disabled={sending}
                 className="w-full bg-primary hover:bg-secondary text-white font-heading font-semibold px-10 py-3.5 rounded text-sm tracking-wide transition-colors duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {sending ? 'Sending…' : 'Request the Sample Report'}
+                {sending ? 'Sending...' : 'Book a Free Finance Review'}
               </button>
 
               <p className="text-textLight text-xs mt-4 leading-relaxed">

@@ -54,7 +54,7 @@ const ArticleLayout = ({
     document.title = pageTitle;
     setMeta('name', 'description', description);
     setMeta('name', 'author', 'Echo International Medica');
-    setMeta('name', 'keywords', `${category}, cross-border biotech, China biotech, US China life sciences, ${title}`);
+    setMeta('name', 'keywords', `${category}, cross-border CFO, US China finance, fractional CFO for founders, ${title}`);
     setLink('canonical', canonical);
 
     const ogImageUrl = ogImage
@@ -139,7 +139,7 @@ const ArticleLayout = ({
               <span className="inline-block text-[11px] font-heading font-semibold text-white/70 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full tracking-[0.16em] uppercase mb-6">
                 {category}
               </span>
-              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.22] tracking-tight mb-6">
                 {title}
               </h1>
               {subtitle && (
@@ -172,12 +172,12 @@ const ArticleLayout = ({
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16 text-center">
           <span className="section-label">CONTINUE THE CONVERSATION</span>
           <h3 className="font-heading text-2xl md:text-3xl font-bold text-textDark mb-4">
-            Need advisory on cross-border biotech strategy?
+            Need CFO-level clarity for a cross-border business?
           </h3>
           <p className="text-textMedium mb-8 max-w-xl mx-auto">
-            Our team works with US and Chinese biotechs, hospitals, and investors on the decisions in this report. Get in touch to discuss your specific situation.
+            Echo gives founders monthly reporting, cash-flow and runway visibility, and investor-ready financials, with deep experience across US and China operations. Start with a free finance review.
           </p>
-          <Link to="/#contact" className="btn-primary inline-block">Contact Our Team</Link>
+          <Link to="/#contact" className="btn-primary inline-block">Book a Finance Review</Link>
         </div>
       </div>
     </article>
